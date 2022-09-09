@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 15:42:54 by susui             #+#    #+#             */
-/*   Updated: 2022/09/09 15:43:35 by susui            ###   ########.fr       */
+/*   Updated: 2022/09/10 02:39:08 by yuseiikeda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,18 @@
 # define MINISHELL_H
 
 # include <unistd.h>
-# include <stdio.h.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <stdint.h>
+# include <errno.h>
+# include <stdbool.h>
+# include <fcntl.h>
+# include <signal.h>
+# include <unistd.h>
+# include <sys/wait.h>
+# include <sys/types.h>
+# include <sys/stat.h>
+
+# include "../libft/libft.h"
 
 #endif
