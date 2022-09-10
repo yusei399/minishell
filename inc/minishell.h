@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
+/*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 15:42:54 by susui             #+#    #+#             */
-/*   Updated: 2022/09/10 02:39:08 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/09/10 15:19:40 by susui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,5 @@
 
 # include "libft.h"
 # include "get_next_line.h"
-
 
 #endif
