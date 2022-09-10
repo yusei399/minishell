@@ -3,55 +3,57 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
+/*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/17 22:50:02 by yuseiikeda        #+#    #+#             */
-/*   Updated: 2022/05/03 11:51:36 by yuseiikeda       ###   ########.fr       */
+/*   Created: 2022/04/05 14:17:27 by susui             #+#    #+#             */
+/*   Updated: 2022/05/08 14:48:19 by susui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include	"libft.h"
 
-static long	ft_overflow(int sign)
+long	check_long(long num, const char *str, long negative)
 {
-	if (sign < 0)
+	long	ov_div;
+	long	ov_mod;
+
+	ov_div = LONG_MAX / 10;
+	ov_mod = LONG_MAX % 10;
+	if (num > ov_div || (num >= ov_div && (*str - '0') > ov_mod))
 	{
-		return (LONG_MIN);
+		if (negative == -1 && *str > (ov_mod + 1))
+			return (LONG_MIN);
+		else if (negative == 1)
+			return (LONG_MAX);
 	}
-	else
-		return (LONG_MAX);
-}
-
-static int	ft_isspace(int c)
-{
-	if (('\t' <= c && c <= '\r') || c == ' ')
-		return (true);
-	return (false);
+	return (0);
 }
 
 int	ft_atoi(const char *str)
 {
-	size_t			digit;
-	int				sign;
-	unsigned long	num;
-	size_t			i;
+	long	num;
+	long	negative;
+	long	ov_return;
 
-	digit = 0;
-	sign = 1;
 	num = 0;
-	i = 0;
-	while (ft_isspace(str[i]))
-		i++;
-	if (str[i] == '+' || str[i] == '-')
-		if (str[i++] == '-')
-			sign = -1;
-	while (str[i] == '0')
-		i++;
-	while (ft_isdigit(str[i]))
+	negative = 1;
+	ov_return = 0;
+	while (((*str >= '\t' && *str <= '\r') || *str == ' ') && *str)
+		str++;
+	if (*str == '+' || *str == '-')
 	{
-		num = num * 10 + str[i++] - '0';
-		if (++digit > 19 || num > __LONG_MAX__)
-			return ((int)ft_overflow(sign));
+		if (*str == '-')
+			negative *= -1;
+		str++;
 	}
-	return ((int)num * sign);
+	while ((*str >= '0' && *str <= '9') && *str)
+	{
+		ov_return = check_long(num, str, negative);
+		if (ov_return != 0)
+			return ((int)ov_return);
+		num = 10 * num + (*str - '0');
+		str++;
+	}
+	num *= negative;
+	return (num);
 }

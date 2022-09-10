@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
+/*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/14 21:38:00 by yuseiikeda        #+#    #+#             */
-/*   Updated: 2022/05/01 22:21:31 by yuseiikeda       ###   ########.fr       */
+/*   Created: 2022/04/16 13:05:25 by susui             #+#    #+#             */
+/*   Updated: 2022/04/28 10:36:30 by susui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,6 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 {
 	if (!lst || !new)
 		return ;
-	new->next = *lst;
+	new -> next = *lst;
 	*lst = new;
 }

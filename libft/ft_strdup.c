@@ -3,37 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
+/*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/23 17:36:05 by yuseiikeda        #+#    #+#             */
-/*   Updated: 2022/05/01 23:07:21 by yuseiikeda       ###   ########.fr       */
+/*   Created: 2022/02/21 17:53:40 by susui             #+#    #+#             */
+/*   Updated: 2022/04/30 11:13:55 by susui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include	"libft.h"
 
-static char	*ft_strcpy(char *dest, const char *src)
+char	*ft_strcpy(char	*dest, const char	*src)
 {
-	size_t	i;
+	int	c;
 
-	i = 0;
-	while (src[i] != '\0')
+	c = 0;
+	while (src[c] != '\0')
 	{
-		dest[i] = src[i];
-		i++;
+		dest[c] = src[c];
+		c++;
 	}
-	dest[i] = '\0';
+	dest[c] = '\0';
 	return (dest);
 }
 
 char	*ft_strdup(const char *src)
 {
-	char	*t;
+	char	*dest;
 	int		len;
 
 	len = ft_strlen(src);
-	t = malloc(sizeof(char) * (len + 1));
-	if (!t)
+	dest = malloc(sizeof(char) * (len + 1));
+	if (!dest)
 		return (NULL);
-	return (ft_strcpy(t, src));
+	ft_strcpy(dest, src);
+	return (dest);
 }

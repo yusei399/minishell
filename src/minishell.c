@@ -10,24 +10,28 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../inc/minishell.h"
 
 void	minishell(char	**envp)
 {
-	//
-	get_next_line();
+	char	*txt;
+	// 入力待ち
+	while (1)
+	{
+		txt = get_next_line(0);
+		printf("%s", txt);
+	}
 }
 
 int	main(int argc, char **argv, char **envp)
 {
 	if (argc == 1 && argv)
-		printf("%s", "最終関数呼び出し");
+		minishell(envp);
 	else
 	{
 		ft_putstr_fd("minishell", 2);
 		ft_putstr_fd("invalid arg",2);
 		return (1);
 	}
-	return 0;
+	return (0);
 }
-

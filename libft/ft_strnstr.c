@@ -3,35 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
+/*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/09 09:52:41 by yuseiikeda        #+#    #+#             */
-/*   Updated: 2022/05/01 22:23:44 by yuseiikeda       ###   ########.fr       */
+/*   Created: 2022/04/05 18:20:55 by susui             #+#    #+#             */
+/*   Updated: 2022/05/08 14:46:01 by susui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include	"libft.h"
 
-char	*ft_strnstr(const char *s1, const char *s2, size_t n)
+char	*ft_strnstr(const char *str, const char *to_find, size_t n)
 {
 	size_t	i;
 	size_t	j;
-	size_t	s2_len;
 
-	s2_len = ft_strlen(s2);
-	if (s2[0] == '\0')
-		return ((char *)s1);
-	if (n == 0)
+	if (!str && n == 0)
 		return (NULL);
+	if (to_find[0] == '\0')
+		return ((char *)str);
 	i = 0;
-	while (i < n && s1[i] != '\0')
+	while (str[i] != '\0' && i < n)
 	{
 		j = 0;
-		while (i + j < n && s1[i + j] == s2[j] && s2[j] != '\0')
+		while (to_find[j] != '\0' && str[i + j] == to_find[j] && i + j < n)
+		{
+			if (to_find[j + 1] == '\0')
+				return ((char *)&str[i]);
 			j++;
-		if (s2[j] == '\0')
-			return ((char *)s1 + i);
-		i++;
+		}
+		i ++;
 	}
 	return (NULL);
 }
