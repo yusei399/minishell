@@ -12,7 +12,24 @@
 
 #include "minishell.h"
 
-int	main()
-{
+//./minishell で実行される
+	// 入力を待つ
 
+void	minishell(char	**envp)
+{
+	//
+	get_next_line();
+}
+
+int	main(int argc, char **argv, char **envp)
+{
+	if (argc == 1 && argv)
+		printf("%s", "最終関数呼び出し");
+	else
+	{
+		ft_putstr_fd("minishell", 2);
+		ft_putstr_fd("invalid arg",2);
+		return (1);
+	}
+	return (0);
 }
