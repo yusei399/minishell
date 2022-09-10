@@ -20,6 +20,7 @@ int main(int argc, char **argv, char **envp)
 	{
 		ft_putstr_fd("minishell", 2);
 		ft_putstr_fd("invalid arg",2);
+		return (1);
 	}
 	return 0;
 }
