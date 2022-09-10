@@ -6,16 +6,16 @@
 /*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/10 15:19:57 by susui             #+#    #+#             */
-/*   Updated: 2022/09/10 15:19:58 by susui            ###   ########.fr       */
+/*   Updated: 2022/09/10 15:21:49 by susui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "minishell.h"
 
-void pwd(void)
+void	pwd(void)
 {
-	char buf[BUFSIZ];
-	if(getcwd(buf, sizeof(buf)) != NULL)
+	char	buf[BUFSIZ];
+
+	if (getcwd(buf, sizeof(buf)) != NULL)
 		printf("%s\n", buf);
 }
