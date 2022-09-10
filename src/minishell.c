@@ -23,8 +23,6 @@ void	minishell(char	**envp)
 	}
 }
 
-
-
 int	main(int argc, char **argv, char **envp)
 {
 	if (argc == 1 && argv)
