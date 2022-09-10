@@ -31,4 +31,7 @@
 # include "libft.h"
 # include "get_next_line.h"
 
+void	pwd(void);
+void	cd(char	*path);
+
 #endif
