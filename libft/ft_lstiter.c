@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
+/*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/17 22:34:19 by yuseiikeda        #+#    #+#             */
-/*   Updated: 2022/05/01 22:21:46 by yuseiikeda       ###   ########.fr       */
+/*   Created: 2022/04/17 12:23:57 by susui             #+#    #+#             */
+/*   Updated: 2022/04/18 11:42:46 by susui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include	"libft.h"
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
@@ -18,7 +18,8 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 		return ;
 	while (lst)
 	{
-		f(lst->content);
-		lst = lst->next;
+		(*f)(lst->content);
+		lst = lst -> next;
 	}
+	return ;
 }

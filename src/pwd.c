@@ -1,33 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   pwd.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/03 11:27:56 by susui             #+#    #+#             */
-/*   Updated: 2022/05/18 09:34:38 by susui            ###   ########.fr       */
+/*   Created: 2022/09/10 15:19:57 by susui             #+#    #+#             */
+/*   Updated: 2022/09/10 15:21:49 by susui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft.h"
+#include "minishell.h"
 
-void	*ft_calloc(size_t n, size_t size)
+void	pwd(void)
 {
-	void	*p;
+	char	buf[BUFSIZ];
 
-	if (size != 0 && n > SIZE_MAX / size)
-		return (NULL);
-	if (size == 0 || n == 0)
-	{
-		p = malloc(1);
-		size = 1;
-		n = 1;
-	}
-	else
-		p = (void *)malloc(n * size);
-	if (!p)
-		return (NULL);
-	ft_bzero(p, n * size);
-	return (p);
+	if (getcwd(buf, sizeof(buf)) != NULL)
+		printf("%s\n", buf);
 }

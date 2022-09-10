@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/03 11:27:56 by susui             #+#    #+#             */
-/*   Updated: 2022/05/18 09:34:38 by susui            ###   ########.fr       */
+/*   Created: 2022/05/14 09:37:10 by susui             #+#    #+#             */
+/*   Updated: 2022/05/23 15:14:24 by susui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-void	*ft_calloc(size_t n, size_t size)
-{
-	void	*p;
+# include <stdarg.h>
+# include <unistd.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <inttypes.h>
 
-	if (size != 0 && n > SIZE_MAX / size)
-		return (NULL);
-	if (size == 0 || n == 0)
-	{
-		p = malloc(1);
-		size = 1;
-		n = 1;
-	}
-	else
-		p = (void *)malloc(n * size);
-	if (!p)
-		return (NULL);
-	ft_bzero(p, n * size);
-	return (p);
-}
+int		ft_printf(const char *format, ...);
+int		putchar_int(int	c);
+int		putstr_int(char	*str);
+int		putnmb_int(int n);
+int		putui_int(unsigned int num);
+int		puthex_int(unsigned int num, const char format);
+int		put_ptr(uintptr_t ptr);
+
+#endif

@@ -3,16 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
+/*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/07 19:45:40 by yuseiikeda        #+#    #+#             */
-/*   Updated: 2022/05/01 23:10:14 by yuseiikeda       ###   ########.fr       */
+/*   Created: 2022/04/11 15:10:09 by susui             #+#    #+#             */
+/*   Updated: 2022/04/11 15:10:27 by susui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include	"libft.h"
 
-int	ft_isascii(int c)
+int	ft_isascii(int	c)
 {
-	return (0 <= c && c <= 127);
+	if (c >= 0 && c <= 127)
+		return (1);
+	return (0);
 }

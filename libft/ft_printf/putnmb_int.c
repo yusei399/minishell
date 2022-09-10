@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   putnmb_int.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/11 15:17:10 by susui             #+#    #+#             */
-/*   Updated: 2022/05/08 14:48:07 by susui            ###   ########.fr       */
+/*   Created: 2022/05/06 16:04:50 by susui             #+#    #+#             */
+/*   Updated: 2022/07/25 09:19:35 by susui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include	"ft_printf.h"
 
 int	nmb_len(long nmb)
 {
@@ -32,7 +32,7 @@ int	nmb_len(long nmb)
 	return (len);
 }
 
-char	*ft_itoa(int n)
+static char	*ft_itoa(int n)
 {
 	long	nmb;
 	int		len;
@@ -59,4 +59,16 @@ char	*ft_itoa(int n)
 		len--;
 	}
 	return (nmb_str);
+}
+
+int	putnmb_int(int n)
+{
+	int		len;
+	char	*num;
+
+	len = 0;
+	num = ft_itoa(n);
+	len = putstr_int(num);
+	free(num);
+	return (len);
 }

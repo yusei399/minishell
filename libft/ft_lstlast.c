@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
+/*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/17 21:51:18 by yuseiikeda        #+#    #+#             */
-/*   Updated: 2022/05/01 22:21:51 by yuseiikeda       ###   ########.fr       */
+/*   Created: 2022/04/16 13:53:16 by susui             #+#    #+#             */
+/*   Updated: 2022/04/16 13:56:48 by susui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_list	*ft_lstlast(t_list *lst)
 {
 	if (!lst)
 		return (NULL);
-	while (lst->next)
+	while (lst -> next)
 		lst = lst->next;
 	return (lst);
 }

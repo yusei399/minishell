@@ -3,37 +3,49 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
+/*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/10 12:59:55 by yuseiikeda        #+#    #+#             */
-/*   Updated: 2022/05/01 22:23:58 by yuseiikeda       ###   ########.fr       */
+/*   Created: 2022/04/05 14:22:30 by susui             #+#    #+#             */
+/*   Updated: 2022/05/21 14:17:55 by susui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include	"libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*s_malloc(size_t len, size_t s_len)
 {
-	char	*result;
-	size_t	i;
-	size_t	s_len;
+	char	*dest;
 
-	if (!s)
+	if (len < s_len)
+		dest = (char *)malloc(sizeof(char) * len + 1);
+	else
+		dest = (char *)malloc(sizeof(char) * s_len + 1);
+	return (dest);
+}
+
+char	*ft_substr(char const *s, unsigned int	start, size_t	len)
+{
+	char			*dest;
+	size_t			i;
+	unsigned int	s_len;
+
+	if (s == NULL)
 		return (NULL);
-	s_len = ft_strlen(s);
-	if ((size_t)start > s_len)
-		return (ft_strdup(""));
-	if (s_len - start < len)
-		len = s_len - start;
-	result = malloc(sizeof(char) * (len + 1));
-	if (!result)
+	s_len = (unsigned int)ft_strlen(s);
+	if (len == 0 || (start >= s_len))
+	{
+		dest = (char *)malloc(1);
+		if (!dest)
+			return (NULL);
+		*dest = 0;
+		return (dest);
+	}
+	dest = s_malloc(len, s_len);
+	if (!dest)
 		return (NULL);
 	i = 0;
-	while (i < len)
-	{
-		result[i] = *(s + start + i);
-		i++;
-	}
-	result[i] = '\0';
-	return (result);
+	while (s[start] != '\0' && i < len)
+		dest[i++] = s[start++];
+	dest[i] = '\0';
+	return (dest);
 }

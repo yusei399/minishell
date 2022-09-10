@@ -10,16 +10,19 @@ LIBFTDIR	=	libft
 LIBFT		=	$(LIBFTDIR)/libft.a
 LIB			=	$(LIBFT)
 
-SRCS		=	./src/minishel.c
+GNL_SRC         =       ./get_next_line/get_next_line.c ./get_next_line/get_next_line_utils.c
+GNL_PATH        =       ./get_next_line/
+GNL_OBJS        =       $(GNL_SRC:.c=.o)
+
+SRCS		=	./src/minishell.c
 
 OBJS		=	${SRCS:.c=.o}
 
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(LIB)
-		$(CC) -o $(NAME) $(SRCS) $(LIB) $(CFLAGS)
-
+$(NAME): $(OBJS) $(GNL_OBJS) $(LIB)
+		$(CC) -o $(NAME) $(SRCS) $(GNL_OBJS) $(LIB) $(CFLAGS)
 $(LIBFT):
 		$(MAKE) -C $(LIBFTDIR)
 

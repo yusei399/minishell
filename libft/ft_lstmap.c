@@ -3,39 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
+/*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/21 20:29:55 by yuseiikeda        #+#    #+#             */
-/*   Updated: 2022/05/01 22:21:57 by yuseiikeda       ###   ########.fr       */
+/*   Created: 2022/04/18 09:16:40 by susui             #+#    #+#             */
+/*   Updated: 2022/04/30 11:58:57 by susui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include	"libft.h"
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*first;
 	t_list	*new;
+	t_list	*nxt;
 
-	if (!f)
+	if (!lst || !f)
 		return (NULL);
-	first = NULL;
+	new = ft_lstnew(f(lst->content));
+	if (!new)
+		return (NULL);
+	lst = lst->next;
 	while (lst)
 	{
-		new = ft_lstnew((*f)(lst->content));
-		if (!new)
+		nxt = ft_lstnew(f(lst->content));
+		if (!nxt)
 		{
-			while (first)
-			{
-				new = first->next;
-				(*del)(first->content);
-				free(first);
-				first = new;
-			}
+			ft_lstclear(&new, del);
 			return (NULL);
 		}
-		ft_lstadd_back(&first, new);
+		ft_lstadd_back(&new, nxt);
 		lst = lst->next;
 	}
-	return (first);
+	return (new);
 }
