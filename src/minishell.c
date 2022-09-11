@@ -12,7 +12,7 @@
 
 #include "../inc/minishell.h"
 
-void	minishell(char	**envp)
+void	minishell(char **argv, char	**envp)
 {
 	char *line;
 
@@ -26,8 +26,15 @@ void	minishell(char	**envp)
 			free(line);
 			break;
 		}
+
+		// splitしてコマンド部分とオプション部分と出力用の部分に分ける
+
 		if (!ft_strncmp(line, "pwd", 3))
 			pwd();
+		else if(!ft_strncmp(line, "echo", 3))
+			ft_echo(d_line);
+		if (!ft_strncmp(line, "cd", 3))
+			 cd(d_line);
 		add_history(line);
 		free(line);
 	}
@@ -36,7 +43,7 @@ void	minishell(char	**envp)
 int	main(int argc, char **argv, char **envp)
 {
 	if (argc == 1 && argv)
-		minishell(envp);
+		minishell(argv, envp);
 	else
 	{
 		ft_putstr_fd("minishell", 2);

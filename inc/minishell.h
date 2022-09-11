@@ -33,5 +33,6 @@
 
 void	pwd(void);
 void	cd(char	*path);
+int 	ft_echo(char **args);
 
 #endif
