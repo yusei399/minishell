@@ -1,9 +1,7 @@
 
-#-lreadline
-
 NAME 		=	minishell
 CC			=	cc
-CFLAGS		=	-Wall -Wextra -Werror -I ./include
+CFLAGS		=	-Wall -Wextra -Werror -lreadline -I ./include
 # -fsanitize=address
 
 LIBFTDIR	=	libft

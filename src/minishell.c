@@ -14,12 +14,22 @@
 
 void	minishell(char	**envp)
 {
-	char	*txt;
+	char *line;
+
+	line = NULL;
 	// 入力待ち
 	while (1)
 	{
-		txt = get_next_line(0);
-		printf("%s", txt);
+		line = readline("minishell>> ");
+		if (line == NULL || strlen(line) == 0)
+		{
+			free(line);
+			break;
+		}
+		if (!ft_strncmp(line, "pwd", 3))
+			pwd();
+		add_history(line);
+		free(line);
 	}
 }
 
