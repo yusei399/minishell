@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 15:42:54 by susui             #+#    #+#             */
-/*   Updated: 2022/09/10 15:19:40 by susui            ###   ########.fr       */
+/*   Updated: 2022/09/11 23:34:54 by yuseiikeda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,9 @@
 
 void	pwd(void);
 void	cd(char	*path);
+int		ft_strcmp(const char *s1, const char *s2);
+int		ft_echo(char **args);
+char	*get_line(void);
+int		ft_blank(char c);
 
 #endif
