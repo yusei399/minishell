@@ -3,14 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 15:42:48 by susui             #+#    #+#             */
-/*   Updated: 2022/09/09 15:42:49 by susui            ###   ########.fr       */
+/*   Updated: 2022/09/11 23:20:14 by yuseiikeda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/minishell.h"
+
+
+line = readline("minishell>> ");
+if (line == NULL || strlen(line) == 0)
+{
+free(line);
+break;
+}
+
+
 
 void	minishell(char **argv, char	**envp)
 {
@@ -20,24 +30,19 @@ void	minishell(char **argv, char	**envp)
 	// 入力待ち
 	while (1)
 	{
-		line = readline("minishell>> ");
-		if (line == NULL || strlen(line) == 0)
-		{
-			free(line);
-			break;
-		}
-
-		// splitしてコマンド部分とオプション部分と出力用の部分に分ける
-
-		if (!ft_strncmp(line, "pwd", 3))
+		line = get_line();
+		printf("%s\n", line);
+			// splitしてコマンド部分とオプション部分と出力用の部分に分ける
+		if (ft_strcmp(line, "pwd") == 0)
 			pwd();
+		/*
 		else if(!ft_strncmp(line, "echo", 3))
 			ft_echo(d_line);
 		if (!ft_strncmp(line, "cd", 3))
-			 cd(d_line);
-		add_history(line);
-		free(line);
+			cd(d_line);
+		*/
 	}
+	free(line);
 }
 
 int	main(int argc, char **argv, char **envp)

@@ -33,7 +33,7 @@ int ft_echo(char **args)
 	option = 0;
 	if (n_args(args) > 1)
 	{
-		while (args[i] && ft_strcmp(args[i], "-n" == 0))
+		while (args[i] && ft_strcmp(args[i], "-n") == 0)
 		{
 			option = 1;
 			i++;
