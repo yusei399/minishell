@@ -27,7 +27,7 @@
 # include <sys/stat.h>
 # include <readline/readline.h>
 # include <readline/history.h>
-
+# include <string.h>
 # include "libft.h"
 # include "get_next_line.h"
 
