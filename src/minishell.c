@@ -26,6 +26,8 @@ void	minishell(char	**envp)
 			free(line);
 			break;
 		}
+		if (!ft_strncmp(line, "pwd", 3))
+			pwd();
 		add_history(line);
 		free(line);
 	}
