@@ -15,6 +15,7 @@
 void	minishell(char **argv, char	**envp)
 {
 	char *line;
+	char **d_line;
 
 	line = NULL;
 	// 入力待ち
@@ -23,6 +24,8 @@ void	minishell(char **argv, char	**envp)
 		line = get_line();
 		printf("%s\n", line);
 		// splitしてコマンド部分とオプション部分と出力用の部分に分ける
+			// 0番目がコマンド 2番めがオプション 3番めが引数
+		d_line = alt_space_split(line);
 			//関数呼ぶ関数を呼ぶ?
 		if (ft_strcmp(line, "pwd") == 0)
 			pwd();

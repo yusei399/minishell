@@ -35,3 +35,4 @@ int	ft_blank(char c)
 		return 1;
 	return 0;
 }
+

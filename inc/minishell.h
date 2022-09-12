@@ -50,8 +50,13 @@ int		ft_redirect(char c1, char c2);
 int		ft_heredoc(char *c);
 int		ft_quote(char c);
 int		ft_blank(char c);
+
+// utils2
 int		ft_delimiter(char c);
 int		ft_metachar(char c);
+int		ft_isspace(char c);
+char	**alt_space_split(char	*str);
+
 
 
 
