@@ -3,9 +3,6 @@
 
 void	export(char *string)
 {
-	// errorを弾く
-		//型式違いとか
-	//戻り値で見れば良いのか??
 	if (putenv(*string) == -1)
 		return ;
 }
