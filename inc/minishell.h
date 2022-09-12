@@ -35,12 +35,12 @@
 char	*get_line(void);
 
 // command
-void	cd(char	*path);
+void	ft_cd(char	*path);
 int		ft_echo(char **args);
-void	cd(char	*path);
-void	pwd(void);
-void	exit(void);
-void	export(char *string);
+void	ft_cd(char	*path);
+void	ft_pwd(void);
+void	ft_exit(void);
+void	ft_export(char *string);
 
 // utils
 int		ft_strcmp(const char *s1, const char *s2);

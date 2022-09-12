@@ -1,8 +1,6 @@
-
-
 #include	"minishell.h"
 
-void	cd(char	*path)
+void	ft_cd(char	*path)
 {
 	chdir(path);
 }

@@ -1,7 +1,7 @@
 
 #include "../inc/minishell.h"
 
-void	export(char *string)
+void	ft_export(char *string)
 {
 	if (putenv(*string) == -1)
 		return ;
