@@ -12,7 +12,8 @@ GNL_SRC         =       ./get_next_line/get_next_line.c ./get_next_line/get_next
 GNL_PATH        =       ./get_next_line/
 GNL_OBJS        =       $(GNL_SRC:.c=.o)
 
-SRCS		=	./src/minishell.c ./src/cd.c ./src/pwd.c
+SRCS		=	./src/minishell.c ./src/cd.c ./src/pwd.c ./src/echo.c ./src/exit.c  ./src/export.c ./src/layerX.c ./src/readline.c  \
+				./src/util_2.c
 
 OBJS		=	${SRCS:.c=.o}
 

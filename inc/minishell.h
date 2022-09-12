@@ -31,15 +31,28 @@
 # include "libft.h"
 # include "get_next_line.h"
 
-void	pwd(void);
-void	cd(char	*path);
-<<<<<<< HEAD
-int 	ft_echo(char **args);
-=======
-int		ft_strcmp(const char *s1, const char *s2);
-int		ft_echo(char **args);
+// read line
 char	*get_line(void);
+
+// command
+void	cd(char	*path);
+int		ft_echo(char **args);
+void	cd(char	*path);
+void	pwd(void);
+void	exit(void);
+void	export(char *string);
+
+// utils
+int		ft_strcmp(const char *s1, const char *s2);
 int		ft_blank(char c);
->>>>>>> c55d0cccd919b11fefb40ebffa7cfa150599bf2e
+int		ft_name(char c);
+int		ft_redirect(char c1, char c2);
+int		ft_heredoc(char *c);
+int		ft_quote(char c);
+int		ft_blank(char c);
+int		ft_delimiter(char c);
+int		ft_metachar(char c);
+
+
 
 #endif

@@ -12,16 +12,6 @@
 
 #include "../inc/minishell.h"
 
-
-line = readline("minishell>> ");
-if (line == NULL || strlen(line) == 0)
-{
-free(line);
-break;
-}
-
-
-
 void	minishell(char **argv, char	**envp)
 {
 	char *line;
@@ -32,7 +22,8 @@ void	minishell(char **argv, char	**envp)
 	{
 		line = get_line();
 		printf("%s\n", line);
-			// splitしてコマンド部分とオプション部分と出力用の部分に分ける
+		// splitしてコマンド部分とオプション部分と出力用の部分に分ける
+			//関数呼ぶ関数を呼ぶ?
 		if (ft_strcmp(line, "pwd") == 0)
 			pwd();
 		/*
