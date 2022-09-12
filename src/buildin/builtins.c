@@ -21,3 +21,13 @@ int buildin(int argc, char **argv, char *command)
 	if (ft_strcmp(command, "echo") == 0)
 		// ft_echo()??みたいな感じ？
 }
+
+
+/*
+if (ft_strcmp(line, "pwd") == 0)
+	pwd();
+else if(!ft_strncmp(line, "echo", 3))
+	ft_echo(d_line);
+else if (!ft_strncmp(line, "cd", 3))
+	cd(d_line);
+*/

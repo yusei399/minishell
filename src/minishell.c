@@ -25,16 +25,10 @@ void	minishell(char **argv, char	**envp)
 		printf("%s\n", line);
 		// splitしてコマンド部分とオプション部分と出力用の部分に分ける
 			// 0番目がコマンド 2番めがオプション 3番めが引数
+
 		d_line = alt_space_split(line);
 			//関数呼ぶ関数を呼ぶ?
-		if (ft_strcmp(line, "pwd") == 0)
-			pwd();
-		/*
-		else if(!ft_strncmp(line, "echo", 3))
-			ft_echo(d_line);
-		if (!ft_strncmp(line, "cd", 3))
-			cd(d_line);
-		*/
+
 	}
 	free(line);
 }
