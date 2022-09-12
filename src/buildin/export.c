@@ -1,6 +1,9 @@
 
 #include "../inc/minishell.h"
 
+//putenv使用許可なし。。。
+// getenvつかうかな。。。
+
 void	ft_export(char *string)
 {
 	if (putenv(*string) == -1)

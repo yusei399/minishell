@@ -4,3 +4,4 @@ void ft_exit(void)
 {
 	exit();
 }
+
