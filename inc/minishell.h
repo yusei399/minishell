@@ -6,7 +6,7 @@
 /*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 15:42:54 by susui             #+#    #+#             */
-/*   Updated: 2022/09/11 23:34:54 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/09/13 11:20:24 by yuseiikeda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,13 @@
 # include "libft.h"
 # include "get_next_line.h"
 
+typedef enum e_quote
+{
+	SINGLE,
+	DOBULE,
+	NONE,
+}		t_quote;
+
 // read line
 char	*get_line(void);
 
@@ -39,7 +46,7 @@ void	cd(char	*path);
 int		ft_echo(char **args);
 void	cd(char	*path);
 void	pwd(void);
-void	exit(void);
+// void	exit(void);
 void	export(char *string);
 
 // utils
