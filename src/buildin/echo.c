@@ -48,5 +48,5 @@ int ft_echo(char **args)
 	}
 	if (option == 0)
 		write(1, "\n", 1);
-	return 0;
+	return (0);
 }
