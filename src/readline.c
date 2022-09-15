@@ -1,16 +1,16 @@
 #include "../inc/minishell.h"
 
-char *get_line(void)
+char	*get_line(void)
 {
-	char *read_line;
+	char	*read_line;
 
 	read_line = NULL;
 	read_line = readline("minishell>> ");
 	if (read_line == NULL)
-		return NULL;
+		return (NULL);
 	if (read_line && *read_line)
 		add_history(read_line);
-	return read_line;
+	return (read_line);
 }
 
 // int	main(void)

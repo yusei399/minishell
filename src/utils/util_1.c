@@ -1,8 +1,8 @@
-#include "../inc/minfthell.h"
+#include "../../inc/minishell.h"
 
 int	ft_name(char c)
 {
-	if (ft_ftdigit(c) || ft_ftalpha(c) || c == '_')
+	if (ft_isdigit(c) || ft_isalpha(c) || c == '_')
 		return 1;
 	return 0;
 }
@@ -35,4 +35,3 @@ int	ft_blank(char c)
 		return 1;
 	return 0;
 }
-

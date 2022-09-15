@@ -6,7 +6,7 @@
 /*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 15:42:54 by susui             #+#    #+#             */
-/*   Updated: 2022/09/13 11:20:24 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/09/16 04:16:32 by yuseiikeda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,11 @@ typedef enum e_quote
 	NONE,
 }		t_quote;
 
+typedef enum e_boolean
+{
+	TRUE = 1,
+	FALSE = 0,
+}			t_boolean;
 // read line
 char	*get_line(void);
 
@@ -63,8 +68,6 @@ int		ft_delimiter(char c);
 int		ft_metachar(char c);
 int		ft_isspace(char c);
 char	**alt_space_split(char	*str);
-
-
-
+void	self_free(void *ptr);
 
 #endif

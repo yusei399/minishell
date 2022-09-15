@@ -55,7 +55,7 @@ char	*ft_strndup(const char *s1, size_t n)
 // 	printf("%s",ft_strndup(s1, n));
 // }
 // lexer実装する
-static void	add(char *c, size_t head, size_t *i ,t_list *lst)
+static void	add(t_list **lst, char *c, size_t head, size_t *i)
 {
 	char	*tmp;
 
@@ -76,7 +76,13 @@ static void	add(char *c, size_t head, size_t *i ,t_list *lst)
 	}
 }
 
-void	lexer(char *c, t_list *lst)
+void	not_close(t_list **lst)
+{
+	ft_lstclear(lst, self_free);
+	*lst = NULL;
+}
+
+void	lexer(t_list **lst, char *c)
 {
 	size_t	i;
 	size_t	head;
@@ -94,9 +100,12 @@ void	lexer(char *c, t_list *lst)
 			i++;
 		else
 		{
-			add(c, head, &i, lst);
+			add(lst, c, head, &i);
 			head = ++i;
 		}
 	}
-	add(c, head, &i, lst);
+	if (q != NONE)
+		not_close(lst);
+	else
+		add(lst, c, head, &i);
 }
