@@ -6,7 +6,7 @@
 /*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 15:42:54 by susui             #+#    #+#             */
-/*   Updated: 2022/09/11 23:34:54 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/09/16 04:16:32 by yuseiikeda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,16 +31,35 @@
 # include "libft.h"
 # include "get_next_line.h"
 
+typedef enum e_quote
+{
+	SINGLE,
+	DOBULE,
+	NONE,
+}		t_quote;
+
+typedef enum e_boolean
+{
+	TRUE = 1,
+	FALSE = 0,
+}			t_boolean;
 // read line
 char	*get_line(void);
 
 // command
 void	ft_cd(char	*path);
 int		ft_echo(char **args);
+<<<<<<< HEAD
 void	ft_cd(char	*path);
 void	ft_pwd(void);
 void	ft_exit(void);
 void	ft_export(char *string);
+=======
+void	cd(char	*path);
+void	pwd(void);
+// void	exit(void);
+void	export(char *string);
+>>>>>>> f27ca5dd0966e21c701530c441211eb75d1c3af7
 
 // utils
 int		ft_strcmp(const char *s1, const char *s2);
@@ -56,8 +75,6 @@ int		ft_delimiter(char c);
 int		ft_metachar(char c);
 int		ft_isspace(char c);
 char	**alt_space_split(char	*str);
-
-
-
+void	self_free(void *ptr);
 
 #endif

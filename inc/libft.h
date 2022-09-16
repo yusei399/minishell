@@ -6,7 +6,7 @@
 /*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 22:19:13 by yuseiikeda        #+#    #+#             */
-/*   Updated: 2022/05/03 11:37:10 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/09/13 11:04:36 by yuseiikeda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@
 
 typedef struct s_list
 {
-	void			*content;
+	void			*value;
 	struct s_list	*next;
+	struct s_list	*prev;
 }				t_list;
 int		ft_atoi(const char *str);
 void	ft_bzero(void *s, size_t n);
