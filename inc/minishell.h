@@ -6,7 +6,7 @@
 /*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 15:42:54 by susui             #+#    #+#             */
-/*   Updated: 2022/09/16 04:16:32 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/09/20 05:40:31 by yuseiikeda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void	cd(char	*path);
 int		ft_echo(char **args);
 void	cd(char	*path);
 void	pwd(void);
+int		ft_env(char **evn);
 // void	exit(void);
 void	export(char *string);
 
