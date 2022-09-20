@@ -1,5 +1,6 @@
 
-#include "../inc/minishell.h"
+#include "../../inc/minishell.h"
+#include "../../inc/libft.h"
 
 int	len(char *str)
 {
@@ -12,6 +13,32 @@ int	len(char *str)
 		return (-1);
 	return (i);
 }
+
+int	check_env(char *str, char *env)
+{
+	int	size;
+	int	i;
+
+	i = 0;
+	size = len(str);
+	if (size == -1)
+		return (-2);
+	while (env[i])
+	{
+		while (ft_memcmp(env[i], str, size + 1))
+			return (i);
+		i++;
+	}
+	return (-1);
+}
+
+char	**minus(char **env, int i, char *str)
+{
+	free(env[i]);
+	env[i] = ft_strdup(str);
+	return (env);
+}
+
 
 // void	export(char *string)
 // {
