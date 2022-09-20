@@ -1,5 +1,7 @@
 #include "../inc/minishell.h"
 
+char **g_env;
+
 char	*get_line(void)
 {
 	char	*read_line;
@@ -21,8 +23,10 @@ int	main(int argc, char **argv, char **env)
 	{
 		command = get_line();
 		printf("%s\n", command);
+		if (ft_strcmp(command, "export") == 0)
+			ft_export(env, argv);
 		if (ft_strcmp(command, "env") == 0)
-			ft_env(env);
+			ft_env(1);
 	}
 	free(command);
 	return (0);
