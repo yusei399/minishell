@@ -50,3 +50,21 @@ t_env	*new_env(char *env)
 	return (new);
 }
 
+void	env_list(t_shell *shell, char **envp)
+{
+	t_env	*new;
+	size_t	i;
+
+	i = 1;
+	shell->env = new_env(envp[0]);
+	if (shell->env == NULL)
+		return ;
+	while (env[i])
+	{
+		new = new_env(envp[i]);
+		if (new == NULL)
+			return ;
+		add_back_env(&shell->env, new);
+		i++;
+	}
+}
