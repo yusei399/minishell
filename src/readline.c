@@ -2,25 +2,6 @@
 
 char	**g_env;
 
-void	init_environ(char **envir)
-{
-	int	i;
-
-	i = 0;
-	while (envir[i])
-		i++;
-	g_env = (char **)malloc(sizeof(char *) * (i + 3));
-	g_env[0] = ft_strdup("?=0");
-	g_env[1] = ft_strdup("-flag=0");
-	i = 0;
-	while (envir[i])
-	{
-		g_env[i + 2] = ft_strdup(envir[i]);
-		i++;
-	}
-	g_env[i + 2] = NULL;
-}
-
 char	*get_line(void)
 {
 	char	*read_line;
@@ -38,7 +19,9 @@ int	main(int argc, char **argv, char **env)
 {
 	char	*command;
 	char	*cenv;
+	t_shell	shell;
 
+	env_list(&shell, env);
 	while (1)
 	{
 		command = get_line();
@@ -46,7 +29,7 @@ int	main(int argc, char **argv, char **env)
 		if (ft_strcmp(command, "export") == 0)
 			ft_export(env, argv);
 		if (ft_strcmp(command, "env") == 0)
-			ft_env(1);
+			ft_env(&shell);
 	}
 	free(command);
 	return (0);

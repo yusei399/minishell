@@ -6,7 +6,7 @@
 /*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 15:42:54 by susui             #+#    #+#             */
-/*   Updated: 2022/09/21 09:26:55 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/09/21 11:42:32 by yuseiikeda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ void	cd(char	*path);
 int		ft_echo(char **args);
 void	cd(char	*path);
 void	pwd(void);
-int		ft_env(int fd);
 // void	exit(void);
 char	**ft_export(char **env, char **argv);
 
@@ -87,5 +86,12 @@ int		ft_metachar(char c);
 int		ft_isspace(char c);
 char	**alt_space_split(char	*str);
 void	self_free(void *ptr);
+
+
+t_env	*last_env(t_env *env);
+void	add_back_env(t_env **env, t_env *new);
+t_env	*new_env(char *env);
+void	env_list(t_shell *shell, char **envp);
+void	ft_env(t_shell *shell);
 
 #endif

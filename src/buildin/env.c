@@ -20,18 +20,18 @@ t_env	*last_env(t_env *env)
 	return (last);
 }
 
-t_env	add_back_env(t_env *env, t_env *new)
+void	add_back_env(t_env **env, t_env *new)
 {
 	t_env	*last;
 
 	if (last == NULL || new == NULL)
 		return ;
-	while (env)
+	else if (*env == NULL)
 	{
 		*env = new;
 		return ;
 	}
-	last = last_env(env);
+	last = last_env(*env);
 	last->next = new;
 }
 
@@ -44,7 +44,7 @@ t_env	*new_env(char *env)
 	if (new == NULL)
 		return (NULL);
 	key = ft_strchr(env, '=') - env;
-	new->key = ft_substr(env, 0, key_len);
+	new->key = ft_substr(env, 0, key);
 	new->value = ft_strdup(ft_strchr(env, '=') + 1);
 	new->next = NULL;
 	return (new);
@@ -59,12 +59,27 @@ void	env_list(t_shell *shell, char **envp)
 	shell->env = new_env(envp[0]);
 	if (shell->env == NULL)
 		return ;
-	while (env[i])
+	while (envp[i])
 	{
 		new = new_env(envp[i]);
 		if (new == NULL)
 			return ;
 		add_back_env(&shell->env, new);
 		i++;
+	}
+}
+
+
+void	ft_env(t_shell *shell)
+{
+	t_env	*env;
+
+	env = shell->env;
+	while (env)
+	{
+		ft_putstr_fd(env->key, 1);
+		ft_putstr_fd("=", 1);
+		ft_putendl_fd(env->value, 1);
+		env = env->next;
 	}
 }
