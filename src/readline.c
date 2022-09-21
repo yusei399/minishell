@@ -1,6 +1,25 @@
 #include "../inc/minishell.h"
 
-char **g_env;
+char	**g_env;
+
+void	init_environ(char **envir)
+{
+	int	i;
+
+	i = 0;
+	while (envir[i])
+		i++;
+	g_env = (char **)malloc(sizeof(char *) * (i + 3));
+	g_env[0] = ft_strdup("?=0");
+	g_env[1] = ft_strdup("-flag=0");
+	i = 0;
+	while (envir[i])
+	{
+		g_env[i + 2] = ft_strdup(envir[i]);
+		i++;
+	}
+	g_env[i + 2] = NULL;
+}
 
 char	*get_line(void)
 {
@@ -18,6 +37,7 @@ char	*get_line(void)
 int	main(int argc, char **argv, char **env)
 {
 	char	*command;
+	char	*cenv;
 
 	while (1)
 	{

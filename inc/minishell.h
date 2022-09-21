@@ -6,7 +6,7 @@
 /*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 15:42:54 by susui             #+#    #+#             */
-/*   Updated: 2022/09/20 13:53:48 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/09/21 09:26:55 by yuseiikeda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,23 @@ typedef enum e_boolean
 	TRUE = 1,
 	FALSE = 0,
 }			t_boolean;
+
+typedef struct s_env
+{
+	char			*key;
+	char			*value;
+	struct s_env	*next;
+}	t_env;
+
 // グローバル変数
-extern char	**g_env;
+char	**g_env;
+
+typedef struct s_shell
+{
+	t_env	*env;
+}t_shell;
+
+
 // read line
 char	*get_line(void);
 
@@ -53,7 +68,7 @@ void	cd(char	*path);
 int		ft_echo(char **args);
 void	cd(char	*path);
 void	pwd(void);
-int		ft_env(char **evn);
+int		ft_env(int fd);
 // void	exit(void);
 char	**ft_export(char **env, char **argv);
 

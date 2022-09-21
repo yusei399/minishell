@@ -81,8 +81,8 @@ char **ft_export(char **env, char **argv)
 	int	i;
 
 	i = 0;
-	if (!argv[0])
-		ft_env(env);
+	// if (!argv[0])
+	// 	ft_env(env);
 	while (argv[i])
 	{
 		env = add_export(env, argv[i]);
