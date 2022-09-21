@@ -24,7 +24,7 @@ static int n_args(char **args)
 	return size;
 }
 
-int ft_echo(char **args)
+int	ft_echo(char **args)
 {
 	int	i;
 	int	option;

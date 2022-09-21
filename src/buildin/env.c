@@ -50,7 +50,7 @@ t_env	*new_env(char *env)
 	return (new);
 }
 
-void	env_list(t_shell *shell, char **envp)
+void	env_init(t_shell *shell, char **envp)
 {
 	t_env	*new;
 	size_t	i;
@@ -68,7 +68,6 @@ void	env_list(t_shell *shell, char **envp)
 		i++;
 	}
 }
-
 
 void	ft_env(t_shell *shell)
 {

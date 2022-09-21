@@ -21,7 +21,7 @@ int	main(int argc, char **argv, char **env)
 	char	*cenv;
 	t_shell	shell;
 
-	env_list(&shell, env);
+	env_init(&shell, env);
 	while (1)
 	{
 		command = get_line();
@@ -30,6 +30,8 @@ int	main(int argc, char **argv, char **env)
 			ft_export(env, argv);
 		if (ft_strcmp(command, "env") == 0)
 			ft_env(&shell);
+		if (ft_strcmp(command, "cd") == 0)
+			ft_cd(*argv);
 	}
 	free(command);
 	return (0);

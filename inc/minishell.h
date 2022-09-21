@@ -6,13 +6,14 @@
 /*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 15:42:54 by susui             #+#    #+#             */
-/*   Updated: 2022/09/21 11:42:32 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/09/21 20:14:35 by yuseiikeda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINISHELL_H
 # define MINISHELL_H
 
+#include <errno.h>
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
@@ -66,7 +67,7 @@ char	*get_line(void);
 // command
 void	cd(char	*path);
 int		ft_echo(char **args);
-void	cd(char	*path);
+void	ft_cd(char	*path);
 void	pwd(void);
 // void	exit(void);
 char	**ft_export(char **env, char **argv);
@@ -91,7 +92,7 @@ void	self_free(void *ptr);
 t_env	*last_env(t_env *env);
 void	add_back_env(t_env **env, t_env *new);
 t_env	*new_env(char *env);
-void	env_list(t_shell *shell, char **envp);
+void	env_init(t_shell *shell, char **envp);
 void	ft_env(t_shell *shell);
 
 #endif
