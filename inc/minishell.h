@@ -6,7 +6,7 @@
 /*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 15:42:54 by susui             #+#    #+#             */
-/*   Updated: 2022/09/16 04:16:32 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/09/21 11:42:32 by yuseiikeda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,23 @@ typedef enum e_boolean
 	TRUE = 1,
 	FALSE = 0,
 }			t_boolean;
+
+typedef struct s_env
+{
+	char			*key;
+	char			*value;
+	struct s_env	*next;
+}	t_env;
+
+// グローバル変数
+char	**g_env;
+
+typedef struct s_shell
+{
+	t_env	*env;
+}t_shell;
+
+
 // read line
 char	*get_line(void);
 
@@ -52,7 +69,7 @@ int		ft_echo(char **args);
 void	cd(char	*path);
 void	pwd(void);
 // void	exit(void);
-void	export(char *string);
+char	**ft_export(char **env, char **argv);
 
 // utils
 int		ft_strcmp(const char *s1, const char *s2);
@@ -69,5 +86,12 @@ int		ft_metachar(char c);
 int		ft_isspace(char c);
 char	**alt_space_split(char	*str);
 void	self_free(void *ptr);
+
+
+t_env	*last_env(t_env *env);
+void	add_back_env(t_env **env, t_env *new);
+t_env	*new_env(char *env);
+void	env_list(t_shell *shell, char **envp);
+void	ft_env(t_shell *shell);
 
 #endif

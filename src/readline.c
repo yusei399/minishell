@@ -1,5 +1,7 @@
 #include "../inc/minishell.h"
 
+char	**g_env;
+
 char	*get_line(void)
 {
 	char	*read_line;
@@ -13,17 +15,22 @@ char	*get_line(void)
 	return (read_line);
 }
 
-// int	main(void)
-// {
-// 	char	*command;
+int	main(int argc, char **argv, char **env)
+{
+	char	*command;
+	char	*cenv;
+	t_shell	shell;
 
-// 	while (1)
-// 	{
-// 		command = rl_gets();
-// 		printf("%s\n", command);
-// 		if (ft_strcmp(command, "clear_history") == 0)
-// 			rl_clear_history();
-// 	}
-// 	free(command);
-// 	return (0);
-// }
+	env_list(&shell, env);
+	while (1)
+	{
+		command = get_line();
+		printf("%s\n", command);
+		if (ft_strcmp(command, "export") == 0)
+			ft_export(env, argv);
+		if (ft_strcmp(command, "env") == 0)
+			ft_env(&shell);
+	}
+	free(command);
+	return (0);
+}
