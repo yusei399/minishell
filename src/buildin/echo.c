@@ -1,4 +1,4 @@
-#include "minishell.h"
+#include "../../inc/minishell.h"
 
 int	ft_strcmp(const char *s1, const char *s2)
 {
