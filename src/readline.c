@@ -20,6 +20,7 @@ int	main(int argc, char **argv, char **env)
 	char	*command;
 	char	*cenv;
 	t_shell	shell;
+	t_shell	*sh;
 
 	env_init(&shell, env);
 	while (1)
@@ -30,8 +31,10 @@ int	main(int argc, char **argv, char **env)
 			ft_export(env, argv);
 		if (ft_strcmp(command, "env") == 0)
 			ft_env(&shell);
-		if (ft_strcmp(command, "cd") == 0)
-			ft_cd(*argv);
+		if (ft_strcmp(argv[0], "cd") == 0)
+			ft_cd(argv, sh->env);
+		if (ft_strcmp(command, "pwd") == 0)
+			pwd();
 	}
 	free(command);
 	return (0);

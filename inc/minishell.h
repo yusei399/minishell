@@ -6,7 +6,7 @@
 /*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 15:42:54 by susui             #+#    #+#             */
-/*   Updated: 2022/09/21 20:14:35 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/09/24 19:40:52 by yuseiikeda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@
 # include <string.h>
 # include "libft.h"
 # include "get_next_line.h"
+
+# define BUFF_SIZE 4096
 
 typedef enum e_quote
 {
@@ -65,9 +67,8 @@ typedef struct s_shell
 char	*get_line(void);
 
 // command
-void	cd(char	*path);
+int		ft_cd(char **args, t_env *env);
 int		ft_echo(char **args);
-void	ft_cd(char	*path);
 void	pwd(void);
 // void	exit(void);
 char	**ft_export(char **env, char **argv);
@@ -88,11 +89,16 @@ int		ft_isspace(char c);
 char	**alt_space_split(char	*str);
 void	self_free(void *ptr);
 
+int	env_add(const char *value, t_env *env);
+char	*get_env_name(char *dest, const char *src);
+int	is_in_env(t_env *env, char *args);
+void	*ft_memdel(void *ptr);
 
 t_env	*last_env(t_env *env);
 void	add_back_env(t_env **env, t_env *new);
 t_env	*new_env(char *env);
 void	env_init(t_shell *shell, char **envp);
 void	ft_env(t_shell *shell);
+
 
 #endif

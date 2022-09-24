@@ -1,18 +1,18 @@
 #include "../../inc/minishell.h"
 #include "../../inc/libft.h"
 
-static ft_get_index(char **envp, const char *name)
+static int	ft_get_index(char **envp, const char *name)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
-	if(envp == NULL)
+	if (envp == NULL)
 		ft_putstr("No env\n");
-	while(envp[i] != NULL)
+	while (envp[i] != NULL)
 	{
-		while(envp[i][j] && name[j] && envp[i][j] == name[j])
+		while (envp[i][j] && name[j] && envp[i][j] == name[j])
 		{
 			if (envp[i][j + 1] == "=")
 				return (i);
@@ -36,7 +36,7 @@ void	free_matrix(char **matrix)
 }
 
 
-static char **ft_remove_env(char **envp, int index)
+static char	**ft_remove_env(char **envp, int index)
 {
 	char **cpy;
 	int	i;
