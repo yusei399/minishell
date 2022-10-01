@@ -31,8 +31,8 @@ int	main(int argc, char **argv, char **env)
 			ft_export(env, argv);
 		if (ft_strcmp(command, "env") == 0)
 			ft_env(&shell);
-		if (ft_strcmp(argv[0], "cd") == 0)
-			ft_cd(argv, sh->env);
+		if (ft_strcmp(command, "cd") == 0)
+			ft_cd(argv[1], &shell);
 		if (ft_strcmp(command, "pwd") == 0)
 			pwd();
 	}

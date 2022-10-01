@@ -6,7 +6,7 @@
 /*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 15:42:54 by susui             #+#    #+#             */
-/*   Updated: 2022/09/24 19:40:52 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/09/24 20:12:05 by yuseiikeda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ typedef struct s_shell
 char	*get_line(void);
 
 // command
-int		ft_cd(char **args, t_env *env);
+int		ft_cd(char *dir, t_shell *shell);
 int		ft_echo(char **args);
 void	pwd(void);
 // void	exit(void);
@@ -88,11 +88,6 @@ int		ft_metachar(char c);
 int		ft_isspace(char c);
 char	**alt_space_split(char	*str);
 void	self_free(void *ptr);
-
-int	env_add(const char *value, t_env *env);
-char	*get_env_name(char *dest, const char *src);
-int	is_in_env(t_env *env, char *args);
-void	*ft_memdel(void *ptr);
 
 t_env	*last_env(t_env *env);
 void	add_back_env(t_env **env, t_env *new);
