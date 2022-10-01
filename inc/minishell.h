@@ -6,7 +6,7 @@
 /*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 15:42:54 by susui             #+#    #+#             */
-/*   Updated: 2022/10/01 22:41:13 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/10/01 22:57:35 by yuseiikeda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,18 @@ typedef struct s_io
 	char	*data;
 	t_io	*next;
 }t_io;
+
+typedef struct s_cmd
+{
+	char			**av;
+	int				ac;
+	int				type;
+	int				pip[2];
+	int				fd_in;
+	int				fd_out;
+	struct s_cmd	*next;
+	struct s_cmd	*prev;
+}	t_cmd;
 
 // read line
 char	*get_line(void);
