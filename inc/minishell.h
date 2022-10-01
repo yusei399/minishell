@@ -6,7 +6,7 @@
 /*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 15:42:54 by susui             #+#    #+#             */
-/*   Updated: 2022/09/24 20:12:05 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/10/01 22:41:13 by yuseiikeda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,12 @@ typedef struct s_shell
 	t_env	*env;
 }t_shell;
 
+typedef struct s_io
+{
+	int		type;
+	char	*data;
+	t_io	*next;
+}t_io;
 
 // read line
 char	*get_line(void);
