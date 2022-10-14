@@ -3,19 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 11:27:56 by susui             #+#    #+#             */
-/*   Updated: 2022/05/18 09:34:38 by susui            ###   ########.fr       */
+/*   Updated: 2022/10/14 15:48:17 by yuseiikeda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h"
 
-void	*ft_calloc(size_t n, size_t size)
+void	ft_calloc(size_t n, size_t size, void **p)
 {
-	void	*p;
-
 	if (size != 0 && n > SIZE_MAX / size)
 		return (NULL);
 	if (size == 0 || n == 0)
