@@ -6,13 +6,13 @@
 /*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 11:27:56 by susui             #+#    #+#             */
-/*   Updated: 2022/10/14 15:48:17 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/10/14 18:09:24 by yuseiikeda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h"
 
-void	ft_calloc(size_t n, size_t size, void **p)
+int	ft_calloc(size_t n, size_t size, void **p)
 {
 	if (size != 0 && n > SIZE_MAX / size)
 		return (NULL);

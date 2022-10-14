@@ -1,7 +1,26 @@
 #include "../inc/minishell.h"
 #include "../inc/libft.h"
 
-t_cmd *cmd_create(int argc, char **argv, int type, t_cmd *prev)
+void	add_cmd_back(t_cmd **head, char **argv, int type)
+{
+	t_cmd	*cmd;
+	int		argc;
+
+	argc = 0;
+	while (argv[argc])
+		argc++;
+	if (*head == NULL)
+		*head = cmd_create(argv, argc, type, 0);
+	else
+	{
+		cmd = *head;
+		while (cmd->next)
+			cmd = cmd->next;
+		cmd->next = cmd_create(argv, argc, type, cmd);
+	}
+}
+
+t_cmd	*cmd_create(int argc, char **argv, int type, t_cmd *prev)
 {
 	t_cmd *cmd;
 

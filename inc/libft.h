@@ -6,7 +6,7 @@
 /*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 22:19:13 by yuseiikeda        #+#    #+#             */
-/*   Updated: 2022/09/20 23:32:42 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/10/14 18:09:43 by yuseiikeda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct s_list
 }				t_list;
 int		ft_atoi(const char *str);
 void	ft_bzero(void *s, size_t n);
-void	*ft_calloc(size_t n, size_t size);
+int		ft_calloc(size_t n, size_t size, void **p);
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
 int		ft_isascii(int c);
