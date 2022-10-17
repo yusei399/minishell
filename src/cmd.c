@@ -1,6 +1,25 @@
 #include "../inc/minishell.h"
 #include "../inc/libft.h"
 
+
+
+char	**make_empty(int argc)
+{
+	int	i;
+	char	**argv;
+
+	i = 0;
+	if (ft_calloc(argc + 1, sizeof(char *), (void **)&argv))
+	{
+		exit(1);
+	}
+	while (i < argc)
+	{
+		argv[i++] = 0;
+	}
+	return (argv);
+}
+
 void	add_cmd_back(t_cmd **head, char **argv, int type)
 {
 	t_cmd	*cmd;
