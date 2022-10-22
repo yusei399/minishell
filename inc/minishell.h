@@ -6,7 +6,7 @@
 /*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 15:42:54 by susui             #+#    #+#             */
-/*   Updated: 2022/10/01 22:57:35 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/10/22 10:39:46 by yuseiikeda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,11 @@ typedef enum e_quote
 	NONE,
 }		t_quote;
 
-typedef enum e_boolean
-{
-	TRUE = 1,
-	FALSE = 0,
-}			t_boolean;
+// typedef enum e_boolean
+// {
+// 	TRUE = 1,
+// 	FALSE = 0,
+// }			t_boolean;
 
 typedef struct s_env
 {
@@ -55,19 +55,19 @@ typedef struct s_env
 }	t_env;
 
 // グローバル変数
-char	**g_env;
+// char	**g_env;
 
 typedef struct s_shell
 {
 	t_env	*env;
 }t_shell;
 
-typedef struct s_io
+typedef struct s_token
 {
-	int		type;
-	char	*data;
-	t_io	*next;
-}t_io;
+	char			*str;
+	int				type;
+	struct s_token	*next;
+}					t_token;
 
 typedef struct s_cmd
 {
@@ -112,6 +112,5 @@ void	add_back_env(t_env **env, t_env *new);
 t_env	*new_env(char *env);
 void	env_init(t_shell *shell, char **envp);
 void	ft_env(t_shell *shell);
-
 
 #endif
