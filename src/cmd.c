@@ -1,23 +1,51 @@
 #include "../inc/minishell.h"
 #include "../inc/libft.h"
 
+#include <stdio.h>
+// void	check_bs(t_token *token)
+// {
+// }
 
+// char	**make_empty(int argc)
+// {
+// 	int	i;
+// 	char	**argv;
 
-char	**make_empty(int argc)
+// 	i = 0;
+// 	if (ft_calloc(argc + 1, sizeof(char *), (void **)&argv))
+// 	{
+// 		exit(1);
+// 	}
+// 	while (i < argc)
+// 	{
+// 		argv[i++] = 0;
+// 	}
+// 	return (argv);
+// }
+
+int	int_calloc(size_t n, size_t size, void **ret)
 {
-	int	i;
-	char	**argv;
+	*ret = (char *)malloc(size * n);
+	if (!*ret)
+		return (0);
+	ft_memset(*ret, 0, (n * size));
+	return (1);
+}
 
-	i = 0;
-	if (ft_calloc(argc + 1, sizeof(char *), (void **)&argv))
-	{
+t_cmd	*cmd_create(int argc, char **argv, int type, t_cmd *prev)
+{
+	t_cmd *cmd;
+
+	if (argv == NULL)
+		return (NULL);
+	if (!int_calloc(1, sizeof(t_cmd), (void *)&cmd))
 		exit(1);
-	}
-	while (i < argc)
-	{
-		argv[i++] = 0;
-	}
-	return (argv);
+	cmd->av = argv;
+	cmd->ac = argc;
+	cmd->type = type;
+	cmd->next = 0;
+	cmd->prev = prev;
+	return (cmd);
 }
 
 void	add_cmd_back(t_cmd **head, char **argv, int type)
@@ -29,28 +57,23 @@ void	add_cmd_back(t_cmd **head, char **argv, int type)
 	while (argv[argc])
 		argc++;
 	if (*head == NULL)
-		*head = cmd_create(argv, argc, type, 0);
+		*head = cmd_create(argc, argv, type, 0);
 	else
 	{
 		cmd = *head;
 		while (cmd->next)
 			cmd = cmd->next;
-		cmd->next = cmd_create(argv, argc, type, cmd);
+		cmd->next = cmd_create(argc, argv, type, cmd);
 	}
 }
 
-t_cmd	*cmd_create(int argc, char **argv, int type, t_cmd *prev)
+int	main(int argc, char **argv)
 {
-	t_cmd *cmd;
+	t_cmd *prev;
+	t_cmd **head;
 
-	if (argv == NULL)
-		return (NULL);
-	if (!ft_calloc(1, sizeof(t_cmd), (void *)&cmd))
-		exit(1);
-	cmd->av = argv;
-	cmd->ac = argc;
-	cmd->type = type;
-	cmd->next = 0;
-	cmd->prev = prev;
-	return (cmd);
+	prev = cmd_create(argc, argv, 0, prev);
+	head = &prev;
+	printf("%d",prev->ac);
+	listPrint(prev);
 }

@@ -1,30 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/03 11:27:56 by susui             #+#    #+#             */
-/*   Updated: 2022/10/22 07:36:41 by yuseiikeda       ###   ########.fr       */
+/*   Created: 2022/10/22 11:12:52 by yuseiikeda        #+#    #+#             */
+/*   Updated: 2022/10/22 11:14:53 by yuseiikeda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft.h"
+#include "../../inc/minishell.h"
 
-void	*ft_calloc(size_t n, size_t size)
+void	ft_error(char *err)
 {
-	void	*tmp;
-	size_t	bytes;
-
-	if (n == 0 || size == 0)
-		return (ft_calloc(1, 1));
-	tmp = malloc(n * size);
-	if (!tmp)
-		return (NULL);
-	bytes = n * size;
-	if (bytes / size != n)
-		return (NULL);
-	ft_bzero(tmp, n * size);
-	return (tmp);
+	ft_putstr_fd(err, 2);
+	write(2, "\n", 1);
 }
