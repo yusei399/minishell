@@ -22,7 +22,8 @@ SRCS		=	./src/minishell.c \
 				./src/lstope/lstfirst.c \
 				./src/lstope/lstlast.c \
 				./src/lstope/lstnew.c \
-				./src/lstope/lstsize.c
+				./src/lstope/lstsize.c \
+				./src/split_env.c
 
 OBJS		=	${SRCS:.c=.o}
 

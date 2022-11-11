@@ -1,5 +1,5 @@
-#include "../inc/minishell.h"
-#include "../inc/libft.h"
+#include "./../inc/minishell.h"
+#include "./../inc/libft.h"
 
 int	determine_input(char	*input, char **envp)
 {
@@ -32,7 +32,7 @@ void	minishell(int argc, char **argv, char **envp)
 	while (1)
 	{
 		shell.arg = readline("minishell>$");
-//		split_envp(envp, shell);
+		split_env(&shell, envp);
 		lexer(&shell);
 		determine_input(shell.arg, envp);
 		add_history(shell.arg);

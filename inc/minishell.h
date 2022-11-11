@@ -87,5 +87,8 @@ t_cmd 	*lstnew(void);
 
 void	equal_devide(char** envp, t_shell *shell);
 
+void	split_env(t_shell *shell, char **envp);
+
+
 
 #endif
