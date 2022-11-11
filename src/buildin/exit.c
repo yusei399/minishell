@@ -1,5 +1,0 @@
-
-void exit(void)
-{
-	exit();
-}
