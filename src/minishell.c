@@ -6,7 +6,7 @@
 /*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 15:42:48 by susui             #+#    #+#             */
-/*   Updated: 2022/09/11 23:20:14 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/11/04 12:53:22 by yuseiikeda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,11 @@ void	minishell(char **argv, char	**envp)
 	{
 		line = get_line();
 		printf("%s\n", line);
+		
 		// splitしてコマンド部分とオプション部分と出力用の部分に分ける
 			// 0番目がコマンド 2番めがオプション 3番めが引数
 
-		d_line = alt_space_split(line);
+		// d_line = alt_space_split(line);
 			//関数呼ぶ関数を呼ぶ?
 
 	}
