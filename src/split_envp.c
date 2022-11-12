@@ -8,7 +8,7 @@ size_t	find_first_equal(char *string)
 	i = 0;
 	while (string[i])
 	{
-		if(string[i] == '=')
+		if (string[i] == '=')
 			return (++i);
 		i++;
 	}
@@ -39,7 +39,6 @@ void	equal_devide(char** envp, t_shell *shell)
 		ft_strndup(&envp[i][first_direction], ft_strlen(envp[i]) - first_direction + 1);
 		i++;
 	}
-
 /* ------------------------------------------------------------------------------------------------------------
 		printf("\n\n-----------------------------------------------------------------\n");
 		first_direction = find_first_equal(envp[i]);

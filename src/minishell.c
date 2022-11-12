@@ -21,9 +21,6 @@ int	determine_input(char	*input, char **envp)
 	//envpをsplitして前と後ろに分けて線形リストに入れ
 	//後でaccessコマンドで実行して実行できたらする
 		// forkでプロセスを複製して実行する
-
-
-
 void	minishell(int argc, char **argv, char **envp)
 {
 	t_shell	shell;

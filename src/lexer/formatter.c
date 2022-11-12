@@ -3,8 +3,6 @@
 void	formatter(t_shell *shell)
 {
 	char *txt;
-
-
 }
 
 int	main(int argc, char **argv, char **envp)
