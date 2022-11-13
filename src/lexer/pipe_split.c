@@ -68,7 +68,7 @@ int	add_pipe_list(t_shell *shell, size_t pipe_count)
 	t_cmd	*new;
 
 	i = 0;
-	while(i < pipe_count)
+	while(i <= pipe_count)
 	{
 		new = lstnew();
 		if (!new)
@@ -132,7 +132,6 @@ int	main(int argc, char **argv)
 	if (argc == 1)
 		return (1);
 	memset(&shell,0,sizeof(t_shell));
-	shell.cmd = lstnew();
 	shell.arg = argv[1];
 	pipe_split(&shell);
 	printf("\x1b[36mFull argument is: %s\n\x1b[0m", shell.arg);
