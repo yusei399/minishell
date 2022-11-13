@@ -110,9 +110,7 @@ int 	pipe_split(t_shell *shell)
 	int	p_count;
 
 	p_count = pipe_count(shell);
-	printf("\x1b[36m");
-	printf("pipe count : %d\n", p_count); //  todo OK
-	printf("\x1b[0m");
+	printf("\x1b[36mpipe count : %d\n\x1b[0m", p_count); //  todo OK
 	if (p_count == -1)
 		return (1);
 	add_pipe_list(shell, p_count); // todo OKっぽい
@@ -122,6 +120,7 @@ int 	pipe_split(t_shell *shell)
 }
 
 // /* -----------------------------------------------------------------------
+	// gcc pipe_split.c ../../libft/libft.a ../cmd_lstope/*
 int	main(int argc, char **argv)
 {
 	t_shell shell;
