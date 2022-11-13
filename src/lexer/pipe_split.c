@@ -105,22 +105,46 @@ int	pipe_count(t_shell *shell)
 	return (pipe_count);
 }
 
+void	check1(t_shell *shell, int number, int	p_count)
+{
+	if (number == 1)
+	{
+		printf("\x1b[36m%s\x1b[0m", "<<<<check start>>>>>>>>\n");
+		printf("\x1b[36mpipe count : %d\n\x1b[0m", p_count);
+	}
+	if (number == 2)
+	{
+		t_cmd *cmd = shell->cmd;
+		size_t size = 1;
+		printf("\x1b[36mFull argument is: %s\n\x1b[0m", shell->arg);
+		while (cmd)
+		{
+			printf("\t%zu arg is : %s\n", size, cmd->command);
+			size++;
+			cmd = cmd->next;
+		}
+		printf("\x1b[36m%s\x1b[0m", "---------------------------\n");
+	}
+}
+
 int 	pipe_split(t_shell *shell)
 {
 	int	p_count;
 
 	p_count = pipe_count(shell);
-	printf("\x1b[36mpipe count : %d\n\x1b[0m", p_count); //  todo OK
+	check1(shell, 1, p_count); // todo delete
 	if (p_count == -1)
 		return (1);
 	add_pipe_list(shell, p_count); // todo OKっぽい
 	// lst->cmd に アーギュメントを入れていく
 	pipe_init(shell, p_count); // todo ok
+	check1(shell, 2, p_count);
 	return (0);
 }
 
-// /* -----------------------------------------------------------------------
-	// gcc pipe_split.c ../../libft/libft.a ../cmd_lstope/*
+// gcc pipe_split.c ../../libft/libft.a ../cmd_lstope/*
+
+ /* -----------------------------------------------------------------------
 int	main(int argc, char **argv)
 {
 	t_shell shell;
@@ -143,11 +167,11 @@ int	main(int argc, char **argv)
 	}
 	return (0);
 }
-// ----------------------------------------------------------------------- */
-// \x1b[31m →赤
-// \x1b[0m →リセット
+ ----------------------------------------------------------------------- */
+
 // todo パイプのあとにスペースがあってその後にまたパイプのときの処理
 	//todo → "cat | | ls"
 // todo パイプのあとのスペースを消す
 	// todo フォーマットするときでいいか
+// todo コマンドの free
 
