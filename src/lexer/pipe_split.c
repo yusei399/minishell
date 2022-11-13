@@ -75,16 +75,12 @@ int	add_pipe_list(t_shell *shell, size_t pipe_count)
 			return (1);
 		lstadd_back(&shell->cmd, new);
 		// nullが帰ってきたとき(失敗した時)にfreeしなきゃ
-		printf("list size: %zu\n", i); // todo
+		printf("\tlist size: %zu\n", i); // todo
 		i++;
 	}
-	printf("\n\n"); // todo
 	return (0);
 }
 
-// todo --------------------------
-// []pipeで終わってるとき -> errorっぽいな
-// []pipe2連のときの対処 わからん
 
 int	pipe_count(t_shell *shell)
 {
@@ -114,7 +110,9 @@ int 	pipe_split(t_shell *shell)
 	int	p_count;
 
 	p_count = pipe_count(shell);
+	printf("\x1b[36m");
 	printf("pipe count : %d\n", p_count); //  todo OK
+	printf("\x1b[0m");
 	if (p_count == -1)
 		return (1);
 	add_pipe_list(shell, p_count); // todo OKっぽい
@@ -123,34 +121,35 @@ int 	pipe_split(t_shell *shell)
 	return (0);
 }
 
- /* -----------------------------------------------------------------------
+// /* -----------------------------------------------------------------------
 int	main(int argc, char **argv)
 {
 	t_shell shell;
 	t_cmd *cmd;
-	int i;
+	size_t size = 1;
+	int i = 0;
 
-	memset(&shell,0,sizeof(t_shell));
-	shell.cmd = lstnew();
 	if (argc == 1)
 		return (1);
-	i = 0;
-	cmd = shell.cmd;
+	memset(&shell,0,sizeof(t_shell));
+	shell.cmd = lstnew();
 	shell.arg = argv[1];
 	pipe_split(&shell);
-	size_t size = 1;
-	printf("Full argument is: %s\n", shell.arg);
+	printf("\x1b[36mFull argument is: %s\n\x1b[0m", shell.arg);
+	cmd = shell.cmd;
 	while (cmd)
 	{
-		printf("%zu arg is : %s\n", size, cmd->command);
+		printf("\t%zu arg is : %s\n", size, cmd->command);
 		size++;
 		cmd = cmd->next;
 	}
 	return (0);
 }
- ----------------------------------------------------------------------- */
-
+// ----------------------------------------------------------------------- */
+// \x1b[31m →赤
+// \x1b[0m →リセット
 // todo パイプのあとにスペースがあってその後にまたパイプのときの処理
 	//todo → "cat | | ls"
 // todo パイプのあとのスペースを消す
 	// todo フォーマットするときでいいか
+
