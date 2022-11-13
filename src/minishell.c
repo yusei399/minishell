@@ -23,7 +23,6 @@ int	determine_input(char	*input, char **envp)
 		// forkでプロセスを複製して実行する
 
 
-
 void	minishell(int argc, char **argv, char **envp)
 {
 	t_shell	shell;
@@ -34,6 +33,7 @@ void	minishell(int argc, char **argv, char **envp)
 		shell.arg = readline("minishell>$");
 		split_env(&shell, envp);
 		lexer(&shell);
+//		claen_cmd_list(shell.cmd);
 		determine_input(shell.arg, envp);
 		add_history(shell.arg);
 	}

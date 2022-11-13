@@ -23,6 +23,7 @@ SRCS		=	./src/minishell.c \
 				./src/cmd_lstope/lstlast.c \
 				./src/cmd_lstope/lstnew.c \
 				./src/cmd_lstope/lstsize.c \
+				./src/cmd_lstope/clean_cmd_list.c \
 				./src/split_env.c
 
 OBJS		=	${SRCS:.c=.o}

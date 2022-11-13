@@ -66,20 +66,20 @@ int	get_first_quate(char *arg)
 	return (quot);
 }
 
-int	quatecheck(t_shell *shell)
+int	check_quate_all(char *arg)
 {
 	int		quot;
 
-	quot = get_first_quate(shell->arg);
+	quot = get_first_quate(arg);
 	// quot が存在していたら 閉じられているかを確認したい
 	if (quot == -1)
 		return (0);
-	if (isclose(&shell->arg[quot]))
+	if (isclose(&arg[quot]))
 	{
 		printf("isn't closed\n");
 		return (1);
 	}
-	if (quot != -1 && is_even_quate(&shell->arg[quot]))
+	if (is_even_quate(&arg[quot]))
 	{
 		printf("no\n");
 		return (1);
@@ -88,4 +88,17 @@ int	quatecheck(t_shell *shell)
 	return 0;
 }
 
-//todo[] PDFをもらう
+int	quatecheck(t_shell *shell)
+{
+	t_cmd	*cmd;
+
+	cmd = shell->cmd;
+	while (cmd)
+	{
+		if (check_quate_all(cmd->command))
+			return (1);
+		cmd = cmd->next;
+	}
+	return (0);
+}
+
