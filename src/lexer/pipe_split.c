@@ -68,7 +68,7 @@ int	add_pipe_list(t_shell *shell, size_t pipe_count)
 	t_cmd	*new;
 
 	i = 0;
-	while(i <= pipe_count)
+	while(i < pipe_count)
 	{
 		new = lstnew();
 		if (!new)
@@ -120,7 +120,7 @@ int 	pipe_split(t_shell *shell)
 	return (0);
 }
 
-// /* -----------------------------------------------------------------------
+ /* -----------------------------------------------------------------------
 int	main(int argc, char **argv)
 {
 	t_shell shell;
@@ -145,6 +145,6 @@ int	main(int argc, char **argv)
 	}
 	return (0);
 }
-// ----------------------------------------------------------------------- */
+ ----------------------------------------------------------------------- */
 
 //最後のにNULLが入ってない
