@@ -93,6 +93,9 @@ int	pipe_count(t_shell *shell)
 
 	pipe_count = 0;
 	i = 0;
+
+	if (shell->arg[0] == '|')
+		return (-1);
 	while (shell->arg[i])
 	{
 		if (shell->arg[i] == '|')
@@ -116,7 +119,7 @@ int 	pipe_split(t_shell *shell)
 		return (1);
 	add_pipe_list(shell, p_count); // todo OKっぽい
 	// lst->cmd に アーギュメントを入れていく
-	pipe_init(shell, p_count); // todo -[segv]-
+	pipe_init(shell, p_count); // todo ok
 	return (0);
 }
 
@@ -147,4 +150,7 @@ int	main(int argc, char **argv)
 }
  ----------------------------------------------------------------------- */
 
-//最後のにNULLが入ってない
+// todo パイプのあとにスペースがあってその後にまたパイプのときの処理
+	//todo → "cat | | ls"
+// todo パイプのあとのスペースを消す
+	// todo フォーマットするときでいいか
