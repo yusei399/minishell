@@ -75,9 +75,9 @@ int	add_pipe_list(t_shell *shell, size_t pipe_count)
 			return (1);
 		lstadd_back(&shell->cmd, new);
 		// nullが帰ってきたとき(失敗した時)にfreeしなきゃ
-		printf("\tlist size: %zu\n", i); // todo
 		i++;
 	}
+	printf("\tlist size: %zu\n", i); // todo
 	return (0);
 }
 

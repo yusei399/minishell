@@ -19,7 +19,7 @@ t_cmd 	*lstnew(void)
 	lst = (t_cmd *)malloc(sizeof(t_cmd));
 	if (lst == NULL)
 		return (NULL);
-	*lst = (t_cmd ){0, 0, 0, 0, 0, 0, 0};
+	*lst = (t_cmd ){0, 0, 0, 0, 0, 0, NULL};
 	return (lst);
 }
 
