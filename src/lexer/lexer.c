@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lexer.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 11:47:46 by susui             #+#    #+#             */
-/*   Updated: 2022/10/22 11:47:48 by susui            ###   ########.fr       */
+/*   Updated: 2022/11/18 18:54:32 by yuseiikeda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,11 @@
 int 	lexer(t_shell *shell)
 {
 	//todo[] → pipe ごとのリストの作成
+	save_redirect(shell, shell->input);
 	pipe_split(shell);
 	// クオートが正しく閉じられているかの確認
 		//todo[done] 今はargでやってるから、それをpipeでわけられたリストで実行するようにする。
-	if (quatecheck(shell))
+	if (quatecheck(shell))  // todo segv
 		return 1;
 	//todo[] →
 //	save_redirect(shell);

@@ -1,5 +1,5 @@
-#include "../inc/minishell.h"
-#include "../inc/libft.h"
+#include "./../inc/minishell.h"
+#include "./../inc/libft.h"
 
 int	determine_input(char	*input, char **envp)
 {
@@ -21,6 +21,7 @@ int	determine_input(char	*input, char **envp)
 	//envpをsplitして前と後ろに分けて線形リストに入れ
 	//後でaccessコマンドで実行して実行できたらする
 		// forkでプロセスを複製して実行する
+
 void	minishell(int argc, char **argv, char **envp)
 {
 	t_shell	shell;
@@ -29,8 +30,9 @@ void	minishell(int argc, char **argv, char **envp)
 	while (1)
 	{
 		shell.arg = readline("minishell>$");
-//		split_envp(envp, shell);
+		split_env(&shell, envp);
 		lexer(&shell);
+//		claen_cmd_list(shell.cmd);
 		determine_input(shell.arg, envp);
 		add_history(shell.arg);
 	}

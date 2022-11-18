@@ -30,7 +30,8 @@
 #define TRUE 1
 #define FALSE 0
 
-
+# define TRUNC 0
+# define APPEND 1
 
 typedef struct s_env
 {
@@ -44,15 +45,17 @@ typedef struct s_cmd
 	char			*command;
 	int				type;
 	int				pip[2];
-	int				fd_in;
-	int				fd_out;
+	char				*fd_in;
+	char				*fd_out;
 	struct s_cmd	*next;
 	struct s_cmd	*prev;
+	int				outfile_mode;
 }	t_cmd;
 
 /* ----------------------main struct-------------------------- */
 typedef struct s_shell
 {
+	char	*input;
 	// read line した文字列
 	char	*arg;
 
@@ -66,16 +69,13 @@ typedef struct s_shell
 	t_cmd	*cmd;
 }t_shell;
 
-
 /* ---------------------- function -------------------------- */
 // lexer
 int		lexer(t_shell *shell);
 int 	pipe_split(t_shell *shell);
-void	save_redirect(t_shell *shell);
+void	save_redirect(t_shell *shell, char *input);
 int		quatecheck(t_shell *shell);
-
-
-
+void	ft_quote(char *input, size_t *i, char quote);
 // cmd_lst operater
 void	lstadd_back(t_cmd **lst, t_cmd *new);
 void	lstadd_front(t_cmd **lst, t_cmd *new);
@@ -84,8 +84,10 @@ int		lstsize(t_cmd *dclist);
 t_cmd	*lstfirst(t_cmd *dclist);
 t_cmd	*lstlast(t_cmd *lst);
 t_cmd 	*lstnew(void);
+void	claen_cmd_list(t_cmd	*cmd);
 
 void	equal_devide(char** envp, t_shell *shell);
 
+void	split_env(t_shell *shell, char **envp);
 
 #endif

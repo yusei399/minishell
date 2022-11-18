@@ -16,13 +16,17 @@ SRCS		=	./src/minishell.c \
 				./src/lexer/lexer.c \
 				./src/lexer/pipe_split.c \
 				./src/lexer/quote_check.c \
-				./src/lstope/lstadd_back.c\
-				./src/lstope/lstadd_front.c \
-				./src/lstope/lstdelone.c \
-				./src/lstope/lstfirst.c \
-				./src/lstope/lstlast.c \
-				./src/lstope/lstnew.c \
-				./src/lstope/lstsize.c
+				./src/cmd_lstope/lstadd_back.c\
+				./src/cmd_lstope/lstadd_front.c \
+				./src/cmd_lstope/lstdelone.c \
+				./src/cmd_lstope/lstfirst.c \
+				./src/cmd_lstope/lstlast.c \
+				./src/cmd_lstope/lstnew.c \
+				./src/cmd_lstope/lstsize.c \
+				./src/cmd_lstope/clean_cmd_list.c \
+				./src/split_env.c \
+				./src/lexer/save_redirect.c \
+				./src/lexer/util.c \
 
 OBJS		=	${SRCS:.c=.o}
 
