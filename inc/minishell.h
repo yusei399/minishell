@@ -85,6 +85,7 @@ t_cmd	*lstfirst(t_cmd *dclist);
 t_cmd	*lstlast(t_cmd *lst);
 t_cmd 	*lstnew(void);
 void	claen_cmd_list(t_cmd	*cmd);
+char	*ft_strstr(const char *haystack, const char *needle);
 
 void	equal_devide(char** envp, t_shell *shell);
 
