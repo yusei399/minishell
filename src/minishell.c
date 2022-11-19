@@ -33,9 +33,9 @@ void	minishell(int argc, char **argv, char **envp)
 	{
 		shell.arg = readline("minishell>$");
 		lexer(&shell);
-		claen_cmd_list(shell.cmd);
 		determine_input(shell.arg, envp);
 		add_history(shell.arg);
+		claen_cmd_list(&shell.cmd, free);
 	}
 }
 

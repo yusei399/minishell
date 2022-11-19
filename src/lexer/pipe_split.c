@@ -138,7 +138,7 @@ int 	pipe_split(t_shell *shell)
 	add_pipe_list(shell, p_count); // todo OKっぽい
 	// lst->cmd に アーギュメントを入れていく
 	pipe_init(shell, p_count); // todo ok
-	check1(shell, 2, p_count);
+	check1(shell, 2, p_count); //todo delete
 	return (0);
 }
 

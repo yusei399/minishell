@@ -84,7 +84,7 @@ int		lstsize(t_cmd *dclist);
 t_cmd	*lstfirst(t_cmd *dclist);
 t_cmd	*lstlast(t_cmd *lst);
 t_cmd 	*lstnew(void);
-void	claen_cmd_list(t_cmd *cmd);
+void	claen_cmd_list(t_cmd **cmd, void (*del)(void*));
 
 void	equal_devide(char** envp, t_shell *shell);
 
