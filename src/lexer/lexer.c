@@ -6,7 +6,7 @@
 /*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 11:47:46 by susui             #+#    #+#             */
-/*   Updated: 2022/11/18 18:54:32 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/11/19 08:51:48 by yuseiikeda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int 	lexer(t_shell *shell)
 {
 	//todo[] → pipe ごとのリストの作成
-	save_redirect(shell, shell->input);
+	// save_redirect(shell, shell->input);
 	pipe_split(shell);
 	// クオートが正しく閉じられているかの確認
 		//todo[done] 今はargでやってるから、それをpipeでわけられたリストで実行するようにする。

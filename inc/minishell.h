@@ -20,7 +20,6 @@
 # include "libft.h"
 //# include "get_next_line.h"
 
-
 // quote
 #define NONE 0
 #define SINGLE 1
@@ -29,6 +28,9 @@
 // bool
 #define TRUE 1
 #define FALSE 0
+
+# define IN 0
+# define OUT 1
 
 # define TRUNC 0
 # define APPEND 1
@@ -45,8 +47,9 @@ typedef struct s_cmd
 	char			*command;
 	int				type;
 	int				pip[2];
-	char				*fd_in;
-	char				*fd_out;
+	int				fd[2];
+	char			*fd_in;
+	char			*fd_out;
 	struct s_cmd	*next;
 	struct s_cmd	*prev;
 	int				outfile_mode;
@@ -86,6 +89,10 @@ t_cmd	*lstlast(t_cmd *lst);
 t_cmd 	*lstnew(void);
 void	claen_cmd_list(t_cmd	*cmd);
 char	*ft_strstr(const char *haystack, const char *needle);
+char	*extract_sign(char *input);
+void	write_heredoc_file(t_list *heredoc_lst);
+void	loop_heredoc(char *input, t_list **heredoc_lst, t_shell *data);
+void	heredoc(t_shell *data);
 
 void	equal_devide(char** envp, t_shell *shell);
 
