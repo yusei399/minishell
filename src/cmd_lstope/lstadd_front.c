@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lstadd_front.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 13:05:25 by susui             #+#    #+#             */
-/*   Updated: 2022/09/07 07:45:52 by susui            ###   ########.fr       */
+/*   Updated: 2022/11/12 09:47:54 by yuseiikeda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	lstadd_front(t_cmd **lst, t_cmd *new)
 {
-	t_cmd *tmp;
+	t_cmd	*tmp;
 
 	if (lst == NULL || new == NULL)
 		return ;

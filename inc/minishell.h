@@ -20,7 +20,6 @@
 # include "libft.h"
 //# include "get_next_line.h"
 
-
 // quote
 #define NONE 0
 #define SINGLE 1
@@ -30,7 +29,11 @@
 #define TRUE 1
 #define FALSE 0
 
+# define IN 0
+# define OUT 1
 
+# define TRUNC 0
+# define APPEND 1
 
 typedef struct s_env
 {
@@ -44,15 +47,18 @@ typedef struct s_cmd
 	char			*command;
 	int				type;
 	int				pip[2];
-	int				fd_in;
-	int				fd_out;
+	int				fd[2];
+	char			*fd_in;
+	char			*fd_out;
 	struct s_cmd	*next;
 	struct s_cmd	*prev;
+	int				outfile_mode;
 }	t_cmd;
 
 /* ----------------------main struct-------------------------- */
 typedef struct s_shell
 {
+	char	*input;
 	// read line した文字列
 	char	*arg;
 
@@ -66,16 +72,13 @@ typedef struct s_shell
 	t_cmd	*cmd;
 }t_shell;
 
-
 /* ---------------------- function -------------------------- */
 // lexer
 int		lexer(t_shell *shell);
 int 	pipe_split(t_shell *shell);
-void	save_redirect(t_shell *shell);
+void	save_redirect(t_shell *shell, char *input);
 int		quatecheck(t_shell *shell);
-
-
-
+void	ft_quote(char *input, size_t *i, char quote);
 // cmd_lst operater
 void	lstadd_back(t_cmd **lst, t_cmd *new);
 void	lstadd_front(t_cmd **lst, t_cmd *new);
@@ -85,11 +88,14 @@ t_cmd	*lstfirst(t_cmd *dclist);
 t_cmd	*lstlast(t_cmd *lst);
 t_cmd 	*lstnew(void);
 void	claen_cmd_list(t_cmd **cmd, void (*del)(void*));
+char	*ft_strstr(const char *haystack, const char *needle);
+char	*extract_sign(char *input);
+void	write_heredoc_file(t_list *heredoc_lst);
+void	loop_heredoc(char *input, t_list **heredoc_lst, t_shell *data);
+void	heredoc(t_shell *data);
 
 void	equal_devide(char** envp, t_shell *shell);
 
 void	split_env(t_shell *shell, char **envp);
-
-
 
 #endif

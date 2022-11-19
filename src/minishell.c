@@ -14,15 +14,13 @@ int	determine_input(char	*input, char **envp)
 		char *cmds[] = {cmd, NULL};
 		execve(cmds[0], cmds, envp);
 	}
+
 	return (0);
 }
-
 //目的
 	//envpをsplitして前と後ろに分けて線形リストに入れ
 	//後でaccessコマンドで実行して実行できたらする
 		// forkでプロセスを複製して実行する
-
-
 void	minishell(int argc, char **argv, char **envp)
 {
 	t_shell	shell;
@@ -32,6 +30,8 @@ void	minishell(int argc, char **argv, char **envp)
 	while (1)
 	{
 		shell.arg = readline("minishell>$");
+		split_env(&shell, envp);
+		//lexerの上にheredoc
 		lexer(&shell);
 		determine_input(shell.arg, envp);
 		add_history(shell.arg);

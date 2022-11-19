@@ -1,35 +1,51 @@
 #include "../../inc/minishell.h"
 
-void	save_redirect(t_shell *shell)
+char	*extra_redirect(char *in)
+{
+	char	*file;
+	char	*root;
+
+	file = NULL;
+	while (*in == ' ')
+		in++;
+	root = in;
+	while (*in)
+	{
+		if (ft_strchr(" |", *in))
+			break ;
+		in++;
+	}
+	root = ft_substr(root, 0, in - root);
+	if (file == NULL)
+		return (NULL);
+	return (file);
+}
+
+void	save_redirect(t_shell *shell, char *input)
 {
 	size_t	i;
-	size_t	j;
-	t_cmd	*tmp;
 
-	i = 0;
-	j = 0;
-	// ft_isdelimiter()で< などが存在するか確かめる
-	while (shell->cmd[i])
+	i = -1;
+	while (input[++i])
 	{
-		tmp = shell->cmd[i];
-		while (tmp->command[j])
+		if (ft_strchr("<", input[i]) && input[i + 1] == '<')
 		{
-			// <<
-			if (ft_strchr(tmp->command[j], '<') && ft_strchr(tmp->command[j++], '<'))
-			{
-			}
-			// <
-			else if (ft_strchr(tmp->command[j], '<'))
-			{}
-			// >>
-			else if (ft_strchr(tmp->command[j], '>') && ft_strchr(tmp->command[j++], '>'))
-			{}
-			// >
-			else if (ft_strchr(tmp->command[j], '<'))
-			{}
-			j++;
+			i++;
+			shell->cmd->fd_in = ft_strdup(".heredoc");
 		}
-		i++;
+		else if (ft_strchr("<", input[i]))
+			shell->cmd->fd_in = extra_redirect(&input[i + 1]);
+		else if (ft_strchr(">", input[i]) && input[i + 1] != '>')
+		{
+			shell->cmd->fd_out = extra_redirect(&input[i + 1]);
+			shell->cmd->outfile_mode = TRUNC;
+		}
+		else if (ft_strchr(">", input[i]) && input[i + 1] == '>')
+		{
+			shell->cmd->fd_out = extra_redirect(&input[++i + 1]);
+			shell->cmd->outfile_mode = APPEND;
+		}
+		if (ft_strchr("\"'", input[i]))
+			ft_quote(input, &i, input[i]);
 	}
-	return ;
 }

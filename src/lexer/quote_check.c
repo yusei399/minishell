@@ -101,4 +101,3 @@ int	quatecheck(t_shell *shell)
 	}
 	return (0);
 }
-

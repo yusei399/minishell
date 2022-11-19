@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   lstfirst.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 14:09:26 by susui             #+#    #+#             */
-/*   Updated: 2022/09/08 11:13:36 by susui            ###   ########.fr       */
+/*   Updated: 2022/11/12 10:43:07 by yuseiikeda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/minishell.h"
 
-t_cmd 	*lstfirst(t_cmd *dclist)
+t_cmd	*lstfirst(t_cmd *dclist)
 {
-	t_cmd 	*first;
+	t_cmd	*first;
 
 	if (dclist == NULL)
 		return (NULL);
