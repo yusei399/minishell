@@ -26,13 +26,12 @@ void	minishell(int argc, char **argv, char **envp)
 	t_shell	shell;
 
 	ft_bzero(&shell, sizeof(t_shell));
+	split_env(&shell, envp);
 	while (1)
 	{
 		shell.arg = readline("minishell>$");
-		split_env(&shell, envp);
-		//lexerの上にheredoc
 		lexer(&shell);
-//		claen_cmd_list(shell.cmd);
+		claen_cmd_list(shell.cmd);
 		determine_input(shell.arg, envp);
 		add_history(shell.arg);
 	}

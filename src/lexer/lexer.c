@@ -19,7 +19,7 @@ int 	lexer(t_shell *shell)
 	pipe_split(shell);
 	// クオートが正しく閉じられているかの確認
 		//todo[done] 今はargでやってるから、それをpipeでわけられたリストで実行するようにする。
-	if (quatecheck(shell))  // todo segv
+	// if (quatecheck(shell))  // todo segv
 		return 1;
 	//todo[] →
 //	save_redirect(shell);
