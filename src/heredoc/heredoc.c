@@ -23,7 +23,7 @@ int open_test(char *filename, char *contents)
 		printf("error");
 		return 1;
 	}
-	write(fd, contents, 4);
+	write(fd, contents, strlen(contents));
 	close(fd);
 	return 0;
 }
