@@ -1,7 +1,7 @@
 #ifndef MINISHELL_H
 # define MINISHELL_H
 
-#include <errno.h>
+# include <errno.h>
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
@@ -35,6 +35,8 @@
 # define TRUNC 0
 # define APPEND 1
 
+int	g_status;
+
 typedef struct s_env
 {
 	char			*key;
@@ -42,17 +44,23 @@ typedef struct s_env
 	struct s_env	*next;
 }	t_env;
 
+typedef struct s_command
+{
+	char	**argv;
+}	t_command;
+
+
 typedef struct s_cmd
 {
-	char			*command;
-	int				type;
-	int				pip[2];
-	int				fd[2];
-	char			*fd_in;
-	char			*fd_out;
-	struct s_cmd	*next;
-	struct s_cmd	*prev;
-	int				outfile_mode;
+	int					pipe[2];
+	int					fd[2];
+	char				*fd_in;
+	char				*fd_out;
+	struct s_command	*commands;
+	struct s_cmd		*next;
+	struct s_cmd		*prev;
+	size_t				cmd_cnt;
+	int					outfile_mode;
 }	t_cmd;
 
 /* ----------------------main struct-------------------------- */
@@ -70,7 +78,7 @@ typedef struct s_shell
 
 	//コマンドラインの構造体
 	t_cmd	*cmd;
-}t_shell;
+}	t_shell;
 
 /* ---------------------- function -------------------------- */
 // lexer
@@ -87,10 +95,56 @@ int		lstsize(t_cmd *dclist);
 t_cmd	*lstfirst(t_cmd *dclist);
 t_cmd	*lstlast(t_cmd *lst);
 t_cmd 	*lstnew(void);
-void	claen_cmd_list(t_cmd	*cmd);
-
+char	*ft_strstr(const char *haystack, const char *needle);
+char	*extract_sign(char *input);
+void	write_heredoc_file(t_list *heredoc_lst);
+void	loop_heredoc(char *input, t_list **heredoc_lst, t_shell *data);
+void	heredoc(t_shell *data);
+size_t	count_cmds(char *input);
 void	equal_devide(char** envp, t_shell *shell);
-
+void	handle_signal(int signal);
 void	split_env(t_shell *shell, char **envp);
+char	*ms_getenv(t_shell *shell, char *name);
+int	ft_execvp(char *file, char *argv[], t_shell *shell);
+
+
+void	skip_quote(char *input, size_t *i, char quote);
+bool	arg_is_quoted(t_shell *data);
+size_t	count_cmds(char *input);
+char	**split_by_pipe(t_shell *data, char *input, size_t cmd_cnt);
+void	exit_session(t_shell *data, int status, char *msg);
+void	exit_(char *msg, char *s);
+void	exit_session(t_shell *data, int status, char *msg);
+void	ft_putendl(char const *s);
+void	wait_processes(t_shell *shell);
+char	*store_quoted_arg(t_shell *shell, char *input, size_t *i, char quote);
+char	*extract_arg(t_shell *shell, char *input, char **start, size_t *i);
+
+
+//executer
+void	executor(t_shell *shell);
+
+// util
+size_t	count_args(char *input);
+int	ft_strcmp(const char *s1, const char *s2);
+void	ft_putchar(char c);
+void	ft_putstr(char const *s);
+
+
+//util_3
+size_t	count_arg_len(char *arg, t_list **val, t_list **key);
+void	copy_lst_content(char **dst, size_t *j, t_list **lst);
+char	*create_expanded_arg(t_shell *data, char *arg,
+			t_list **val, size_t len);
+
+
+//op_env
+void	extract_env_key(char *arg, t_list **env_key);
+void	get_env_val(t_shell *data, t_list **val, t_list **key);
+char	*extract_env_val(char *arg, t_shell *data);
+char	*expand_env(char *arg, t_shell *data, bool quoted);
+
+//signal
+void	ft_putnbr(int n);
 
 #endif

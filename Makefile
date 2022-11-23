@@ -1,9 +1,8 @@
 NAME 		=	minishell
-CC			=	cc
-CFLAGS		=	-lreadline -I ./include
+LDFLAGS	=	-L$(shell brew --prefix readline)/lib -lreadline
+CC			=	gcc $(LDFLAGS)
 # -fsanitize=address
 #	-Wall -Wextra -Werror
-
 LIBFTDIR	=	libft
 LIBFT		=	$(LIBFTDIR)/libft.a
 LIB			=	$(LIBFT)
@@ -27,14 +26,22 @@ SRCS		=	./src/minishell.c \
 				./src/split_env.c \
 				./src/lexer/save_redirect.c \
 				./src/lexer/util.c \
+				./src/lexer/util_1.c \
+				./src/lexer/save_arg.c \
+				./src/lexer/util_2.c \
+				./src/lexer/op_env.c \
+				./src/executor/executor.c \
+				./src/executor/execvp.c \
+				./src/executor/signal.c\
+
 
 OBJS		=	${SRCS:.c=.o}
 
 
 all: $(NAME)
 
-$(NAME): $(OBJS)  $(LIB)
-		$(CC) -o $(NAME) $(SRCS) $(LIB) $(CFLAGS)
+$(NAME): $(OBJS) $(LDFLAGS)  $(LIB)
+		$(CC)  -o $(NAME) $(SRCS) $(LIB) $(CFLAGS)
 # $(GNL_OBJS)
 
 $(LIBFT):

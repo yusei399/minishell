@@ -1,15 +1,16 @@
-#include "../../inc/minishell.h"
+// #include "../../inc/minishell.h"
 
-void	claen_cmd_list(t_cmd	*cmd)
-{
-	t_cmd	*tmp;
+// void	claen_cmd_list(t_cmd **cmd, void (*del)(void*))
+// {
+// 	t_cmd	*tmp;
 
-/*	while (cmd)
-	{
-		tmp = (cmd)->next;
-		free(cmd->command);
-		free(cmd);
-		cmd = tmp;
-	}
- */
-}
+// 	if (!cmd || !del)
+// 		return ;
+// 	while (*cmd)
+// 	{
+// 		tmp = (*cmd)->next;
+// 		(*del)((*cmd)->command);
+// 		free(*cmd);
+// 		*cmd = tmp;
+// 	}
+// }
