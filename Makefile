@@ -38,7 +38,7 @@ $(NAME): $(OBJS)  $(LIB)
 # $(GNL_OBJS)
 
 $(LIBFT):
-		$(MAKE) -C $(LIBFTDIR)
+		$(MAKE) bonus -C $(LIBFTDIR)
 
 clean:
 		$(MAKE) clean -C $(LIBFTDIR)
