@@ -1,6 +1,6 @@
 NAME 		=	minishell
 CC			=	cc
-CFLAGS		=	-lreadline -I ./include
+CFLAGS		=	-lreadline -L$(shell brew --prefix readline)/lib -lreadline -I ./include
 # -fsanitize=address
 #	-Wall -Wextra -Werror
 
