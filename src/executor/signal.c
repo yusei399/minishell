@@ -1,5 +1,9 @@
+
 #include "../../inc/minishell.h"
 #include "../../inc/libft.h"
+#include <stdio.h>
+#include <readline/readline.h>
+#include <readline/history.h>
 
 void	ft_putnbr(int n)
 {
@@ -19,7 +23,6 @@ void	ft_putnbr(int n)
 		ft_putchar(n + '0');
 	return ;
 }
-
 
 void	handle_signal(int signal)
 {

@@ -100,7 +100,6 @@ char	*extract_sign(char *input);
 void	write_heredoc_file(t_list *heredoc_lst);
 void	loop_heredoc(char *input, t_list **heredoc_lst, t_shell *data);
 void	heredoc(t_shell *data);
-size_t	count_cmds(char *input);
 void	equal_devide(char** envp, t_shell *shell);
 void	handle_signal(int signal);
 void	split_env(t_shell *shell, char **envp);
@@ -146,5 +145,6 @@ char	*expand_env(char *arg, t_shell *data, bool quoted);
 
 //signal
 void	ft_putnbr(int n);
+void	handle_signal(int signal);
 
 #endif
