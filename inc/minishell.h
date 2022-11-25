@@ -94,6 +94,9 @@ void	write_heredoc_file(t_list *heredoc_lst);
 void	loop_heredoc(char *input, t_list **heredoc_lst, t_shell *data);
 void	heredoc(t_shell *data);
 
+void	treat_heredoc(t_shell *shell);
+
+
 void	equal_devide(char** envp, t_shell *shell);
 
 void	split_env(t_shell *shell, char **envp);

@@ -54,28 +54,28 @@ t_list	*get_input(t_list *herelist, char *end)
 /*-------------------------------------------------------------*/
 
 /*-------------------------check------------------------------*/
-/*int	check_haredoc((t_shell *shell))
+int	check_haredoc(t_shell *shell)
 {
-
-}*/
+	if (ft_strstr(shell->arg, "<<") == NULL)
+		return (1);
+	return (0);
+}
 /*-----------------------------------------------------------*/
 
-/*
 void	treat_heredoc(t_shell *shell)
 {
 	t_list	*herelist;
 	ft_bzero(&herelist, sizeof(t_list));
 	// 文字が << だったときに呼ばれると仮定する? or 確認する??
-	if (check_haredoc(shell)) //todo[]
+	if (check_haredoc(shell)) //todo[done]
 		return ;
 	// 終了文字が来るまで文字を読み続ける
 	herelist = get_input(herelist, "end"); //todo [ok]
 	// 出力する
-	output_list();
+	// output_list();
 	// listを壊す
 	ft_lstclear(&herelist, free);
 }
-*/
 
 
 

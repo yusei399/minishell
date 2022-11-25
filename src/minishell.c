@@ -32,6 +32,7 @@ void	minishell(int argc, char **argv, char **envp)
 		shell.arg = readline("minishell>$");
 		split_env(&shell, envp);
 		//lexerの上にheredoc
+		treat_heredoc(&shell);
 		lexer(&shell);
 		determine_input(shell.arg, envp);
 		add_history(shell.arg);

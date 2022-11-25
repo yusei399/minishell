@@ -27,6 +27,7 @@ SRCS		=	./src/minishell.c \
 				./src/split_env.c \
 				./src/lexer/save_redirect.c \
 				./src/lexer/util.c \
+				./src/heredoc/heredoc.c
 
 OBJS		=	${SRCS:.c=.o}
 
