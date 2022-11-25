@@ -13,6 +13,22 @@
 
 
 /*--------------------input-------------------------------*/
+char	*get_end(char *arg)
+{
+	size_t	i;
+	size_t	count;
+
+	i = 0;
+	count = 0;
+	while (arg[i] && count < 2)
+	{
+		if (arg[i] == '<')
+			count ++;
+		i++;
+	}
+	return(ft_strdup(&arg[i]));
+}
+
 int is_exact_match(char *input, char *end)
 {
 	if (ft_strlen(input) != ft_strlen(end))
@@ -54,9 +70,9 @@ t_list	*get_input(t_list *herelist, char *end)
 /*-------------------------------------------------------------*/
 
 /*-------------------------check------------------------------*/
-int	check_haredoc(t_shell *shell)
+int	check_haredoc(char *arg)
 {
-	if (ft_strstr(shell->arg, "<<") == NULL)
+	if (ft_strstr(arg, "<<") == NULL)
 		return (1);
 	return (0);
 }
@@ -64,13 +80,19 @@ int	check_haredoc(t_shell *shell)
 
 void	treat_heredoc(t_shell *shell)
 {
+	char	*end;
 	t_list	*herelist;
+
 	ft_bzero(&herelist, sizeof(t_list));
 	// 文字が << だったときに呼ばれると仮定する? or 確認する??
-	if (check_haredoc(shell)) //todo[done]
+	if (check_haredoc(shell->arg)) //todo[done]
+		return ;
+	end = get_end(shell->arg);
+	if (!end)
 		return ;
 	// 終了文字が来るまで文字を読み続ける
-	herelist = get_input(herelist, "end"); //todo [ok]
+	herelist = get_input(herelist, end); //todo [ok]
+	free(end);
 	// 出力する
 	// output_list();
 	// listを壊す
