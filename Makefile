@@ -1,6 +1,6 @@
 CC		=	cc
 CFLAGS	=	#-Wall -Wextra -Werror
-LDFLAGS	=	-L$(LIBDIR) -lft -L$(shell brew --prefix readline)/lib -lreadline
+LDFLAGS	=	-L$(LIBDIR) -L$(shell brew --prefix readline)/lib -lreadline
 NAME	=	minishell
 SRCDIR	=	src
 OBJDIR	=	obj

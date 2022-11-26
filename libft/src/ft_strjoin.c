@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 10:10:01 by susui             #+#    #+#             */
-/*   Updated: 2022/07/21 18:41:17 by susui            ###   ########.fr       */
+/*   Updated: 2022/11/23 23:14:59 by yuseiikeda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include    "libft.h"
+#include	"../inc/libft.h"
 
 char	*joined_malloc(char const *s1, char const *s2)
 {

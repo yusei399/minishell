@@ -1,6 +1,5 @@
 
 #include "../../inc/minishell.h"
-#include "../../inc/libft.h"
 
 char	*ms_getenv(t_shell *shell, char *name)
 {

@@ -5,10 +5,10 @@
 	しかし、それは履歴を更新する必要はありません!
 */
 /*----------------------out put--------------------------*/
-void	output_list()
+/*void	output_list()
 {
 
-}
+}*/
 /*-------------------------------------------------------*/
 
 
@@ -28,49 +28,54 @@ int	check_input(char *input, char *end)
 		return (1);
 	if (is_exact_match(input, end))
 		return (1);
+	return (0);
 }
 
-void	get_input(t_list *herelist, char *end)
+t_list	*get_input(t_list *herelist, char *end)
 {
 	char	*input;
+	char	*str;
 	t_list	*new;
 	// 受け取った input がend になるまで
 	while (1)
 	{
 		input = readline("> ");
 		if (check_input(input, end))
-			return ;
-		new = ft_lstnew();
+			return (herelist);
+		str = ft_strdup(input);
+		if (!str)
+			return (herelist);
+		new = ft_lstnew(str);
 		if (!new)
-			return (1);
-		ft_lstadd_back(herelist, new);
+			return (herelist);
+		ft_lstadd_back(&herelist, new);
 	}
 }
 /*-------------------------------------------------------------*/
 
 /*-------------------------check------------------------------*/
-int	check_haredoc((t_shell *shell))
+/*int	check_haredoc((t_shell *shell))
 {
 
-}
+}*/
 /*-----------------------------------------------------------*/
 
+/*
 void	treat_heredoc(t_shell *shell)
 {
 	t_list	*herelist;
+	ft_bzero(&herelist, sizeof(t_list));
 	// 文字が << だったときに呼ばれると仮定する? or 確認する??
-	if (check_haredoc(shell))
+	if (check_haredoc(shell)) //todo[]
 		return ;
 	// 終了文字が来るまで文字を読み続ける
-	get_input(herelist, end);
+	herelist = get_input(herelist, "end"); //todo [ok]
 	// 出力する
 	output_list();
 	// listを壊す
 	ft_lstclear(&herelist, free);
 }
-
-
-
+*/
 
 
 
@@ -109,4 +114,21 @@ int main(int argc, char **argv)
 	}
 	return 0;
 }
+
+
+// get input test
+int main()
+{
+	t_list	*herelist;
+	ft_bzero(&herelist, sizeof(t_list));
+	herelist = get_input(herelist, "end");
+	while(herelist)
+	{
+		printf("contents is : %s\n", (char *)herelist->content);
+		herelist = herelist->next;
+	}
+}
+
+
+
 --------------------------------------------------------------------------- */

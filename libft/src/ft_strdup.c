@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 17:53:40 by susui             #+#    #+#             */
-/*   Updated: 2022/04/30 11:13:55 by susui            ###   ########.fr       */
+/*   Updated: 2022/11/23 23:14:50 by yuseiikeda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft.h"
+#include	"../inc/libft.h"
 
 char	*ft_strcpy(char	*dest, const char	*src)
 {
