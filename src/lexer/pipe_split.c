@@ -2,176 +2,98 @@
 
 // piepを取り除いた文字列を返す
 
-int is_pipe(char c)
+void	skip_quote(char *input, size_t *i, char quote)
 {
-	if (c == '|')
-		return (1);
-	return (0);
+	size_t	j;
+
+	j = *i + 1;
+	while (input[j])
+	{
+		if (input[j] == quote)
+			break ;
+		j++;
+	}
+	*i = j;
 }
 
-size_t	pipe_len(char *arg)
+bool	arg_is_quoted(t_shell *data)
 {
 	size_t	i;
+	char	*input;
+	char	quote;
 
 	i = 0;
-	while(arg[i] != '|' && arg[i])
-		i++;
-	return (i);
-}
-char	*extract_pipe(char *arg, int n)
-{
-	int		pipe_count;
-	int		i;
-	char	*str;
-
-	pipe_count = 0;
-	i = 0;
-	// i個目のパイプまでの文字列
-	// pipeをカウントして pipe_count == iになった場所 +1の部分からパイプまでを新たな文字列にする
-	while (n != pipe_count && arg[i])
+	input = data->input;
+	while (input[i])
 	{
-		if (is_pipe(arg[i]))
-			pipe_count++;
-		i++;
-	}
-	// arg[i]の位置から次のpipeもしくはNULLまでを取る
-	str = ft_strndup(&arg[i], pipe_len(&arg[i]));
-	if (!str)
-		return (NULL);
-	return (str);
-}
-int	pipe_init(t_shell *shell, size_t pipe_count)
-{
-	//パイプまでの文字をコマンドに入れる
-	t_cmd	*cmd;
-	int		i;
-
-	cmd = shell->cmd;
-	i = 0;
-	if (pipe_count == 0)
-	{
-		cmd->command = shell->arg;
-		return (0);
-	}
-	while (cmd)
-	{
-		cmd->command = extract_pipe(shell->arg, i);
-		i++;
-		cmd = cmd->next;
-	}
-	return (0);
-}
-
-int	add_pipe_list(t_shell *shell, size_t pipe_count)
-{
-	size_t	i;
-	t_cmd	*new;
-
-	i = 0;
-	while(i <= pipe_count)
-	{
-		new = lstnew();
-		if (!new)
-			return (1);
-		lstadd_back(&shell->cmd, new);
-		// nullが帰ってきたとき(失敗した時)にfreeしなきゃ
-		i++;
-	}
-	printf("\tlist size: %zu\n", i); // todo
-	return (0);
-}
-
-
-int	pipe_count(t_shell *shell)
-{
-	int	pipe_count;
-	int	i;
-
-	pipe_count = 0;
-	i = 0;
-
-	if (shell->arg[0] == '|')
-		return (-1);
-	while (shell->arg[i])
-	{
-		if (shell->arg[i] == '|')
+		if (input[i] == '\"' || input[i] == '\'')
 		{
-			if (shell->arg[i + 1] == '|' || !shell->arg[i + 1])
-				return (-1);
-			pipe_count++;
+			quote = input[i];
+			skip_quote(input, &i, quote);
+			if (input[i] != quote)
+				return (false);
+			break ;
 		}
 		i++;
 	}
-	return (pipe_count);
+	return (true);
 }
 
-void	check1(t_shell *shell, int number, int	p_count)
+/*
+	Count the number of command lines
+*/
+size_t	count_cmds(char *input)
 {
-	if (number == 1)
+	size_t	cmd_cnt;
+	size_t	i;
+
+	i = 0;
+	cmd_cnt = 1;
+	while (input[i])
 	{
-		printf("\x1b[36m%s\x1b[0m", "<<<<check start>>>>>>>>\n");
-		printf("\x1b[36mpipe count : %d\n\x1b[0m", p_count);
-	}
-	if (number == 2)
-	{
-		t_cmd *cmd = shell->cmd;
-		size_t size = 1;
-		printf("\x1b[36mFull argument is: %s\n\x1b[0m", shell->arg);
-		while (cmd)
+		if (input[i] == '\"')
+			skip_quote(input, &i, '\"');
+		else if (input[i] == '\'')
+			skip_quote(input, &i, '\'');
+		else if (input[i] == '|')
 		{
-			printf("\t%zu arg is : %s\n", size, cmd->command);
-			size++;
-			cmd = cmd->next;
+			cmd_cnt++;
+			i++;
 		}
-		printf("\x1b[36m%s\x1b[0m", "---------------------------\n");
+		i++;
 	}
+	return (cmd_cnt);
 }
 
-int 	pipe_split(t_shell *shell)
+/*
+	Split per pipe and extract command line
+	 (ignore pipes in double and single quarts)
+*/
+char	**split_by_pipe(t_shell *data, char *input, size_t cmd_cnt)
 {
-	int	p_count;
+	size_t	i;
+	size_t	j;
+	char	**ret;
+	char	*start;
 
-	p_count = pipe_count(shell);
-	check1(shell, 1, p_count); // todo delete
-	if (p_count == -1)
-		return (1);
-	add_pipe_list(shell, p_count); // todo OKっぽい
-	// lst->cmd に アーギュメントを入れていく
-	pipe_init(shell, p_count); // todo ok
-	check1(shell, 2, p_count); //todo delete
-	return (0);
-}
-
-// gcc pipe_split.c ../../libft/libft.a ../cmd_lstope/*
-
- /* -----------------------------------------------------------------------
-int	main(int argc, char **argv)
-{
-	t_shell shell;
-	t_cmd *cmd;
-	size_t size = 1;
-	int i = 0;
-
-	if (argc == 1)
-		return (1);
-	memset(&shell,0,sizeof(t_shell));
-	shell.arg = argv[1];
-	pipe_split(&shell);
-	printf("\x1b[36mFull argument is: %s\n\x1b[0m", shell.arg);
-	cmd = shell.cmd;
-	while (cmd)
+	j = -1;
+	i = 0;
+	start = input;
+	ret = ft_calloc(cmd_cnt + 1, sizeof(char *));
+	if (ret == NULL)
+		exit_session(data, 1, "Memory error\nexit");
+	while (input[++j])
 	{
-		printf("\t%zu arg is : %s\n", size, cmd->command);
-		size++;
-		cmd = cmd->next;
+		if (input[j] == '\"' || input[j] == '\'')
+			skip_quote(input, &j, input[j]);
+		if (input[j] == '|')
+		{
+			ret[i++] = ft_substr(input, start - input, &input[j] - start);
+			start = input + j + 1;
+		}
+		else if (input[j + 1] == '\0')
+			ret[i++] = ft_substr(input, start - input, &input[j] - start + 1);
 	}
-	return (0);
+	ret[i] = NULL;
+	return (ret);
 }
- ----------------------------------------------------------------------- */
-
-// todo パイプのあとにスペースがあってその後にまたパイプのときの処理
-	//todo → "cat | | ls"
-// todo パイプのあとのスペースを消す
-	// todo フォーマットするときでいいか
-// todo コマンドの free
-

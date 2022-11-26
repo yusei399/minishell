@@ -9,7 +9,7 @@ void	claen_cmd_list(t_cmd **cmd, void (*del)(void*))
 	while (*cmd)
 	{
 		tmp = (*cmd)->next;
-		(*del)((*cmd)->command);
+		(*del)((*cmd)->commands);
 		free(*cmd);
 		*cmd = tmp;
 	}

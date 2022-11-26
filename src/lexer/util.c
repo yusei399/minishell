@@ -1,5 +1,43 @@
 #include "../../inc/minishell.h"
 
+void	ft_putendl(char const *s)
+{
+	if (s == NULL)
+		return ;
+	while (*s != '\0')
+		write(1, s++,1);
+	write(1, "\n",1);
+	return ;
+}
+
+void	exit_(char *msg, char *s)
+{
+	int	status;
+
+	status = 0;
+	if (s != NULL)
+		status = ft_atoi(s);
+	while (s != NULL && *s)
+	{
+		if (ft_isdigit(*s) == 0)
+		{
+			status = 255;
+			break ;
+		}
+		s++;
+	}
+	ft_putendl(msg);
+	g_status = status;
+	exit(status);
+}
+
+void	exit_session(t_shell *data, int status, char *msg)
+{
+	(void)data;
+	g_status = status;
+	exit_(msg, ft_itoa(g_status));
+}
+
 void	ft_quote(char *input, size_t *i, char quote)
 {
 	size_t	j;
@@ -47,4 +85,31 @@ char	*ft_strstr(const char *haystack, const char *needle)
 		haystack++;
 	}
 	return (NULL);
+}
+
+void	wait_processes(t_shell *shell)
+{
+	int		status;
+	size_t	i;
+
+	i = 0;
+	status = 0;
+	while (i++ < shell->cmd->cmd_cnt)
+		wait(&status);
+	if (status == SIGINT)
+		g_status = SIGINT + 128;
+	else if (status == SIGQUIT)
+		g_status = SIGQUIT + 128;
+	else
+		g_status = WEXITSTATUS(status);
+}
+
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	size_t	i;
+
+	i = 0;
+	while (s1[i] == s2[i] && s1[i] && s2[i])
+		i++;
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }

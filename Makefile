@@ -1,38 +1,42 @@
-NAME 		=	minishell
-CC			=	cc
-CFLAGS		=	-lreadline -L$(shell brew --prefix readline)/lib -lreadline -I ./include
-# -fsanitize=address
-#	-Wall -Wextra -Werror
+CC		=	cc
+CFLAGS	=	#-Wall -Wextra -Werror
+LDFLAGS	=	-L$(LIBDIR) -lft -L$(shell brew --prefix readline)/lib -lreadline
+NAME	=	minishell
+SRCDIR	=	src
+OBJDIR	=	obj
+LIBDIR	=	./libft
+INCDIR	=	inc $(LIBDIR)/inc $(shell brew --prefix readline)/include
 
-LIBFTDIR	=	libft
-LIBFT		=	$(LIBFTDIR)/libft.a
-LIB			=	$(LIBFT)
+# find src -name \*.c | sed -e "s/$/\\\/g" | pbcopy <-- copy all src files
+SRCS	=	$(shell find $(SRCDIR) -name "*.c" -type f) # fix here
+OBJS	=	$(SRCS:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
+INCS	=	$(addprefix -I,$(INCDIR))
 
-#GNL_SRC         =       ./get_next_line/get_next_line.c ./get_next_line/get_next_line_utils.c
-#GNL_PATH        =       ./get_next_line/
-#GNL_OBJS        =       $(GNL_SRC:.c=.o)
-
-SRCS		=	./src/minishell.c \
-				./src/lexer/lexer.c \
-				./src/lexer/pipe_split.c \
-				./src/lexer/quote_check.c \
-				./src/cmd_lstope/lstadd_back.c\
-				./src/cmd_lstope/lstadd_front.c \
-				./src/cmd_lstope/lstdelone.c \
-				./src/cmd_lstope/lstfirst.c \
-				./src/cmd_lstope/lstlast.c \
-				./src/cmd_lstope/lstnew.c \
-				./src/cmd_lstope/lstsize.c \
-				./src/cmd_lstope/clean_cmd_list.c \
-				./src/split_env.c \
-				./src/lexer/save_redirect.c \
-				./src/lexer/util.c \
-				./src/heredoc/heredoc.c
-
-OBJS		=	${SRCS:.c=.o}
+all: libft $(NAME) $(OBJDIR)
 
 
-all: $(NAME)
+$(OBJDIR):
+	mkdir $(OBJDIR)
+
+
+$(OBJDIR)/%.o: $(SRCDIR)/%.c
+	@mkdir -p $(@D)
+	@$(CC) $(CFLAGS) $(INCS) -o $(@) -c -g $(<)
+	@echo "$(<)\n     \
+	$(MGN)--->$(RES) \
+	$(GRN)$(@)$(RES)"
+
+$(NAME): $(OBJS)
+	@$(CC) -o $(NAME) $(OBJS) $(LDFLAGS)
+	@echo "$(CYN)\n=====link=====$(RES)"
+	@echo "$(YEL)Objects$(RES): $(OBJS)\n"
+	@echo "$(YEL)Flags$(RES): $(LDFLAGS)\n"
+	@echo "     $(MGN)--->$(RES) $(GRN)$(NAME)$(RES)"
+	@echo "$(CYN)==============$(RES)"
+
+libft:
+	@make -C $(LIBDIR)
+
 
 $(NAME): $(OBJS)  $(LIB)
 		$(CC) -o $(NAME) $(SRCS) $(LIB) $(CFLAGS)
@@ -41,15 +45,24 @@ $(NAME): $(OBJS)  $(LIB)
 $(LIBFT):
 		$(MAKE) bonus -C $(LIBFTDIR)
 
+libre:
+	@make re -C $(LIBDIR)
+
+
 clean:
-		$(MAKE) clean -C $(LIBFTDIR)
-		$(RM) ${OBJS}
+	@echo "$(RED)"
+	$(RM) $(OBJS)
+	@$(RM)r $(OBJDIR)
+	@echo "$(RES)"
+	rm -rf bin
 
-fclean: clean
-		$(MAKE) fclean -C $(LIBFTDIR)
-		$(RM) ${NAME}
+eclean:
+	@echo "$(RED)"
+	$(RM) $(NAME)
+	@echo "$(RES)"
 
-re : fclean all
+fclean:	clean eclean
 
-.PHONY:
-		all clean fclean re
+re: fclean all
+
+reall: libre re
