@@ -6,11 +6,11 @@
 /*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 09:54:56 by susui             #+#    #+#             */
-/*   Updated: 2022/11/23 23:12:22 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/11/27 23:23:45 by yuseiikeda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"../inc/libft.h"
+#include "libft.h"
 
 int	ft_isdigit(int	c)
 {

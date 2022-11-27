@@ -1,5 +1,4 @@
-#include "../inc/minishell.h"
-#include "../inc/libft.h"
+#include "minishell.h"
 
 t_env	*last_env(t_env *env)
 {

@@ -6,11 +6,11 @@
 /*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 23:15:50 by yuseiikeda        #+#    #+#             */
-/*   Updated: 2022/11/23 23:15:53 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/11/27 23:26:33 by yuseiikeda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"../inc/libft.h"
+#include "libft.h"
 
 char	*ft_strndup(const char *s1, size_t n)
 {

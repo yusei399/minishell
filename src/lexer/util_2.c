@@ -1,4 +1,4 @@
-#include "../../inc/minishell.h"
+#include "minishell.h"
 
 size_t	count_arg_len(char *arg, t_list **val, t_list **key)
 {

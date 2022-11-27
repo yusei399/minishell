@@ -6,11 +6,11 @@
 /*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 14:17:27 by susui             #+#    #+#             */
-/*   Updated: 2022/11/23 23:11:26 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/11/27 23:23:03 by yuseiikeda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"../inc/libft.h"
+#include "libft.h"
 
 long	check_long(long num, const char *str, long negative)
 {

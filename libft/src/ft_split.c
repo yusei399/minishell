@@ -6,11 +6,11 @@
 /*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 07:44:27 by susui             #+#    #+#             */
-/*   Updated: 2022/11/23 23:14:38 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/11/27 23:25:40 by yuseiikeda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"../inc/libft.h"
+#include "libft.h"
 
 int	ft_check_char(char	c, char	charset)
 {

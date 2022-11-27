@@ -6,11 +6,11 @@
 /*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 18:20:55 by susui             #+#    #+#             */
-/*   Updated: 2022/11/23 23:15:59 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/11/27 23:26:37 by yuseiikeda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"../inc/libft.h"
+#include "libft.h"
 
 char	*ft_strnstr(const char *str, const char *to_find, size_t n)
 {

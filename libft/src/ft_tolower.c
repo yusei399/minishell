@@ -6,11 +6,11 @@
 /*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 13:46:00 by susui             #+#    #+#             */
-/*   Updated: 2022/11/23 23:16:24 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/11/27 23:26:53 by yuseiikeda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"../inc/libft.h"
+#include "libft.h"
 
 int	ft_tolower(int c)
 {

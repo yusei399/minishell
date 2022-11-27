@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   lstdelone.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 14:17:47 by susui             #+#    #+#             */
-/*   Updated: 2022/09/07 07:45:35 by susui            ###   ########.fr       */
+/*   Updated: 2022/11/27 23:36:34 by yuseiikeda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/minishell.h"
+#include "minishell.h"
 
 void	lstdelone(t_cmd **lst)
 {

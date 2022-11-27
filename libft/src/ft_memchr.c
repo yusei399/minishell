@@ -6,11 +6,11 @@
 /*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 10:57:56 by susui             #+#    #+#             */
-/*   Updated: 2022/11/23 23:13:49 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/11/27 23:24:49 by yuseiikeda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"../inc/libft.h"
+#include "libft.h"
 
 void	*ft_memchr(const void *buf, int ch, size_t n)
 {

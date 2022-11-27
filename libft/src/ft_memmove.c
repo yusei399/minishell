@@ -6,11 +6,11 @@
 /*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 13:23:50 by susui             #+#    #+#             */
-/*   Updated: 2022/11/23 23:14:03 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/11/27 23:25:03 by yuseiikeda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"../inc/libft.h"
+#include "libft.h"
 
 void	*ft_memmove(void	*dest, const void	*src, size_t	n)
 {

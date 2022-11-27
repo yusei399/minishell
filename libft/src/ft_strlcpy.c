@@ -6,11 +6,11 @@
 /*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 07:42:11 by susui             #+#    #+#             */
-/*   Updated: 2022/11/23 23:15:17 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/11/27 23:26:06 by yuseiikeda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"../inc/libft.h"
+#include "libft.h"
 
 size_t	ft_strlcpy(char	*dest, const char	*src, size_t size)
 {

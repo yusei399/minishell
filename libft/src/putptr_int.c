@@ -6,11 +6,11 @@
 /*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 16:05:39 by susui             #+#    #+#             */
-/*   Updated: 2022/11/27 23:11:06 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/11/27 23:27:11 by yuseiikeda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"../inc/libft.h"
+#include "libft.h"
 
 int	lenptr(uintptr_t num)
 {

@@ -6,11 +6,11 @@
 /*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 11:27:56 by susui             #+#    #+#             */
-/*   Updated: 2022/11/23 23:11:46 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/11/27 23:23:27 by yuseiikeda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"../inc/libft.h"
+#include "libft.h"
 
 void	*ft_calloc(size_t n, size_t size)
 {

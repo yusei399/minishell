@@ -1,5 +1,5 @@
 
-#include "../../inc/minishell.h"
+#include "minishell.h"
 #include <stdio.h>
 #include <readline/readline.h>
 #include <readline/history.h>

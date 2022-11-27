@@ -6,11 +6,11 @@
 /*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 10:10:01 by susui             #+#    #+#             */
-/*   Updated: 2022/11/23 23:14:59 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/11/27 23:25:56 by yuseiikeda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"../inc/libft.h"
+#include "libft.h"
 
 char	*joined_malloc(char const *s1, char const *s2)
 {

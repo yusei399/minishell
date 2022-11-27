@@ -6,11 +6,11 @@
 /*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 16:07:08 by susui             #+#    #+#             */
-/*   Updated: 2022/11/27 23:11:47 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/11/27 23:27:04 by yuseiikeda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"../inc/libft.h"
+#include "libft.h"
 
 int	lenhex(unsigned int num)
 {

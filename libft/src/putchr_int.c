@@ -6,11 +6,11 @@
 /*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 16:02:42 by susui             #+#    #+#             */
-/*   Updated: 2022/11/27 23:10:37 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/11/27 23:27:01 by yuseiikeda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"../inc/libft.h"
+#include "libft.h"
 
 int	putchar_int(int	c)
 {

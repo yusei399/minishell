@@ -6,11 +6,11 @@
 /*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 17:12:18 by susui             #+#    #+#             */
-/*   Updated: 2022/11/27 23:10:28 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/11/27 23:25:16 by yuseiikeda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"../inc/libft.h"
+#include "libft.h"
 
 int	ft_discriminator(va_list *args, const char format)
 {

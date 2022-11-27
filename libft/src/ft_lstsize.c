@@ -6,11 +6,11 @@
 /*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 13:32:16 by susui             #+#    #+#             */
-/*   Updated: 2022/11/23 23:13:41 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/11/27 23:24:46 by yuseiikeda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"../inc/libft.h"
+#include "libft.h"
 
 int	ft_lstsize(t_list *lst)
 {

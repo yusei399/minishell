@@ -6,11 +6,11 @@
 /*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 14:22:30 by susui             #+#    #+#             */
-/*   Updated: 2022/11/23 23:16:17 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/11/27 23:26:50 by yuseiikeda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"../inc/libft.h"
+#include "libft.h"
 
 char	*s_malloc(size_t len, size_t s_len)
 {

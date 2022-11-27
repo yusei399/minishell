@@ -6,11 +6,11 @@
 /*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 10:41:48 by susui             #+#    #+#             */
-/*   Updated: 2022/11/23 23:14:12 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/11/27 23:25:19 by yuseiikeda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"../inc/libft.h"
+#include "libft.h"
 
 void	ft_putchar_fd(char	c, int fd)
 {

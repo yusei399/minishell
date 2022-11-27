@@ -6,11 +6,11 @@
 /*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 18:46:33 by susui             #+#    #+#             */
-/*   Updated: 2022/11/23 23:16:11 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/11/27 23:26:44 by yuseiikeda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"../inc/libft.h"
+#include "libft.h"
 
 int	checker(char const c, char const	*set)
 {
