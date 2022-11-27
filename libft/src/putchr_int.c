@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   putstr_int.c                                       :+:      :+:    :+:   */
+/*   putchr_int.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/06 16:04:06 by susui             #+#    #+#             */
-/*   Updated: 2022/06/26 16:09:29 by susui            ###   ########.fr       */
+/*   Created: 2022/05/06 16:02:42 by susui             #+#    #+#             */
+/*   Updated: 2022/11/27 23:10:37 by yuseiikeda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"ft_printf.h"
+#include	"../inc/libft.h"
 
-int	putstr_int(char	*str)
+int	putchar_int(int	c)
 {
-	int	len;
-
-	len = 0;
-	if (!str)
-		str = "(null)";
-	while (*str)
-		len += write(1, str++, 1);
-	return (len);
+	return (write(1, &c, 1));
 }

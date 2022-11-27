@@ -3,19 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   puthex_int.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 16:07:08 by susui             #+#    #+#             */
-/*   Updated: 2022/07/25 09:19:20 by susui            ###   ########.fr       */
+/*   Updated: 2022/11/27 23:11:47 by yuseiikeda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"ft_printf.h"
-
-static void	ft_putchar_fd(char	c, int fd)
-{
-	write(fd, &c, 1);
-}
+#include	"../inc/libft.h"
 
 int	lenhex(unsigned int num)
 {

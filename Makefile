@@ -1,6 +1,6 @@
 CC		=	cc
 CFLAGS	=	#-Wall -Wextra -Werror
-LDFLAGS	=	-L$(LIBDIR) -L$(shell brew --prefix readline)/lib -lreadline
+LDFLAGS	=	 -L$(shell brew --prefix readline)/lib -lreadline -L$(LIBDIR)
 NAME	=	minishell
 SRCDIR	=	src
 OBJDIR	=	obj
@@ -26,11 +26,6 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.c
 
 $(NAME): $(OBJS)
 	@$(CC) -o $(NAME) $(OBJS) $(LDFLAGS)
-	@echo "$(CYN)\n=====link=====$(RES)"
-	@echo "$(YEL)Objects$(RES): $(OBJS)\n"
-	@echo "$(YEL)Flags$(RES): $(LDFLAGS)\n"
-	@echo "     $(MGN)--->$(RES) $(GRN)$(NAME)$(RES)"
-	@echo "$(CYN)==============$(RES)"
 
 libft:
 	@make -C $(LIBDIR)

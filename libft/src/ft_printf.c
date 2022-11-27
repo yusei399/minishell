@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 17:12:18 by susui             #+#    #+#             */
-/*   Updated: 2022/07/22 16:42:01 by susui            ###   ########.fr       */
+/*   Updated: 2022/11/27 23:10:28 by yuseiikeda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"ft_printf.h"
+#include	"../inc/libft.h"
 
 int	ft_discriminator(va_list *args, const char format)
 {

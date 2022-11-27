@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   putptr_int.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 16:05:39 by susui             #+#    #+#             */
-/*   Updated: 2022/06/26 16:09:15 by susui            ###   ########.fr       */
+/*   Updated: 2022/11/27 23:11:06 by yuseiikeda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"ft_printf.h"
+#include	"../inc/libft.h"
 
 int	lenptr(uintptr_t num)
 {
