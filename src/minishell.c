@@ -32,15 +32,14 @@ void	minishell(int argc, char **argv, char **envp)
 	while (1)
 	{
 		shell.input = readline("minishell>$");
-		executor(&shell);
-		//lexerの上にheredoc
-		lexer(&shell);
+		if (shell.input[0] != '\0')
+			shell_executive(&shell);
 		// determine_input(shell.arg, envp);
 		add_history(shell.arg);
 	}
 }
 
-int main(int argc, char **argv, char **envp)
+int	main(int argc, char **argv, char **envp)
 {
 	if (argc == 1)
 		minishell(argc, argv, envp);

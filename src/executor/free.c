@@ -16,7 +16,11 @@ void	free_all(t_shell *shell)
 		free(shell->cmd->fd_out);
 	while (i < shell->cmd->cmd_cnt)
 	{
+		free_index(shell->cmd->commands[i].argv);
+		i++;
 	}
+	free(shell->cmd->commands);
+	free(shell->cmd);
 }
 
 void	free_index(char **dp)
