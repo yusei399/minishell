@@ -38,12 +38,12 @@ static	void	exe_loop(t_shell *shell, int *tmpout, pid_t *pid)
 	while (i < shell->cmd->cmd_cnt)
 	{
 		dup2(shell->cmd->fd[IN], 0);
-		close(shell->cmd->cmd_cnt - 1);
+		close(shell->cmd->fd[IN]);
 		if (i == shell->cmd->cmd_cnt - 1)
 			operate_outfile(shell, tmpout);
 		else
 		{
-			pipe(shell->cmd->fd);
+			pipe(shell->cmd->pipe);
 			shell->cmd->fd[IN] = shell->cmd->pipe[IN];
 			shell->cmd->fd[OUT] = shell->cmd->pipe[OUT];
 		}

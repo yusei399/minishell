@@ -7,7 +7,7 @@ void	shell_executive(t_shell *shell)
 {
 	if (lexer(shell))
 	{
-		printf("Invalid arg");
+		printf("Invalid arg\n");
 		free(shell->input);
 	}
 	else
@@ -28,13 +28,15 @@ void	minishell(int argc, char **argv, char **envp)
 	split_env(&shell, envp);
 	shell = (t_shell){};
 	g_status = 0;
-
+	signal(SIGINT, &handle_signal);
+	signal(SIGQUIT, SIG_IGN);
 	while (1)
 	{
 		shell.input = readline("minishell>$");
 		if (shell.input[0] != '\0')
 			shell_executive(&shell);
-		// determine_input(shell.arg, envp);
+		else
+			free(shell.input);
 		add_history(shell.arg);
 	}
 }
