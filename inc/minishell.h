@@ -147,4 +147,8 @@ char	*expand_env(char *arg, t_shell *data, bool quoted);
 void	ft_putnbr(int n);
 void	handle_signal(int signal);
 
+
+//free
+void	free_all(t_shell *shell);
+
 #endif
