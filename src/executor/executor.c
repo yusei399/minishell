@@ -1,6 +1,5 @@
 
-#include "../../inc/minishell.h"
-#include "../../inc/libft.h"
+#include "minishell.h"
 
 static	void	exe_loop(t_shell *shell, int *tmpout, pid_t *pid);
 static bool	do_builtins(char *file, char **argv, t_shell *shell);

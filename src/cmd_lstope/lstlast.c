@@ -6,11 +6,11 @@
 /*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 13:53:16 by susui             #+#    #+#             */
-/*   Updated: 2022/11/12 09:48:21 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/11/27 23:36:40 by yuseiikeda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/minishell.h"
+#include "minishell.h"
 
 t_cmd	*lstlast(t_cmd *lst)
 {

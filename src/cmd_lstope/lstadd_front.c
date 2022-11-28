@@ -6,11 +6,11 @@
 /*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 13:05:25 by susui             #+#    #+#             */
-/*   Updated: 2022/11/12 09:47:54 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/11/27 23:36:25 by yuseiikeda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/minishell.h"
+#include "minishell.h"
 
 void	lstadd_front(t_cmd **lst, t_cmd *new)
 {

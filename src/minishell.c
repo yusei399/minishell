@@ -1,6 +1,4 @@
-
-#include "./../inc/minishell.h"
-#include "./../inc/libft.h"
+#include "minishell.h"
 //目的
 	//envpをsplitして前と後ろに分けて線形リストに入れ
 	//後でaccessコマンドで実行して実行できたらする

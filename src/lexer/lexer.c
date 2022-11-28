@@ -6,11 +6,11 @@
 /*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 11:47:46 by susui             #+#    #+#             */
-/*   Updated: 2022/11/20 22:35:32 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/11/27 23:37:19 by yuseiikeda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/minishell.h"
+#include "minishell.h"
 
 void	store_args(t_shell *shell, t_command *commands, char *input)
 {

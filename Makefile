@@ -37,6 +37,7 @@ $(NAME): $(OBJS)
 libft:
 	@make -C $(LIBDIR)
 
+<<<<<<< HEAD
 
 $(NAME): $(OBJS)  $(LIB)
 		$(CC) -o $(NAME) $(SRCS) $(LIB) $(CFLAGS)
@@ -66,3 +67,29 @@ fclean:	clean eclean
 re: fclean all
 
 reall: libre re
+
+.PHONY: all libft clean fclean eclean re
+
+# SRCS		=	./src/minishell.c \
+# 				./src/lexer/lexer.c \
+# 				./src/lexer/pipe_split.c \
+# 				./src/lexer/quote_check.c \
+# 				./src/cmd_lstope/lstadd_back.c\
+# 				./src/cmd_lstope/lstadd_front.c \
+# 				./src/cmd_lstope/lstdelone.c \
+# 				./src/cmd_lstope/lstfirst.c \
+# 				./src/cmd_lstope/lstlast.c \
+# 				./src/cmd_lstope/lstnew.c \
+# 				./src/cmd_lstope/lstsize.c \
+# 				./src/cmd_lstope/clean_cmd_list.c \
+# 				./src/split_env.c \
+# 				./src/lexer/save_redirect.c \
+# 				./src/lexer/util.c \
+# 				./src/lexer/util_1.c \
+# 				./src/lexer/save_arg.c \
+# 				./src/lexer/util_2.c \
+# 				./src/lexer/op_env.c \
+# 				./src/executor/executor.c \
+# 				./src/executor/execvp.c \
+# 				./src/executor/signal.c\
+>>>>>>> 2a7b23e986bc941ca5fd9283b2778ded3349f70f
