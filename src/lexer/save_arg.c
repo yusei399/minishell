@@ -1,4 +1,4 @@
-#include "minishell.h"
+#include "../../inc/minishell.h"
 
 char	*store_quoted_arg(t_shell *shell, char *input, size_t *i, char quote)
 {

@@ -1,5 +1,5 @@
 
-#include "minishell.h"
+#include "../../inc/minishell.h"
 
 char	*ms_getenv(t_shell *shell, char *name)
 {

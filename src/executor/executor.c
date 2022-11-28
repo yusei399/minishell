@@ -1,5 +1,5 @@
 
-#include "minishell.h"
+#include "../../inc/minishell.h"
 
 static	void	exe_loop(t_shell *shell, int *tmpout, pid_t *pid);
 static bool	do_builtins(char *file, char **argv, t_shell *shell);

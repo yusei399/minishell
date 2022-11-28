@@ -1,4 +1,4 @@
-#include "minishell.h"
+#include "../../inc/minishell.h"
 
 /*
 ◦ << にデリミタを与えて、そのデリミタを含む行が見えるまで入力を読むようにします。

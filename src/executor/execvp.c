@@ -1,4 +1,4 @@
-#include "minishell.h"
+#include "../../inc/minishell.h"
 
 static char	*get_abs_exe(char *file, char **paths);
 static void	free_dp(char **dp);
