@@ -151,4 +151,7 @@ void	handle_signal(int signal);
 //free
 void	free_all(t_shell *shell);
 
+//miishell
+void	shell_executive(t_shell *shell);
+
 #endif

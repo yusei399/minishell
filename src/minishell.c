@@ -13,8 +13,9 @@ void	shell_executive(t_shell *shell)
 	else
 	{
 		executor(shell);
-
+		free_all(shell);
 	}
+	add_history(shell->input);
 }
 
 void	minishell(int argc, char **argv, char **envp)
