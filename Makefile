@@ -37,7 +37,6 @@ $(NAME): $(OBJS)
 libft:
 	@make -C $(LIBDIR)
 
-<<<<<<< HEAD
 
 $(NAME): $(OBJS)  $(LIB)
 		$(CC) -o $(NAME) $(SRCS) $(LIB) $(CFLAGS)
