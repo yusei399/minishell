@@ -16,7 +16,6 @@ void	minishell(int argc, char **argv, char **envp)
 		shell.input = readline("minishell>$");
 		split_env(&shell, envp);
 		executor(&shell);
-		//lexerの上にheredoc
 		treat_heredoc(&shell);
 		lexer(&shell);
 		// determine_input(shell.arg, envp);
