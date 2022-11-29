@@ -125,17 +125,15 @@ void	executor(t_shell *shell);
 
 // util
 size_t	count_args(char *input);
-int	ft_strcmp(const char *s1, const char *s2);
+int		ft_strcmp(const char *s1, const char *s2);
 void	ft_putchar(char c);
 void	ft_putstr(char const *s);
-
 
 //util_3
 size_t	count_arg_len(char *arg, t_list **val, t_list **key);
 void	copy_lst_content(char **dst, size_t *j, t_list **lst);
 char	*create_expanded_arg(t_shell *data, char *arg,
 			t_list **val, size_t len);
-
 
 //op_env
 void	extract_env_key(char *arg, t_list **env_key);
@@ -147,7 +145,6 @@ char	*expand_env(char *arg, t_shell *data, bool quoted);
 void	ft_putnbr(int n);
 void	handle_signal(int signal);
 
-
 //free
 void	free_all(t_shell *shell);
 
@@ -156,5 +153,13 @@ void	shell_executive(t_shell *shell);
 
 //command
 void	ft_pwd(void);
+int		ft_echo(char **args);
+int		ft_cd(char *dir, t_shell *shell);
+void	ft_env(t_shell *shell);
 
+
+//split_env
+t_env	*last_env(t_env *env);
+void	add_back_env(t_env **env, t_env *new);
+t_env	*new_env(char *env);
 #endif

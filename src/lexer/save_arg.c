@@ -21,9 +21,6 @@ char	*store_quoted_arg(t_shell *shell, char *input, size_t *i, char quote)
 	return (arg);
 }
 
-/*
-	Extract arg and remove excess space
-*/
 char	*extract_arg(t_shell *shell, char *input, char **start, size_t *i)
 {
 	char	*arg;

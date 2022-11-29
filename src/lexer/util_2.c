@@ -41,9 +41,6 @@ void	copy_lst_content(char **dst, size_t *j, t_list **lst)
 	}
 }
 
-/*
-	Create environment variable expanded argument
-*/
 char	*create_expanded_arg(t_shell *data, char *arg, t_list **val, size_t len)
 {
 	size_t	i;
