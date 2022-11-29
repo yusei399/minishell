@@ -154,4 +154,7 @@ void	free_all(t_shell *shell);
 //miishell
 void	shell_executive(t_shell *shell);
 
+//command
+void	ft_pwd(void);
+
 #endif

@@ -25,11 +25,11 @@ void	minishell(int argc, char **argv, char **envp)
 	(void)argv;
 	(void)argc;
 	ft_bzero(&shell, sizeof(t_shell));
-	split_env(&shell, envp);
 	shell = (t_shell){};
 	g_status = 0;
 	signal(SIGINT, &handle_signal);
 	signal(SIGQUIT, SIG_IGN);
+	split_env(&shell, envp);
 	while (1)
 	{
 		shell.input = readline("minishell>$");

@@ -6,6 +6,14 @@ static bool	do_builtins(char *file, char **argv, t_shell *shell);
 static void	operate_outfile(t_shell *shell, int *tmpout);
 static	void	execute(t_shell *shell, pid_t *pid, int i);
 
+void	ft_pwd(void)
+{
+	char	cwd[PATH_MAX];
+
+	getcwd(cwd, PATH_MAX);
+	ft_putendl(cwd);
+}
+
 void	executor(t_shell *shell)
 {
 	int		tmpin;
@@ -90,14 +98,12 @@ static bool	do_builtins(char *file, char **argv, t_shell *shell)
 		// ft_env(shell);
 		return 0;
 	else if (ft_strcmp(file, "pwd") == 0)
-		// ft_pwd();
-		return 0;
+		ft_pwd();
 	else if (ft_strcmp(file, "cd") == 0)
 		// g_status = ft_cd(argv[1], shell);
 		return 0;
 	else if (ft_strcmp(file, "exit") == 0)
-		// exit_("exit", argv[1]);
-		return 0;
+		exit(1);
 	else if (ft_strcmp(file, "export") == 0)
 		// g_status = ft_export(shell, argv[1]);
 		return 0;
