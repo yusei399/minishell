@@ -91,4 +91,3 @@ reall: libre re
 # 				./src/executor/executor.c \
 # 				./src/executor/execvp.c \
 # 				./src/executor/signal.c\
->>>>>>> 2a7b23e986bc941ca5fd9283b2778ded3349f70f
