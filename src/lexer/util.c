@@ -10,27 +10,6 @@ void	ft_putendl(char const *s)
 	return ;
 }
 
-void	exit_(char *msg, char *s)
-{
-	int	status;
-
-	status = 0;
-	if (s != NULL)
-		status = ft_atoi(s);
-	while (s != NULL && *s)
-	{
-		if (ft_isdigit(*s) == 0)
-		{
-			status = 255;
-			break ;
-		}
-		s++;
-	}
-	ft_putendl(msg);
-	g_status = status;
-	exit(status);
-}
-
 void	exit_session(t_shell *data, int status, char *msg)
 {
 	(void)data;

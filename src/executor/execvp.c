@@ -7,7 +7,7 @@ int	ft_execvp(char *file, char *argv[], t_shell *shell)
 {
 	char		**paths;
 
-	paths = ft_split(ms_getenv(shell, "PATH"), ':');
+	paths = ft_split(ft_getenv(shell, "PATH"), ':');
 	file = get_abs_exe(file, paths);
 	if (file == NULL)
 		return (-1);

@@ -103,7 +103,7 @@ void	heredoc(t_shell *data);
 void	equal_devide(char** envp, t_shell *shell);
 void	handle_signal(int signal);
 void	split_env(t_shell *shell, char **envp);
-char	*ms_getenv(t_shell *shell, char *name);
+char	*ft_getenv(t_shell *shell, char *name);
 int		ft_execvp(char *file, char *argv[], t_shell *shell);
 
 void	skip_quote(char *input, size_t *i, char quote);

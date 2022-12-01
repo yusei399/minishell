@@ -16,7 +16,7 @@ int	ft_cd(char *dir, t_shell *shell)
 
 static int	go_home(t_shell *shell)
 {
-	if (chdir(ms_getenv(shell, "HOME")) != 0)
+	if (chdir(ft_getenv(shell, "HOME")) != 0)
 	{
 		ft_putstr_fd("can't found $HOME\n", 1);
 		return (1);

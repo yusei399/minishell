@@ -1,6 +1,6 @@
 #include "minishell.h"
 
-char	*ms_getenv(t_shell *shell, char *name)
+char	*ft_getenv(t_shell *shell, char *name)
 {
 	t_env	*env_lst;
 
@@ -57,7 +57,7 @@ void	get_env_val(t_shell *shell, t_list **val, t_list **key)
 			free(status);
 		}
 		else
-			content = ft_strdup(ms_getenv(shell, (char *)key_tmp->content));
+			content = ft_strdup(ft_getenv(shell, (char *)key_tmp->content));
 		node = ft_lstnew(content);
 		ft_lstadd_back(val, node);
 		key_tmp = key_tmp->next;
@@ -83,7 +83,7 @@ char	*extract_env_val(char *arg, t_shell *shell)
 		val = ft_strdup(key);
 	}
 	else
-		val = ft_strdup(ms_getenv(shell, key));
+		val = ft_strdup(ft_getenv(shell, key));
 	free(key);
 	return (val);
 }

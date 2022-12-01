@@ -91,11 +91,13 @@ static bool	ft_built(char *file, char **argv, t_shell *shell)
 	else if (ft_strcmp(file, "cd") == 0)
 		g_status = ft_cd(argv[1], shell);
 	else if (ft_strcmp(file, "exit") == 0)
-		exit(1);
+		exit_("exit", argv[1]);
 	else if (ft_strcmp(file, "export") == 0)
-		g_status = ft_export(shell, argv[1]);
+		// g_status = ft_export(shell, argv[1]);
+		return (0);
 	else if (ft_strcmp(file, "unset") == 0)
-		ft_unset(shell, argv[1]);
+		// ft_unset(shell, argv[1]);
+		return (0);
 	else
 		return (false);
 	return (true);
