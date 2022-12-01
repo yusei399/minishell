@@ -104,13 +104,10 @@ void	equal_devide(char** envp, t_shell *shell);
 void	handle_signal(int signal);
 void	split_env(t_shell *shell, char **envp);
 char	*ms_getenv(t_shell *shell, char *name);
-int	ft_execvp(char *file, char *argv[], t_shell *shell);
-
+int		ft_execvp(char *file, char *argv[], t_shell *shell);
 
 void	skip_quote(char *input, size_t *i, char quote);
-bool	arg_is_quoted(t_shell *data);
 size_t	count_cmds(char *input);
-char	**split_by_pipe(t_shell *data, char *input, size_t cmd_cnt);
 void	exit_session(t_shell *data, int status, char *msg);
 void	exit_(char *msg, char *s);
 void	exit_session(t_shell *data, int status, char *msg);
@@ -118,7 +115,6 @@ void	ft_putendl(char const *s);
 void	wait_processes(t_shell *shell);
 char	*store_quoted_arg(t_shell *shell, char *input, size_t *i, char quote);
 char	*extract_arg(t_shell *shell, char *input, char **start, size_t *i);
-
 
 //executer
 void	executor(t_shell *shell);
@@ -157,9 +153,21 @@ int		ft_echo(char **args);
 int		ft_cd(char *dir, t_shell *shell);
 void	ft_env(t_shell *shell);
 
+//lexer
+void	save_args(t_shell *shell, t_command *commands, char *input);
+void	ft_format(t_shell *shell, t_command *commands, char *argv);
+int		lexer(t_shell *shell);
 
 //split_env
 t_env	*last_env(t_env *env);
 void	add_back_env(t_env **env, t_env *new);
 t_env	*new_env(char *env);
+
+
+//pipe_split
+bool	arg_is_quoted(t_shell *shell);
+char	**split_by_pipe(t_shell *shell, char *input, size_t cmd_cnt);
+
+
+//export
 #endif

@@ -29,6 +29,7 @@ void	minishell(int argc, char **argv, char **envp)
 	g_status = 0;
 	signal(SIGINT, &handle_signal);
 	signal(SIGQUIT, SIG_IGN);
+	shell.envp = envp;
 	split_env(&shell, envp);
 	while (1)
 	{

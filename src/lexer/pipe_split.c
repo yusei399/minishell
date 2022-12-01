@@ -14,14 +14,14 @@ void	skip_quote(char *input, size_t *i, char quote)
 	*i = j;
 }
 
-bool	arg_is_quoted(t_shell *data)
+bool	arg_is_quoted(t_shell *shell)
 {
 	size_t	i;
 	char	*input;
 	char	quote;
 
 	i = 0;
-	input = data->input;
+	input = shell->input;
 	while (input[i])
 	{
 		if (input[i] == '\"' || input[i] == '\'')
@@ -37,9 +37,6 @@ bool	arg_is_quoted(t_shell *data)
 	return (true);
 }
 
-/*
-	Count the number of command lines
-*/
 size_t	count_cmds(char *input)
 {
 	size_t	cmd_cnt;
@@ -67,7 +64,7 @@ size_t	count_cmds(char *input)
 	Split per pipe and extract command line
 	 (ignore pipes in double and single quarts)
 */
-char	**split_by_pipe(t_shell *data, char *input, size_t cmd_cnt)
+char	**split_by_pipe(t_shell *shell, char *input, size_t cmd_cnt)
 {
 	size_t	i;
 	size_t	j;
@@ -79,7 +76,7 @@ char	**split_by_pipe(t_shell *data, char *input, size_t cmd_cnt)
 	start = input;
 	ret = ft_calloc(cmd_cnt + 1, sizeof(char *));
 	if (ret == NULL)
-		exit_session(data, 1, "Memory error\nexit");
+		exit_session(shell, 1, "Memory error\nexit");
 	while (input[++j])
 	{
 		if (input[j] == '\"' || input[j] == '\'')
