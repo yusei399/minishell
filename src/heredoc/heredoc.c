@@ -29,7 +29,7 @@ char	*get_end(char *arg)
 	return(ft_strdup(&arg[i]));
 }
 
-int is_exact_match(char *input, char *end)
+static int is_exact_match(char *input, char *end)
 {
 	if (ft_strlen(input) != ft_strlen(end))
 		return (0);
