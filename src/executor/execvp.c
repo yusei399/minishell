@@ -3,25 +3,11 @@
 static char	*get_abs_exe(char *file, char **paths);
 static void	free_dp(char **dp);
 
-char	*ms_getenv(t_shell *shell, char *name)
-{
-	t_env	*env_lst;
-
-	env_lst = shell->env;
-	while (env_lst)
-	{
-		if (ft_strcmp(env_lst->key, name) == 0)
-			return (env_lst->value);
-		env_lst = env_lst->next;
-	}
-	return ("");
-}
-
 int	ft_execvp(char *file, char *argv[], t_shell *shell)
 {
 	char		**paths;
 
-	paths = ft_split(ms_getenv(shell, "PATH"), ':');
+	paths = ft_split(ft_getenv(shell, "PATH"), ':');
 	file = get_abs_exe(file, paths);
 	if (file == NULL)
 		return (-1);

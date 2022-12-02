@@ -1,7 +1,7 @@
-
 #include "../../inc/minishell.h"
 
-char	*ms_getenv(t_shell *shell, char *name)
+
+char	*ft_getenv(t_shell *shell, char *name)
 {
 	t_env	*env_lst;
 
@@ -40,10 +40,7 @@ void	extract_env_key(char *arg, t_list **env_key)
 	}
 }
 
-/*
-	Expand environment variable name to value
-*/
-void	get_env_val(t_shell *data, t_list **val, t_list **key)
+void	get_env_val(t_shell *shell, t_list **val, t_list **key)
 {
 	t_list	*node;
 	t_list	*key_tmp;
@@ -61,14 +58,14 @@ void	get_env_val(t_shell *data, t_list **val, t_list **key)
 			free(status);
 		}
 		else
-			content = ft_strdup(ms_getenv(data, (char *)key_tmp->content));
+			content = ft_strdup(ft_getenv(shell, (char *)key_tmp->content));
 		node = ft_lstnew(content);
 		ft_lstadd_back(val, node);
 		key_tmp = key_tmp->next;
 	}
 }
 
-char	*extract_env_val(char *arg, t_shell *data)
+char	*extract_env_val(char *arg, t_shell *shell)
 {
 	char	*key;
 	char	*val;
@@ -79,7 +76,7 @@ char	*extract_env_val(char *arg, t_shell *data)
 		i++;
 	key = ft_substr(arg + 1, 0, i - 1);
 	if (key == NULL)
-		exit_session(data, 1, "Memory error\nexit");
+		exit_session(shell, 1, "Memory error\nexit");
 	if (ft_strcmp(key, "?") == 0)
 	{
 		free(key);
@@ -87,15 +84,12 @@ char	*extract_env_val(char *arg, t_shell *data)
 		val = ft_strdup(key);
 	}
 	else
-		val = ft_strdup(ms_getenv(data, key));
+		val = ft_strdup(ft_getenv(shell, key));
 	free(key);
 	return (val);
 }
 
-/*
-	Expand environment variables and create new strings
-*/
-char	*expand_env(char *arg, t_shell *data, bool quoted)
+char	*expand_env(char *arg, t_shell *shell, bool quoted)
 {
 	size_t	len;
 	t_list	*env_val;
@@ -103,16 +97,16 @@ char	*expand_env(char *arg, t_shell *data, bool quoted)
 	char	*ret;
 
 	if (quoted == false)
-		return (extract_env_val(arg, data));
+		return (extract_env_val(arg, shell));
 	env_val = NULL;
 	env_key = NULL;
 	extract_env_key(arg, &env_key);
-	get_env_val(data, &env_val, &env_key);
+	get_env_val(shell, &env_val, &env_key);
 	len = count_arg_len(arg, &env_val, &env_key);
-	ret = create_expanded_arg(data, arg, &env_val, len);
+	ret = create_expanded_arg(shell, arg, &env_val, len);
 	ft_lstclear(&env_key, free);
 	ft_lstclear(&env_val, free);
 	if (ret == NULL)
-		exit_session(data, 1, "Memory error\nexit");
+		exit_session(shell, 1, "Memory error\nexit");
 	return (ret);
 }

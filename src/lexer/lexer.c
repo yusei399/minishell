@@ -6,13 +6,13 @@
 /*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 11:47:46 by susui             #+#    #+#             */
-/*   Updated: 2022/11/27 23:37:19 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/11/29 17:13:59 by yuseiikeda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/minishell.h"
 
-void	store_args(t_shell *shell, t_command *commands, char *input)
+void	save_args(t_shell *shell, t_command *commands, char *input)
 {
 	size_t	i;
 	size_t	j;
@@ -38,19 +38,19 @@ void	store_args(t_shell *shell, t_command *commands, char *input)
 	commands->argv[j] = NULL;
 }
 
-void	ft_format(t_shell *data, t_command *commands, char *argv)
+void	ft_format(t_shell *shell, t_command *commands, char *argv)
 {
 	size_t	arg_cnt;
 	char	*input_trimmed;
 
 	input_trimmed = ft_strtrim(argv, " ");
 	if (input_trimmed == NULL)
-		exit_session(data, 1, "Memory error\nexit");
+		exit_session(shell, 1, "Memory error\nexit");
 	arg_cnt = count_args(input_trimmed);
 	commands->argv = ft_calloc(arg_cnt, sizeof(char *));
 	if (commands->argv == NULL)
-		exit_session(data, 1, "Memory error\nexit");
-	store_args(data, commands, input_trimmed);
+		exit_session(shell, 1, "Memory error\nexit");
+	save_args(shell, commands, input_trimmed);
 	free(input_trimmed);
 }
 
@@ -77,20 +77,3 @@ int	lexer(t_shell *shell)
 	free(argv);
 	return (0);
 }
-
- /* ----------------------------------------------------------
-
-int main(int argc, char **argv)
-{
-	t_shell shell;
-
-	if (argc != 2)
-		return 0;
-	shell.arg = argv[1];
-	lexer(&shell);
-	shell.arg = "sdfghjksdfghjk''";
-	lexer(&shell);
-	return (0);
-}
-
----------------------------------------------------------- */

@@ -1,8 +1,7 @@
-
 #include "../../inc/minishell.h"
 
 static	void	exe_loop(t_shell *shell, int *tmpout, pid_t *pid);
-static bool	do_builtins(char *file, char **argv, t_shell *shell);
+static bool	ft_built(char *file, char **argv, t_shell *shell);
 static void	operate_outfile(t_shell *shell, int *tmpout);
 static	void	execute(t_shell *shell, pid_t *pid, int i);
 
@@ -38,12 +37,12 @@ static	void	exe_loop(t_shell *shell, int *tmpout, pid_t *pid)
 	while (i < shell->cmd->cmd_cnt)
 	{
 		dup2(shell->cmd->fd[IN], 0);
-		close(shell->cmd->cmd_cnt - 1);
+		close(shell->cmd->fd[IN]);
 		if (i == shell->cmd->cmd_cnt - 1)
 			operate_outfile(shell, tmpout);
 		else
 		{
-			pipe(shell->cmd->fd);
+			pipe(shell->cmd->pipe);
 			shell->cmd->fd[IN] = shell->cmd->pipe[IN];
 			shell->cmd->fd[OUT] = shell->cmd->pipe[OUT];
 		}
@@ -63,7 +62,7 @@ static	void	execute(t_shell *shell, pid_t *pid, int i)
 	argv = shell->cmd->commands[i].argv;
 	if (file == NULL)
 		return ;
-	if (do_builtins(file, argv, shell) == true)
+	if (ft_built(file, argv, shell) == true)
 		return ;
 	else
 	{
@@ -81,29 +80,24 @@ static	void	execute(t_shell *shell, pid_t *pid, int i)
 	}
 }
 
-static bool	do_builtins(char *file, char **argv, t_shell *shell)
+static bool	ft_built(char *file, char **argv, t_shell *shell)
 {
 	if (ft_strcmp(file, "echo") == 0)
-		// g_status = ft_echo(argv);
-		return 0;
+		g_status = ft_echo(argv);
 	else if (ft_strcmp(file, "env") == 0)
-		// ft_env(shell);
-		return 0;
+		ft_env(shell);
 	else if (ft_strcmp(file, "pwd") == 0)
-		// ft_pwd();
-		return 0;
+		ft_pwd();
 	else if (ft_strcmp(file, "cd") == 0)
-		// g_status = ft_cd(argv[1], shell);
-		return 0;
+		g_status = ft_cd(argv[1], shell);
 	else if (ft_strcmp(file, "exit") == 0)
-		// exit_("exit", argv[1]);
-		return 0;
+		exit_("exit", argv[1]);
 	else if (ft_strcmp(file, "export") == 0)
 		// g_status = ft_export(shell, argv[1]);
-		return 0;
+		return (0);
 	else if (ft_strcmp(file, "unset") == 0)
 		// ft_unset(shell, argv[1]);
-		return 0;
+		return (0);
 	else
 		return (false);
 	return (true);
