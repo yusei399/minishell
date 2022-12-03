@@ -15,16 +15,11 @@ int	check_export(t_shell *shell,char *arg)
  char	*key_env(char	*arg)
  {
 	size_t	i;
-	char	*key;
 
 	i = 0;
-	while (arg[i++] != '=')
-		;
-	key = malloc(sizeof(char ) * i);
-	if (!key)
-		return (NULL);
-	ft_strlcpy(key, arg, i);
-	return (key);
+	while (arg[i] != '=')
+		i++;
+	return (ft_strndup(arg, i));
 }
 
 int	ft_export(t_shell *shell, char *arg)
@@ -34,11 +29,15 @@ int	ft_export(t_shell *shell, char *arg)
 
 	if (check_export(shell, arg))
 		return (0);
-	key = key_env(arg);
-	ft_unset(shell, key);
-	free(key);
-	// todo
-	env = new_env(arg);
+	env = malloc(sizeof(t_env));
+	if (!env)
+		return (1);
+	env->key = ft_substr(arg, 0, (ft_strchr(arg, '=') - arg));
+	ft_unset(shell, env->key);
+	env->value = ft_strdup(ft_strchr(arg, '=') + 1);
+	env->next = NULL;
 	add_back_env(&shell->env, env);
 	return (0);
 }
+
+

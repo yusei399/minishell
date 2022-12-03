@@ -96,8 +96,8 @@ static bool	ft_built(char *file, char **argv, t_shell *shell)
 		 g_status = ft_export(shell, argv[1]);
 //		return (0);
 	else if (ft_strcmp(file, "unset") == 0)
-//		 ft_unset(shell, argv[1]);
-		return (0);
+		 ft_unset(shell, argv[1]);
+//		return (0);
 	else
 		return (false);
 	return (true);
