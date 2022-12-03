@@ -5,7 +5,7 @@
 		// forkでプロセスを複製して実行する
 void	shell_executive(t_shell *shell)
 {
-	// treat_heredoc(shell);
+	treat_heredoc(shell);
 	add_history(shell->input);
 	if (lexer(shell))
 	{

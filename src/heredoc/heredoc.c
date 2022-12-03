@@ -5,14 +5,37 @@
 	しかし、それは履歴を更新する必要はありません!
 */
 /*----------------------out put--------------------------*/
-/*void	output_list()
+void	output_list(t_list *herelist)
 {
-
-}*/
+	int		fd;
+	char	*line;
+	t_list	*list;
+//	oepn
+	list = herelist;
+	fd = open(".heredoc", O_WRONLY | O_CREAT | O_TRUNC | S_IRUSR | S_IWUSR, 0644);
+	if (fd < 0)
+		return ;
+//	書き込む
+	while (list)
+	{
+		line = list->content;
+		write(fd, line, ft_strlen(line));
+		write(fd, "\n", 1);
+		list = list->next;
+	}
+}
 /*-------------------------------------------------------*/
 
 
 /*--------------------input-------------------------------*/
+
+ static int	ft_isspace(char c)
+ {
+	if ((c >= '\t' && c <= '\r') || c == ' ')
+		return (1);
+	 return (0);
+ }
+
 char	*get_end(char *arg)
 {
 	size_t	i;
@@ -26,6 +49,8 @@ char	*get_end(char *arg)
 			count ++;
 		i++;
 	}
+	while (ft_isspace(arg[i]))
+		i++;
 	return(ft_strdup(&arg[i]));
 }
 
@@ -83,22 +108,20 @@ void	treat_heredoc(t_shell *shell)
 	char	*end;
 	t_list	*herelist;
 
+	herelist = malloc(sizeof(t_list));
 	ft_bzero(&herelist, sizeof(t_list));
 	// 文字が << だったときに呼ばれると仮定する? or 確認する??
-	if (check_haredoc(shell->arg)) //todo[done]
+	if (check_haredoc(shell->input)) //todo[done]
 		return ;
-	end = get_end(shell->arg);
+	end = get_end(shell->input);
 	if (!end)
 		return ;
 	// 終了文字が来るまで文字を読み続ける
 	herelist = get_input(herelist, end); //todo [ok]
 	free(end);
-	// 出力する
-	// output_list();
-	// listを壊す
+	output_list(herelist);
 	ft_lstclear(&herelist, free);
 }
-
 
 /*
 int main(int argc, char **argv)
@@ -107,7 +130,7 @@ int main(int argc, char **argv)
 	shell.arg = argv[1];
 	treat_heredoc(&shell);
 }
- */
+*/
 
 
 
