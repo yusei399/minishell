@@ -172,7 +172,7 @@ char	**split_by_pipe(t_shell *shell, char *input, size_t cmd_cnt);
 
 //export
 void	ft_unset(t_shell *shell, char *key);
-void	ft_export(t_shell *shell, char *arg);
+int		ft_export(t_shell *shell, char *arg);
 
 
 #endif

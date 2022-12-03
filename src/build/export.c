@@ -1,12 +1,12 @@
 #include "../../inc/minishell.h"
 
-// export key=value
-// key が同じやつは上書きする
-
-int	check_export(char *arg)
+int	check_export(t_shell *shell,char *arg)
 {
 	if (!arg)
+	{
+		ft_env(shell);
 		return (1);
+	}
 	if (!ft_strstr(arg, "="))
 		return (1);
 	return (0);
@@ -23,21 +23,22 @@ char	*key_env(char	*arg)
 	key = malloc(sizeof(char ) * i);
 	if (!key)
 		return (NULL);
-	ft_memmove(key, arg, i);
+	ft_strlcpy(key, arg, i);
 	return (key);
 }
 
-void	ft_export(t_shell *shell, char *arg)
+int	ft_export(t_shell *shell, char *arg)
 {
 	t_env	*env;
 	char	*key;
 
-	if (check_export(arg))
-		return ;
+	if (check_export(shell, arg))
+		return (0);
 	key = key_env(arg);
 	ft_unset(shell, key);
 	free(key);
-	// ここらへんの関数の使い方確認頼む
+	// todo
 	env = new_env(arg);
 	add_back_env(&shell->env, env);
+	return (0);
 }
