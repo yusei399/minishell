@@ -14,10 +14,8 @@ INCS	=	$(addprefix -I,$(INCDIR))
 
 all: libft $(NAME) $(OBJDIR)
 
-
 $(OBJDIR):
 	mkdir $(OBJDIR)
-
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	@mkdir -p $(@D)
@@ -37,17 +35,8 @@ $(NAME): $(OBJS)
 libft:
 	@make -C $(LIBDIR)
 
-
-$(NAME): $(OBJS)  $(LIB)
-		$(CC) -o $(NAME) $(SRCS) $(LIB) $(CFLAGS)
-# $(GNL_OBJS)
-
-$(LIBFT):
-		$(MAKE) bonus -C $(LIBFTDIR)
-
 libre:
 	@make re -C $(LIBDIR)
-
 
 clean:
 	@echo "$(RED)"
