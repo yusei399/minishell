@@ -100,7 +100,14 @@ void	treat_heredoc(t_shell *shell)
 }
 
 
-
+/*
+int main(int argc, char **argv)
+{
+	t_shell shell;
+	shell.arg = argv[1];
+	treat_heredoc(&shell);
+}
+ */
 
 
 

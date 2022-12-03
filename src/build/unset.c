@@ -11,7 +11,7 @@ static int is_exact_match(char *input, char *end)
 
 void	clean_key(t_shell *shell, t_env *env)
 {
-	t_env	tmp;
+	t_env	*tmp;
 
 	if (!env)
 	{
@@ -24,11 +24,11 @@ void	clean_key(t_shell *shell, t_env *env)
 		env->next = tmp->next;
 	}
 	free(tmp->key);
-	free(tmp->val);
+	free(tmp->value);
 	free(tmp);
 }
 
-void	ft_port(t_shell *shell, char *key)
+void	ft_unset(t_shell *shell, char *key)
 {
 	t_env	*env;
 	t_env	*pre;
