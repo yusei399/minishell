@@ -1,4 +1,4 @@
-#include "../../inc/minishell.h"
+ #include "../../inc/minishell.h"
 
 int	check_export(t_shell *shell,char *arg)
 {
@@ -12,8 +12,8 @@ int	check_export(t_shell *shell,char *arg)
 	return (0);
 }
 
-char	*key_env(char	*arg)
-{
+ char	*key_env(char	*arg)
+ {
 	size_t	i;
 	char	*key;
 

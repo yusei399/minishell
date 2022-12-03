@@ -5,6 +5,8 @@
 		// forkでプロセスを複製して実行する
 void	shell_executive(t_shell *shell)
 {
+	// treat_heredoc(shell);
+	add_history(shell->input);
 	if (lexer(shell))
 	{
 		printf("Invalid arg\n");
@@ -38,7 +40,6 @@ void	minishell(int argc, char **argv, char **envp)
 			shell_executive(&shell);
 		else
 			free(shell.input);
-		add_history(shell.arg);
 	}
 }
 

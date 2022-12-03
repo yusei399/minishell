@@ -6,7 +6,7 @@
 /*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 11:47:46 by susui             #+#    #+#             */
-/*   Updated: 2022/11/29 17:13:59 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/12/03 08:23:59 by yuseiikeda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ int	lexer(t_shell *shell)
 	shell->cmd = ft_calloc(1, sizeof(t_cmd));
 	if (shell->cmd == NULL)
 		exit_session(shell, 1, "error");
+	store_redirect_in_out(shell, shell->input);
 	shell->cmd->cmd_cnt = count_cmds(shell->input);
 	argv = split_by_pipe(shell, shell->input, shell->cmd->cmd_cnt);
 	shell->cmd->commands = ft_calloc(shell->cmd->cmd_cnt, sizeof(t_command));
