@@ -1,13 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   echo.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/04 11:23:14 by yuseiikeda        #+#    #+#             */
+/*   Updated: 2022/12/04 11:56:07 by susui            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../inc/minishell.h"
 
-static int n_args(char **args)
+static int	n_args(char **args)
 {
-	int size;
+	int	size;
 
 	size = 0;
 	while (args[size])
 		size++;
-	return size;
+	return (size);
 }
 
 int	ft_echo(char **args)

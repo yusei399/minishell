@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
+/*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 11:37:25 by susui             #+#    #+#             */
-/*   Updated: 2022/11/27 23:04:45 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/12/04 11:49:31 by susui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ t_list			*ft_lstmap(t_list *lst, void *(*f)\
 void			ft_striteri(char *s, void (*f)(unsigned int, char*));
 char			*ft_strndup(const char *s1, size_t n);
 int				ft_printf(const char *format, ...);
-int				putchar_int(int	c);
+int				putchar_int(int c);
 int				putstr_int(char	*str);
 int				putnmb_int(int n);
 int				putui_int(unsigned int num);

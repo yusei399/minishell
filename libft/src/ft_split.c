@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
+/*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 07:44:27 by susui             #+#    #+#             */
-/*   Updated: 2022/11/27 23:25:40 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/12/04 11:52:19 by susui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_check_char(char	c, char	charset)
+int	ft_check_char(char c, char charset)
 {
 	if (c == charset)
 		return (1);
@@ -21,7 +21,7 @@ int	ft_check_char(char	c, char	charset)
 	return (0);
 }
 
-int	ft_word_num(char const	*str, char	c)
+int	ft_word_num(char const	*str, char c)
 {
 	int	i;
 	int	word_num;
@@ -38,7 +38,7 @@ int	ft_word_num(char const	*str, char	c)
 	return (word_num);
 }
 
-void	ft_pushwords(char	*result, char const	*str, char	charset)
+void	ft_pushwords(char	*result, char const *str, char charset)
 {
 	int	i;
 

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   putchr_int.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
+/*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 16:02:42 by susui             #+#    #+#             */
-/*   Updated: 2022/11/27 23:27:01 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/12/04 11:52:59 by susui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	putchar_int(int	c)
+int	putchar_int(int c)
 {
 	return (write(1, &c, 1));
 }
