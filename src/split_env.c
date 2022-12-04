@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   split_env.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
+/*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 11:25:19 by yuseiikeda        #+#    #+#             */
-/*   Updated: 2022/12/04 11:25:21 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/12/04 12:27:20 by susui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,18 +78,3 @@ void	split_env(t_shell *shell, char **envp)
 		i++;
 	}
 }
-
-
-
-/* ----------------------------------------------------
-	t_env	*env;
-
-	env = shell->env;
-	while (env)
-	{
-		ft_putstr_fd(env->key, 1);
-		ft_putstr_fd("=", 1);
-		ft_putendl_fd(env->value, 1);
-		env = env->next;
-	}
- ---------------------------------------------------- */
