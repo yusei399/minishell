@@ -3,18 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
+/*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 11:25:16 by yuseiikeda        #+#    #+#             */
-/*   Updated: 2022/12/04 11:25:17 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/12/04 16:38:26 by susui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/minishell.h"
-//目的
-	//envpをsplitして前と後ろに分けて線形リストに入れ
-	//後でaccessコマンドで実行して実行できたらする
-		// forkでプロセスを複製して実行する
+
 void	shell_executive(t_shell *shell)
 {
 	treat_heredoc(shell);
