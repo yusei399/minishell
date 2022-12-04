@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   minishell.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/04 11:35:01 by susui             #+#    #+#             */
+/*   Updated: 2022/12/04 11:43:47 by susui            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef MINISHELL_H
 # define MINISHELL_H
 
@@ -21,13 +33,13 @@
 //# include "get_next_line.h"
 
 // quote
-#define NONE 0
-#define SINGLE 1
-#define DOUBLE 2
+# define NONE	0
+# define SINGLE	1
+# define DOUBLE	2
 
 // bool
-#define TRUE 1
-#define FALSE 0
+# define TRUE 1
+# define FALSE 0
 
 # define IN 0
 # define OUT 1
@@ -49,7 +61,6 @@ typedef struct s_command
 	char	**argv;
 }	t_command;
 
-
 typedef struct s_cmd
 {
 	int					pipe[2];
@@ -67,16 +78,9 @@ typedef struct s_cmd
 typedef struct s_shell
 {
 	char	*input;
-	// read line した文字列
 	char	*arg;
-
-	// 環境変数
-	char 	**envp;
-
-	// 分解したenvp
+	char	**envp;
 	t_env	*env;
-
-	//コマンドラインの構造体
 	t_cmd	*cmd;
 }	t_shell;
 
@@ -101,12 +105,11 @@ void	write_heredoc_file(t_list *heredoc_lst);
 void	loop_heredoc(char *input, t_list **heredoc_lst, t_shell *data);
 void	heredoc(t_shell *data);
 void	treat_heredoc(t_shell *shell);
-void	equal_devide(char** envp, t_shell *shell);
+void	equal_devide(char **envp, t_shell *shell);
 void	handle_signal(int signal);
 void	split_env(t_shell *shell, char **envp);
 char	*ft_getenv(t_shell *shell, char *name);
 int		ft_execvp(char *file, char *argv[], t_shell *shell);
-
 void	skip_quote(char *input, size_t *i, char quote);
 size_t	count_cmds(char *input);
 void	exit_session(t_shell *data, int status, char *msg);
@@ -164,11 +167,9 @@ t_env	*last_env(t_env *env);
 void	add_back_env(t_env **env, t_env *new);
 t_env	*new_env(char *env);
 
-
 //pipe_split
 bool	arg_is_quoted(t_shell *shell);
 char	**split_by_pipe(t_shell *shell, char *input, size_t cmd_cnt);
-
 
 char	*extract_redirect_file(char *input);
 void	store_redirect_in_out(t_shell *data, char *input);
