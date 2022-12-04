@@ -44,11 +44,14 @@ clean:
 	@$(RM)r $(OBJDIR)
 	@echo "$(RES)"
 	rm -rf bin
+	@make clean -C libft/
 
 eclean:
 	@echo "$(RED)"
 	$(RM) $(NAME)
 	@echo "$(RES)"
+	@make fclean -C libft/
+
 
 fclean:	clean eclean
 
