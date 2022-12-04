@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   new_heredoc.c                                      :+:      :+:    :+:   */
+/*   heredoc.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 20:49:04 by susui             #+#    #+#             */
-/*   Updated: 2022/12/04 23:20:12 by susui            ###   ########.fr       */
+/*   Updated: 2022/12/05 08:29:18 by susui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,10 @@ void	loop_heredoc(char *input, t_list **herelist, t_shell *data)
 	{
 		heredoc_input = readline("> ");
 		if (heredoc_input == NULL)
+		{
+			free(end);
 			return ;
+		}
 		if (ft_strcmp(end, heredoc_input) == 0)
 		{
 			free(heredoc_input);
