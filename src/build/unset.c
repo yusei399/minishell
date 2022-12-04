@@ -6,20 +6,11 @@
 /*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 11:23:43 by yuseiikeda        #+#    #+#             */
-/*   Updated: 2022/12/04 11:57:02 by susui            ###   ########.fr       */
+/*   Updated: 2022/12/04 12:15:59 by susui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/minishell.h"
-
-static int	is_exact_match(char *input, char *end)
-{
-	if (ft_strlen(input) != ft_strlen(end))
-		return (0);
-	if (ft_strncmp(input, end, ft_strlen(end)) != 0)
-		return (0);
-	return (1);
-}
 
 void	clean_key(t_shell *shell, t_env *env)
 {

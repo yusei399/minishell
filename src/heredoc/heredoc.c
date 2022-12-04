@@ -6,7 +6,7 @@
 /*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 11:24:32 by yuseiikeda        #+#    #+#             */
-/*   Updated: 2022/12/04 12:05:02 by susui            ###   ########.fr       */
+/*   Updated: 2022/12/04 12:16:15 by susui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ char	*get_end(char *arg)
 	return (ft_strdup(&arg[i]));
 }
 
-static int	is_exact_match(char *input, char *end)
+int	is_exact_match(char *input, char *end)
 {
 	if (ft_strlen(input) != ft_strlen(end))
 		return (0);
