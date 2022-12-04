@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   executor.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
+/*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 11:24:06 by yuseiikeda        #+#    #+#             */
-/*   Updated: 2022/12/04 11:24:07 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/12/04 11:58:56 by susui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ static	void	exe_loop(t_shell *shell, int *tmpout, pid_t *pid)
 	u_int32_t	i;
 
 	i = 0;
-
 	while (i < shell->cmd->cmd_cnt)
 	{
 		dup2(shell->cmd->fd[IN], 0);
@@ -105,11 +104,9 @@ static bool	ft_built(char *file, char **argv, t_shell *shell)
 	else if (ft_strcmp(file, "exit") == 0)
 		exit_("exit", argv[1]);
 	else if (ft_strcmp(file, "export") == 0)
-		 g_status = ft_export(shell, argv[1]);
-//		return (0);
+		g_status = ft_export(shell, argv[1]);
 	else if (ft_strcmp(file, "unset") == 0)
-		 ft_unset(shell, argv[1]);
-//		return (0);
+		ft_unset(shell, argv[1]);
 	else
 		return (false);
 	return (true);

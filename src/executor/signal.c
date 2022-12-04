@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   signal.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
+/*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 11:24:22 by yuseiikeda        #+#    #+#             */
-/*   Updated: 2022/12/04 11:24:23 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/12/04 11:59:33 by susui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "../../inc/minishell.h"
 #include <stdio.h>
