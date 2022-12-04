@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
+/*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 14:22:30 by susui             #+#    #+#             */
-/*   Updated: 2022/11/27 23:26:50 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/12/04 11:52:45 by susui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*s_malloc(size_t len, size_t s_len)
 	return (dest);
 }
 
-char	*ft_substr(char const *s, unsigned int	start, size_t	len)
+char	*ft_substr(char const *s, unsigned int start, size_t	len)
 {
 	char			*dest;
 	size_t			i;

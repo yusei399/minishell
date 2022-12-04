@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
+/*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 12:39:48 by susui             #+#    #+#             */
-/*   Updated: 2022/11/27 23:24:53 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/12/04 11:51:24 by susui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void	*buf1, const void	*buf2, size_t	n)
+int	ft_memcmp(const void *buf1, const void *buf2, size_t n)
 {
 	unsigned char	*c_buf1;
 	unsigned char	*c_buf2;
