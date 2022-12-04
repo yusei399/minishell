@@ -1,16 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   heredoc.c                                          :+:      :+:    :+:   */
+/*   new_heredoc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/04 11:24:32 by yuseiikeda        #+#    #+#             */
-/*   Updated: 2022/12/04 12:16:15 by susui            ###   ########.fr       */
+/*   Created: 2022/12/04 20:49:04 by susui             #+#    #+#             */
+/*   Updated: 2022/12/04 23:20:12 by susui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/minishell.h"
+
+static int	ft_isspace(char c)
+{
+	if ((c >= '\t' && c <= '\r') || c == ' ')
+		return (1);
+	return (0);
+}
+
+char	*get_end(char *input)
+{
+	size_t	i;
+	size_t	count;
+
+	i = 0;
+	count = 0;
+	while (input[i] && count < 2)
+	{
+		if (input[i] == '<')
+			count ++;
+		i++;
+	}
+	while (ft_isspace(input[i]))
+		i++;
+	return (ft_strdup(&input[i]));
+}
 
 void	output_list(t_list *herelist)
 {
@@ -32,54 +57,40 @@ void	output_list(t_list *herelist)
 	}
 }
 
-static int	ft_isspace(char c)
-{
-	if ((c >= '\t' && c <= '\r') || c == ' ')
-		return (1);
-	return (0);
-}
-
-char	*get_end(char *arg)
-{
-	size_t	i;
-	size_t	count;
-
-	i = 0;
-	count = 0;
-	while (arg[i] && count < 2)
-	{
-		if (arg[i] == '<')
-			count ++;
-		i++;
-	}
-	while (ft_isspace(arg[i]))
-		i++;
-	return (ft_strdup(&arg[i]));
-}
-
-int	is_exact_match(char *input, char *end)
-{
-	if (ft_strlen(input) != ft_strlen(end))
-		return (0);
-	if (ft_strncmp(input, end, ft_strlen(end)) != 0)
-		return (0);
-	return (1);
-}
-
-void	treat_heredoc(t_shell *shell)
+void	loop_heredoc(char *input, t_list **herelist, t_shell *data)
 {
 	char	*end;
+	char	*heredoc_input;
+	char	*ret;
+	t_list	*node;
+
+	end = get_end(input);
+	while (1)
+	{
+		heredoc_input = readline("> ");
+		if (heredoc_input == NULL)
+			return ;
+		if (ft_strcmp(end, heredoc_input) == 0)
+		{
+			free(heredoc_input);
+			free(end);
+			return ;
+		}
+		ret = expand_env(heredoc_input, data, true);
+		node = ft_lstnew(ret);
+		free(heredoc_input);
+		ft_lstadd_back(herelist, node);
+	}
+}
+
+void	heredoc(t_shell *shell)
+{
 	t_list	*herelist;
 
-	herelist = malloc(sizeof(t_list));
-	ft_bzero(&herelist, sizeof(t_list));
-	if (check_haredoc(shell->input))
+	herelist = NULL;
+	if (!(ft_strstr(shell->input, "<<")))
 		return ;
-	end = get_end(shell->input);
-	if (!end)
-		return ;
-	herelist = get_input(herelist, end);
-	free(end);
+	loop_heredoc(shell->input, &herelist, shell);
 	output_list(herelist);
 	ft_lstclear(&herelist, free);
 }

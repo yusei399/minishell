@@ -6,7 +6,7 @@
 /*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 11:25:16 by yuseiikeda        #+#    #+#             */
-/*   Updated: 2022/12/04 16:38:26 by susui            ###   ########.fr       */
+/*   Updated: 2022/12/04 20:50:57 by susui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	shell_executive(t_shell *shell)
 {
-	treat_heredoc(shell);
+	heredoc(shell);
 	if (lexer(shell))
 	{
 		printf("Invalid arg\n");

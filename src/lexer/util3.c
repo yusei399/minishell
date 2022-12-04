@@ -6,11 +6,20 @@
 /*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 12:25:32 by susui             #+#    #+#             */
-/*   Updated: 2022/12/04 12:25:46 by susui            ###   ########.fr       */
+/*   Updated: 2022/12/04 23:23:02 by susui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/minishell.h"
+
+int	is_exact_match(char *input, char *end)
+{
+	if (ft_strlen(input) != ft_strlen(end))
+		return (0);
+	if (ft_strncmp(input, end, ft_strlen(end)) != 0)
+		return (0);
+	return (1);
+}
 
 void	wait_processes(t_shell *shell)
 {
