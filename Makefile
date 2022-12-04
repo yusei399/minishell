@@ -1,39 +1,59 @@
+CC		=	cc
+CFLAGS	=	#-Wall -Wextra -Werror
+LDFLAGS	=	-L$(LIBDIR) -lft -L$(shell brew --prefix readline)/lib -lreadline
+NAME	=	minishell
+SRCDIR	=	src
+OBJDIR	=	obj
+LIBDIR	=	./libft
+INCDIR	=	inc $(LIBDIR)/inc $(shell brew --prefix readline)/include
 
-NAME 		=	minishell
-CC			=	cc
-CFLAGS		=	-Wall -Wextra -Werror -lreadline -I ./include
-# -fsanitize=address
+# find src -name \*.c | sed -e "s/$/\\\/g" | pbcopy <-- copy all src files
+SRCS	=	$(shell find $(SRCDIR) -name "*.c" -type f) # fix here
+OBJS	=	$(SRCS:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
+INCS	=	$(addprefix -I,$(INCDIR))
 
-LIBFTDIR	=	libft
-LIBFT		=	$(LIBFTDIR)/libft.a
-LIB			=	$(LIBFT)
+all: libft $(NAME) $(OBJDIR)
 
-GNL_SRC         =       ./get_next_line/get_next_line.c ./get_next_line/get_next_line_utils.c
-GNL_PATH        =       ./get_next_line/
-GNL_OBJS        =       $(GNL_SRC:.c=.o)
+$(OBJDIR):
+	mkdir $(OBJDIR)
 
-SRCS		=	./src/minishell.c ./src/cd.c ./src/pwd.c ./src/echo.c ./src/exit.c  ./src/export.c ./src/layerX.c ./src/readline.c  \
-				./src/util_2.c
+$(OBJDIR)/%.o: $(SRCDIR)/%.c
+	@mkdir -p $(@D)
+	@$(CC) $(CFLAGS) $(INCS) -o $(@) -c -g $(<)
+	@echo "$(<)\n     \
+	$(MGN)--->$(RES) \
+	$(GRN)$(@)$(RES)"
 
-OBJS		=	${SRCS:.c=.o}
+$(NAME): $(OBJS)
+	@$(CC) -o $(NAME) $(OBJS) $(LDFLAGS)
+	@echo "$(CYN)\n=====link=====$(RES)"
+	@echo "$(YEL)Objects$(RES): $(OBJS)\n"
+	@echo "$(YEL)Flags$(RES): $(LDFLAGS)\n"
+	@echo "     $(MGN)--->$(RES) $(GRN)$(NAME)$(RES)"
+	@echo "$(CYN)==============$(RES)"
 
+libft:
+	@make -C $(LIBDIR)
 
-all: $(NAME)
-
-$(NAME): $(OBJS) $(GNL_OBJS) $(LIB)
-		$(CC) -o $(NAME) $(SRCS) $(GNL_OBJS) $(LIB) $(CFLAGS)
-$(LIBFT):
-		$(MAKE) -C $(LIBFTDIR)
+libre:
+	@make re -C $(LIBDIR)
 
 clean:
-		$(MAKE) clean -C $(LIBFTDIR)
-		$(RM) ${OBJS}
+	@echo "$(RED)"
+	$(RM) $(OBJS)
+	@$(RM)r $(OBJDIR)
+	@echo "$(RES)"
+	rm -rf bin
 
-fclean: clean
-		$(MAKE) fclean -C $(LIBFTDIR)
-		$(RM) ${NAME}
+eclean:
+	@echo "$(RED)"
+	$(RM) $(NAME)
+	@echo "$(RES)"
 
-re : fclean all
+fclean:	clean eclean
 
-.PHONY:
-		all clean fclean re
+re: fclean all
+
+reall: libre re
+
+.PHONY: all libft clean fclean eclean re
