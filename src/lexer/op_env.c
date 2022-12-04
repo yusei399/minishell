@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   op_env.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
+/*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 11:24:40 by yuseiikeda        #+#    #+#             */
-/*   Updated: 2022/12/04 11:24:41 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/12/04 12:24:16 by susui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/minishell.h"
-
 
 char	*ft_getenv(t_shell *shell, char *name)
 {

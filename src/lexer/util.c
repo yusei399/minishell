@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   util.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
+/*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 11:25:02 by yuseiikeda        #+#    #+#             */
-/*   Updated: 2022/12/04 11:25:03 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/12/04 12:26:04 by susui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	ft_putendl(char const *s)
 	if (s == NULL)
 		return ;
 	while (*s != '\0')
-		write(1, s++,1);
-	write(1, "\n",1);
+		write(1, s++, 1);
+	write(1, "\n", 1);
 	return ;
 }
 
@@ -76,31 +76,4 @@ char	*ft_strstr(const char *haystack, const char *needle)
 		haystack++;
 	}
 	return (NULL);
-}
-
-void	wait_processes(t_shell *shell)
-{
-	int		status;
-	size_t	i;
-
-	i = 0;
-	status = 0;
-	while (i++ < shell->cmd->cmd_cnt)
-		wait(&status);
-	if (status == SIGINT)
-		g_status = SIGINT + 128;
-	else if (status == SIGQUIT)
-		g_status = SIGQUIT + 128;
-	else
-		g_status = WEXITSTATUS(status);
-}
-
-int	ft_strcmp(const char *s1, const char *s2)
-{
-	size_t	i;
-
-	i = 0;
-	while (s1[i] == s2[i] && s1[i] && s2[i])
-		i++;
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }

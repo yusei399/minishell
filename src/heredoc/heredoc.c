@@ -66,9 +66,6 @@ int	is_exact_match(char *input, char *end)
 	return (1);
 }
 
-
-/*-----------------------------------------------------------*/
-
 void	treat_heredoc(t_shell *shell)
 {
 	char	*end;
