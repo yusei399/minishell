@@ -44,13 +44,6 @@
 #define TRUE 1
 #define FALSE 0
 
-<<<<<<< HEAD
-// typedef enum e_boolean
-// {
-// 	TRUE = 1,
-// 	FALSE = 0,
-// }			t_boolean;
-=======
 # define IN 0
 # define OUT 1
 
@@ -58,7 +51,6 @@
 # define APPEND 1
 
 int	g_status;
->>>>>>> mikitakeo
 
 typedef struct s_env
 {
@@ -67,27 +59,11 @@ typedef struct s_env
 	struct s_env	*next;
 }	t_env;
 
-<<<<<<< HEAD
-// グローバル変数
-// char	**g_env;
-
-typedef struct s_shell
-=======
 typedef struct s_command
->>>>>>> mikitakeo
 {
 	char	**argv;
 }	t_command;
 
-<<<<<<< HEAD
-typedef struct s_token
-{
-	char			*str;
-	int				type;
-	struct s_token	*next;
-}					t_token;
-=======
->>>>>>> mikitakeo
 
 typedef struct s_cmd
 {
