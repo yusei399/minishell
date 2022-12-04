@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lstnew.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
+/*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 09:41:23 by susui             #+#    #+#             */
-/*   Updated: 2022/11/27 23:36:43 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/12/04 11:57:48 by susui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,3 @@ t_cmd	*lstnew(void)
 	*lst = (t_cmd){0, 0, 0, 0, 0, 0, 0};
 	return (lst);
 }
-
-/*
-int main(void)
-{
-	t_cmd *lst;
-
-	lst = NULL;
-	lst = lstnew();
-	lst->type = 100;
-	printf("lst: %d", lst->type);
-	free(lst);
-}
-*/
-
