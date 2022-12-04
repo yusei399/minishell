@@ -6,7 +6,7 @@
 /*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 11:23:32 by yuseiikeda        #+#    #+#             */
-/*   Updated: 2022/12/04 11:56:51 by susui            ###   ########.fr       */
+/*   Updated: 2022/12/04 16:35:33 by susui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ char	*key_env(char	*arg)
 int	ft_export(t_shell *shell, char *arg)
 {
 	t_env	*env;
-	char	*key;
 
 	if (check_export(shell, arg))
 		return (0);

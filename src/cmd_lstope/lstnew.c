@@ -6,7 +6,7 @@
 /*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 09:41:23 by susui             #+#    #+#             */
-/*   Updated: 2022/12/04 11:57:48 by susui            ###   ########.fr       */
+/*   Updated: 2022/12/04 16:35:12 by susui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ t_cmd	*lstnew(void)
 	lst = (t_cmd *)malloc(sizeof(t_cmd));
 	if (lst == NULL)
 		return (NULL);
-	*lst = (t_cmd){0, 0, 0, 0, 0, 0, 0};
+	ft_bzero(lst, sizeof(t_cmd));
 	return (lst);
 }

@@ -6,7 +6,7 @@
 /*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 11:25:19 by yuseiikeda        #+#    #+#             */
-/*   Updated: 2022/12/04 12:27:20 by susui            ###   ########.fr       */
+/*   Updated: 2022/12/04 16:36:53 by susui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	add_back_env(t_env **env, t_env *new)
 {
 	t_env	*last;
 
-	if (last == NULL || new == NULL)
+	if (new == NULL)
 		return ;
 	else if (*env == NULL)
 	{
