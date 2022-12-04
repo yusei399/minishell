@@ -6,7 +6,7 @@
 /*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 11:35:01 by susui             #+#    #+#             */
-/*   Updated: 2022/12/04 11:43:47 by susui            ###   ########.fr       */
+/*   Updated: 2022/12/04 12:07:11 by susui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -176,5 +176,10 @@ void	store_redirect_in_out(t_shell *data, char *input);
 //export
 void	ft_unset(t_shell *shell, char *key);
 int		ft_export(t_shell *shell, char *arg);
+
+//heredoc
+int		check_input(char *input, char *end);
+t_list	*get_input(t_list *herelist, char *end);
+int		check_haredoc(char *arg);
 
 #endif
