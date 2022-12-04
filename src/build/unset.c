@@ -28,7 +28,7 @@ void	clean_key(t_shell *shell, t_env *env)
 	free(tmp);
 }
 
-void	ft_port(t_shell *shell, char *key)
+void	ft_unset(t_shell *shell, char *key)
 {
 	t_env	*env;
 	t_env	*pre;

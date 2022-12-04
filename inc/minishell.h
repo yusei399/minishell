@@ -173,4 +173,8 @@ char	**split_by_pipe(t_shell *shell, char *input, size_t cmd_cnt);
 char	*extract_redirect_file(char *input);
 void	store_redirect_in_out(t_shell *data, char *input);
 //export
+void	ft_unset(t_shell *shell, char *key);
+int		ft_export(t_shell *shell, char *arg);
+
+
 #endif
