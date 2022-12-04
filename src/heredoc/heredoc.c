@@ -69,17 +69,6 @@ int	is_exact_match(char *input, char *end)
 
 /*-----------------------------------------------------------*/
 
-
-int	check_input(char *input, char *end)
-{
-	if (!input)
-		return (1);
-	if (is_exact_match(input, end))
-		return (1);
-	return (0);
-}
-
-
 void	treat_heredoc(t_shell *shell)
 {
 	char	*end;
