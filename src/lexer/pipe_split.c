@@ -60,10 +60,6 @@ size_t	count_cmds(char *input)
 	return (cmd_cnt);
 }
 
-/*
-	Split per pipe and extract command line
-	 (ignore pipes in double and single quarts)
-*/
 char	**split_by_pipe(t_shell *shell, char *input, size_t cmd_cnt)
 {
 	size_t	i;

@@ -6,7 +6,6 @@
 void	shell_executive(t_shell *shell)
 {
 	// treat_heredoc(shell);
-	add_history(shell->input);
 	if (lexer(shell))
 	{
 		printf("Invalid arg\n");
@@ -17,7 +16,6 @@ void	shell_executive(t_shell *shell)
 		executor(shell);
 		free_all(shell);
 	}
-	add_history(shell->input);
 }
 
 void	minishell(int argc, char **argv, char **envp)
@@ -36,6 +34,10 @@ void	minishell(int argc, char **argv, char **envp)
 	while (1)
 	{
 		shell.input = readline("minishell>$");
+		if (shell.input == NULL)
+			exit_("\b\bexit", EXIT_SUCCESS);
+		if (shell.input[0])
+			add_history(shell.input);
 		if (shell.input[0] != '\0')
 			shell_executive(&shell);
 		else

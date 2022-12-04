@@ -22,9 +22,6 @@ size_t	count_arg_len(char *arg, t_list **val, t_list **key)
 	return (len);
 }
 
-/*
-	Copying lst content
-*/
 void	copy_lst_content(char **dst, size_t *j, t_list **lst)
 {
 	size_t	i;
