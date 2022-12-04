@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   export.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
+/*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 11:23:32 by yuseiikeda        #+#    #+#             */
-/*   Updated: 2022/12/04 11:23:33 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/12/04 11:56:51 by susui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
- #include "../../inc/minishell.h"
+#include "../../inc/minishell.h"
 
-int	check_export(t_shell *shell,char *arg)
+int	check_export(t_shell *shell, char *arg)
 {
 	if (!arg)
 	{
@@ -24,8 +24,8 @@ int	check_export(t_shell *shell,char *arg)
 	return (0);
 }
 
- char	*key_env(char	*arg)
- {
+char	*key_env(char	*arg)
+{
 	size_t	i;
 
 	i = 0;
@@ -51,5 +51,3 @@ int	ft_export(t_shell *shell, char *arg)
 	add_back_env(&shell->env, env);
 	return (0);
 }
-
-

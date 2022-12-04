@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   cd.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
+/*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 11:23:07 by yuseiikeda        #+#    #+#             */
-/*   Updated: 2022/12/04 11:23:08 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/12/04 11:55:37 by susui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/minishell.h"
-
 
 static int	go_home(t_shell *shell);
 

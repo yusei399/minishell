@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   unset.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
+/*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 11:23:43 by yuseiikeda        #+#    #+#             */
-/*   Updated: 2022/12/04 11:23:44 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/12/04 11:57:02 by susui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/minishell.h"
 
-static int is_exact_match(char *input, char *end)
+static int	is_exact_match(char *input, char *end)
 {
 	if (ft_strlen(input) != ft_strlen(end))
 		return (0);
