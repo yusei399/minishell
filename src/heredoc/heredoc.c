@@ -6,7 +6,7 @@
 /*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 20:49:04 by susui             #+#    #+#             */
-/*   Updated: 2022/12/05 08:29:18 by susui            ###   ########.fr       */
+/*   Updated: 2022/12/05 11:11:15 by susui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,20 +21,20 @@ static int	ft_isspace(char c)
 
 char	*get_end(char *input)
 {
-	size_t	i;
-	size_t	count;
+	char	*sign;
+	char	*start;
+	char	*ret;
 
-	i = 0;
-	count = 0;
-	while (input[i] && count < 2)
-	{
-		if (input[i] == '<')
-			count ++;
-		i++;
-	}
-	while (ft_isspace(input[i]))
-		i++;
-	return (ft_strdup(&input[i]));
+	sign = ft_strstr(input, "<<") + 2;
+	while (*sign && ft_isspace(*sign))
+		sign++;
+	start = sign;
+	while (ft_strchr(" <>\0", *sign) == 0)
+		sign++;
+	ret = ft_substr(start, 0, sign - start);
+	if (ret == NULL)
+		return (NULL);
+	return (ret);
 }
 
 void	output_list(t_list *herelist)
