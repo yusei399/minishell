@@ -77,7 +77,7 @@ char	**split_by_pipe(t_shell *shell, char *input, size_t cmd_cnt)
 	{
 		if (input[j] == '\"' || input[j] == '\'')
 			skip_quote(input, &j, input[j]);
-		if (input[j] == '|')
+		if (input[j] == '|' || (input[j] == '<' && input[j + 1] == '<'))
 		{
 			ret[i++] = ft_substr(input, start - input, &input[j] - start);
 			start = input + j + 1;
