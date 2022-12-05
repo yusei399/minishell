@@ -6,7 +6,7 @@
 /*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 20:49:04 by susui             #+#    #+#             */
-/*   Updated: 2022/12/05 11:11:15 by susui            ###   ########.fr       */
+/*   Updated: 2022/12/05 11:20:25 by susui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*get_end(char *input)
 	while (*sign && ft_isspace(*sign))
 		sign++;
 	start = sign;
-	while (ft_strchr(" <>\0", *sign) == 0)
+	while (ft_strchr(" |<>\0", *sign) == 0)
 		sign++;
 	ret = ft_substr(start, 0, sign - start);
 	if (ret == NULL)
