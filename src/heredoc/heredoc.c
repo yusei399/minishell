@@ -6,13 +6,13 @@
 /*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 20:49:04 by susui             #+#    #+#             */
-/*   Updated: 2022/12/05 11:20:25 by susui            ###   ########.fr       */
+/*   Updated: 2022/12/06 15:44:27 by susui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/minishell.h"
 
-static int	ft_isspace(char c)
+int	ft_isspace(char c)
 {
 	if ((c >= '\t' && c <= '\r') || c == ' ')
 		return (1);

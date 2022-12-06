@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lexer.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuseiikeda <yuseiikeda@student.42.fr>      +#+  +:+       +#+        */
+/*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 11:47:46 by susui             #+#    #+#             */
-/*   Updated: 2022/12/03 08:23:59 by yuseiikeda       ###   ########.fr       */
+/*   Updated: 2022/12/06 15:44:03 by susui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,30 @@ void	save_args(t_shell *shell, t_command *commands, char *input)
 	commands->argv[j] = NULL;
 }
 
+char	*get_com(char *input)
+{
+	char	*sign;
+	char	*start;
+	char	*ret;
+
+	sign = input;
+	while (*sign && ft_isspace(*sign))
+		sign++;
+	start = sign;
+	while (ft_strchr(" |<>\0", *sign) == 0)
+		sign++;
+	ret = ft_substr(start, 0, sign - start);
+	if (ret == NULL)
+		return (NULL);
+	return (ret);
+}
+
 void	ft_format(t_shell *shell, t_command *commands, char *argv)
 {
 	size_t	arg_cnt;
 	char	*input_trimmed;
 
-	input_trimmed = ft_strtrim(argv, " ");
+	input_trimmed = get_com(argv);
 	if (input_trimmed == NULL)
 		exit_session(shell, 1, "Memory error\nexit");
 	arg_cnt = count_args(input_trimmed);

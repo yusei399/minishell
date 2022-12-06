@@ -6,7 +6,7 @@
 /*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 11:35:01 by susui             #+#    #+#             */
-/*   Updated: 2022/12/04 23:13:51 by susui            ###   ########.fr       */
+/*   Updated: 2022/12/06 15:44:41 by susui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -184,5 +184,6 @@ int		check_haredoc(char *arg);
 int		is_exact_match(char *input, char *end);
 void	heredoc(t_shell *shell);
 char	*get_end(char *input);
+int		ft_isspace(char c);
 
 #endif
