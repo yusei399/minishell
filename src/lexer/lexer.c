@@ -6,7 +6,7 @@
 /*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 11:47:46 by susui             #+#    #+#             */
-/*   Updated: 2022/12/06 15:44:03 by susui            ###   ########.fr       */
+/*   Updated: 2022/12/06 15:53:53 by susui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	ft_format(t_shell *shell, t_command *commands, char *argv)
 	size_t	arg_cnt;
 	char	*input_trimmed;
 
-	input_trimmed = get_com(argv);
+	input_trimmed = ft_strtrim(argv, " ");
 	if (input_trimmed == NULL)
 		exit_session(shell, 1, "Memory error\nexit");
 	arg_cnt = count_args(input_trimmed);
