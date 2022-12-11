@@ -6,7 +6,7 @@
 /*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 11:47:46 by susui             #+#    #+#             */
-/*   Updated: 2022/12/06 15:53:53 by susui            ###   ########.fr       */
+/*   Updated: 2022/12/11 17:45:12 by susui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	save_args(t_shell *shell, t_command *commands, char *input)
 			commands->argv[j++] = store_quoted_arg(shell, input, &i, input[i]);
 			start = input + ++i;
 		}
-		if (ft_strchr("<>", input[i++]))
+		if (ft_strchr(">", input[i++]))
 			break ;
 	}
 	commands->argv[j] = NULL;
@@ -81,7 +81,7 @@ int	lexer(t_shell *shell)
 	shell->cmd = ft_calloc(1, sizeof(t_cmd));
 	if (shell->cmd == NULL)
 		exit_session(shell, 1, "error");
-	store_redirect_in_out(shell, shell->input);
+	save_redirect(shell, shell->input);
 	shell->cmd->cmd_cnt = count_cmds(shell->input);
 	argv = split_by_pipe(shell, shell->input, shell->cmd->cmd_cnt);
 	shell->cmd->commands = ft_calloc(shell->cmd->cmd_cnt, sizeof(t_command));

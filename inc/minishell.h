@@ -6,7 +6,7 @@
 /*   By: susui <susui@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 11:35:01 by susui             #+#    #+#             */
-/*   Updated: 2022/12/06 15:44:41 by susui            ###   ########.fr       */
+/*   Updated: 2022/12/11 17:48:23 by susui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,18 +172,13 @@ bool	arg_is_quoted(t_shell *shell);
 char	**split_by_pipe(t_shell *shell, char *input, size_t cmd_cnt);
 
 char	*extract_redirect_file(char *input);
-void	store_redirect_in_out(t_shell *data, char *input);
+int		check_redirect(char *input);
+void	pre_save_redirect(t_shell *shell, char *input);
+void	save_redirect(t_shell *shell, char *input);
 //export
 void	ft_unset(t_shell *shell, char *key);
 int		ft_export(t_shell *shell, char *arg);
-
-//heredoc
-int		check_input(char *input, char *end);
-void	get_input(t_list *head, char *end);
-int		check_haredoc(char *arg);
 int		is_exact_match(char *input, char *end);
-void	heredoc(t_shell *shell);
-char	*get_end(char *input);
 int		ft_isspace(char c);
 
 #endif
