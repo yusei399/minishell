@@ -34,11 +34,11 @@ char	*extract_arg(t_shell *shell, char *input, char **start, size_t *i)
 	else
 		arg = ft_substr(input, *start - input, &input[*i] - *start);
 	if (arg == NULL)
-		exit_session(shell, 1, "Memory error\nexit");
+		exit_session(shell, 1, "error\nexit");
 	ret = ft_strtrim(arg, " ");
 	free(arg);
 	if (ret == NULL)
-		exit_session(shell, 1, "Memory error\nexit");
+		exit_session(shell, 1, "error\nexit");
 	if (*ret == '$')
 	{
 		arg = expand_env(ret, shell, false);

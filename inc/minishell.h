@@ -164,17 +164,16 @@ t_env	*last_env(t_env *env);
 void	add_back_env(t_env **env, t_env *new);
 t_env	*new_env(char *env);
 
-
 //pipe_split
 bool	arg_is_quoted(t_shell *shell);
 char	**split_by_pipe(t_shell *shell, char *input, size_t cmd_cnt);
 
-
 char	*extract_redirect_file(char *input);
-void	store_redirect_in_out(t_shell *data, char *input);
+int		check_redirect(char *input);
+void	pre_save_redirect(t_shell *shell, char *input);
+void	save_redirect(t_shell *shell, char *input);
 //export
 void	ft_unset(t_shell *shell, char *key);
 int		ft_export(t_shell *shell, char *arg);
-
 
 #endif

@@ -21,7 +21,21 @@ char	*extra_redirect(char *in)
 	return (file);
 }
 
-void	save_redirect(t_shell *shell, char *input)
+int	check_redirect(char *input)
+{
+	size_t	i;
+
+	i = 0;
+	while (input[++i])
+	{
+		if (ft_strchr(">", input[i]) && input[i + 1] != '>'
+			&& input[i + 1] != '>')
+			return (false);
+	}
+	return (true);
+}
+
+void	pre_save_redirect(t_shell *shell, char *input)
 {
 	size_t	i;
 
@@ -34,18 +48,35 @@ void	save_redirect(t_shell *shell, char *input)
 			shell->cmd->fd_in = ft_strdup(".heredoc");
 		}
 		else if (ft_strchr("<", input[i]))
-			shell->cmd->fd_in = extra_redirect(&input[i + 1]);
+			shell->cmd->fd_in = extract_redirect_file(&input[i + 1]);
 		else if (ft_strchr(">", input[i]) && input[i + 1] != '>')
 		{
-			shell->cmd->fd_out = extra_redirect(&input[i + 1]);
+			shell->cmd->fd_out = extract_redirect_file(&input[i + 1]);
 			shell->cmd->outfile_mode = TRUNC;
 		}
 		else if (ft_strchr(">", input[i]) && input[i + 1] == '>')
 		{
-			shell->cmd->fd_out = extra_redirect(&input[++i + 1]);
+			shell->cmd->fd_out = extract_redirect_file(&input[++i + 1]);	
 			shell->cmd->outfile_mode = APPEND;
 		}
 		if (ft_strchr("\"'", input[i]))
-			ft_quote(input, &i, input[i]);
+			skip_quote(input, &i, input[i]);
 	}
+}
+
+void	save_redirect(t_shell *shell, char *input)
+{
+	size_t i;
+
+	i = -1;
+	while (input[++i])
+	{
+		if (ft_strchr(">", input[i]) && input[i + 1] == '>'
+			&& input[i + 2] == '>')
+		{
+			perror("syntax error");
+			break ;
+		}
+	}
+	pre_save_redirect(shell, input);
 }
